@@ -45,3 +45,4 @@ function startExercise(totalDuration) {
         }
     }, 1000);
 }
+

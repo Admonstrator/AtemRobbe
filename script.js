@@ -6,38 +6,37 @@ function startExercise(totalDuration) {
         { action: "Pause", time: 3, minRadius: 40, maxRadius: 40 }
     ];
     let currentStageIndex = 0;
-    let startTime = Date.now();
-    let stageEndTime = startTime + stages[currentStageIndex].time * 1000;
-    let totalTimeLeft = totalDuration * 1000;
+    let stageEndTime = Date.now() + stages[currentStageIndex].time * 1000;
+    let endTime = Date.now() + totalDuration * 1000;
 
     var breathingCircle = document.getElementById('breathingCircle');
     var breathingStage = document.getElementById('breathingStage');
+    var totalTimeDisplay = document.getElementById('totalTime');
 
     function animate() {
         let now = Date.now();
-        let stageTimeLeft = stageEndTime - now;
-        let totalTimeElapsed = now - startTime;
-        if (totalTimeElapsed >= totalTimeLeft) {
-            breathingStage.textContent = "Complete";
-            breathingCircle.setAttribute('r', 40); // Reset to the initial size
-            return; // Stop the animation when the total time is up
-        }
+        let totalTimeLeft = Math.max(0, endTime - now);
+        let stageTimeLeft = Math.max(0, stageEndTime - now);
 
         if (stageTimeLeft <= 0) {
-            // Move to the next stage
             currentStageIndex = (currentStageIndex + 1) % stages.length;
             stageEndTime = now + stages[currentStageIndex].time * 1000;
-            stageTimeLeft = stages[currentStageIndex].time * 1000;
         }
 
-        let stageProgress = 1 - (stageTimeLeft / (stages[currentStageIndex].time * 1000));
-        let currentRadius = stages[currentStageIndex].minRadius +
-                            (stages[currentStageIndex].maxRadius - stages[currentStageIndex].minRadius) * stageProgress;
+        let stage = stages[currentStageIndex];
+        let stageProgress = (stage.time * 1000 - stageTimeLeft) / (stage.time * 1000);
+        let currentRadius = stage.minRadius + (stage.maxRadius - stage.minRadius) * stageProgress;
 
         breathingCircle.setAttribute('r', currentRadius);
-        breathingStage.textContent = stages[currentStageIndex].action + ": " + Math.ceil(stageTimeLeft / 1000) + "s";
+        breathingStage.textContent = stage.action + ": " + Math.ceil(stageTimeLeft / 1000) + "s";
+        totalTimeDisplay.textContent = "Total Time: " + Math.ceil(totalTimeLeft / 1000) + "s";
 
-        requestAnimationFrame(animate);
+        if (totalTimeLeft > 0) {
+            requestAnimationFrame(animate);
+        } else {
+            breathingStage.textContent = "Complete";
+            breathingCircle.setAttribute('r', 40); // Reset to the initial size
+        }
     }
 
     requestAnimationFrame(animate);

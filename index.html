@@ -10,18 +10,17 @@
     <div class="app">
         <h1>Breathing Exercise</h1>
         <svg class="timer-circle" width="200" height="200">
-            <!-- Background circle -->
-            <circle cx="100" cy="100" r="90" stroke="#ccc" stroke-width="10" fill="none" />
-            <!-- Dynamic overlay for progress -->
-            <circle id="progressCircle" cx="100" cy="100" r="90" stroke="#03A9F4" stroke-width="10" fill="none"
+            <circle cx="100" cy="100" r="90" stroke="#ddd" stroke-width="10" fill="none" />
+            <circle id="inhaleCircle" cx="100" cy="100" r="90" stroke="#4CAF50" stroke-width="10" fill="none"
                     stroke-dasharray="565.48" stroke-dashoffset="565.48" transform="rotate(-90 100 100)" />
-            <text id="timerText" x="100" y="110" text-anchor="middle" font-size="20px">Ready</text>
+            <circle id="exhaleCircle" cx="100" cy="100" r="90" stroke="#F44336" stroke-width="10" fill="none"
+                    stroke-dasharray="565.48" stroke-dashoffset="565.48" transform="rotate(-90 100 100)" />
+            <circle id="pauseCircle" cx="100" cy="100" r="90" stroke="#FFEB3B" stroke-width="10" fill="none"
+                    stroke-dasharray="565.48" stroke-dashoffset="565.48" transform="rotate(-90 100 100)" />
         </svg>
         <div id="breathingStage" class="stage">Start</div>
-        <button onclick="startExercise(60)">60 Seconds</button>
         <button onclick="startExercise(120)">120 Seconds</button>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-

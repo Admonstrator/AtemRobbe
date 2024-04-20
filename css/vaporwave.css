@@ -1,0 +1,78 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Smooth and common in older web designs */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ff77e9, #7a77ff); /* Dreamy gradient background */
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.app {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white for a modern touch */
+    backdrop-filter: blur(5px); /* Blurred background for depth */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light reflective border */
+    width: 350px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #000000; /* High contrast title */
+    text-shadow: 2px 2px #ff00ff; /* Neon-like shadow */
+}
+
+.timer-circle {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+circle {
+    transition: r 0.3s ease;
+}
+
+.stage {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #ffffff; /* Bright white for clear visibility */
+    text-shadow: 1px 1px #00ffff; /* Cyan shadow for a glitch effect */
+}
+
+.total-time {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+button, select {
+    padding: 10px 20px;
+    background-color: #ff00ff; /* Neon magenta for buttons */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 10px #ff00ff; /* Glowing effect */
+}
+
+button:hover, button:focus {
+    background-color: #ff77ff; /* Lighter magenta on hover */
+}
+
+select {
+    margin-bottom: 20px;
+    background-color: #7a77ff; /* Light blue, common in vaporwave palettes */
+    color: #ffffff;
+}

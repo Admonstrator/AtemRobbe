@@ -1,0 +1,70 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace; /* Typical 90s monospace font */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #008080; /* Teal background, common in 90s software */
+    color: #ffff00; /* Bright yellow text */
+}
+
+.app {
+    text-align: center;
+    padding: 20px;
+    border: 3px outset #ffffff; /* White border with 3D effect */
+    background: #000080; /* Navy blue background */
+    width: 320px;
+}
+
+h1 {
+    font-size: 24px;
+    text-shadow: 1px 1px #000000; /* Black shadow for depth */
+}
+
+.timer-circle {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+circle {
+    transition: r 0.3s ease;
+}
+
+.stage {
+    font-size: 16px;
+    margin: 10px 0;
+    text-shadow: 1px 1px #000000; /* Text shadow for depth */
+}
+
+.total-time {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+button, select {
+    padding: 10px 20px;
+    background-color: #ff4500; /* Orange, popular in 90s interfaces */
+    color: #ffffff;
+    border: 2px outset #ffffff; /* 3D border effect */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover, button:focus {
+    background-color: #ff6347; /* Tomato red, on hover */
+}
+
+select {
+    margin-bottom: 20px;
+    background-color: #ffff00; /* Bright yellow dropdowns */
+    color: #000000;
+}

@@ -1,0 +1,80 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive; /* Mimics 80s video game fonts */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000; /* Black background to emulate a C64 screen */
+    color: #646464; /* Greyish text, common on the C64 */
+}
+
+.app {
+    text-align: center;
+    padding: 20px;
+    border: 5px solid #403E3E; /* Dark grey border simulating C64 borders */
+    background: #7070DB; /* Blueish background typical of the C64 display */
+    width: 340px;
+}
+
+h1 {
+    font-size: 20px;
+    color: #FFFFFF; /* White text for contrast */
+}
+
+.timer-circle {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+circle {
+    transition: r 0.3s ease;
+}
+
+.stage {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #FFFFFF; /* Maintain white for readability */
+}
+
+.total-time {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+button, select {
+    padding: 10px 20px;
+    background-color: #FF8C00; /* Bright orange, used for highlights on C64 */
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+button:hover, button:focus {
+    background-color: #FFA500; /* A lighter shade of orange for hover */
+}
+
+select {
+    margin-bottom: 20px;
+    background-color: #000; /* Keeping buttons starkly different */
+    color: #FFFFFF;
+}
+
+/* Line effect style */
+.app:before {
+    content: '';
+    position: absolute;
+    top: -10px; right: -10px; bottom: -10px; left: -10px;
+    border: 1px solid #B0B0B0; /* Light grey border for added C64 effect */
+    pointer-events: none;
+}

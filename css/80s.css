@@ -1,0 +1,71 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive; /* Pixelated font to mimic 80s video game text */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000; /* Typical black background for 80s arcade games */
+    color: #00FF00; /* Bright green for that classic computer feel */
+}
+
+.app {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #FFA500; /* Bright orange border, common in 80s graphics */
+    background: #000; /* Maintain the black background inside the app frame */
+    width: 320px;
+}
+
+h1 {
+    font-size: 20px;
+    color: #FFA500; /* Orange text to match the border */
+}
+
+.timer-circle {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+circle {
+    transition: r 0.3s ease;
+}
+
+.stage {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #00FF00; /* Keeping the text in bright green for readability and style */
+}
+
+.total-time {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #FFFFFF; /* White for contrast */
+}
+
+button, select {
+    padding: 10px 20px;
+    background-color: #FF4500; /* Red, reminiscent of 80s neon lights */
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+button:hover, button:focus {
+    background-color: #FF6347; /* Lighter red on hover */
+}
+
+select {
+    margin-bottom: 20px;
+    background-color: #555; /* Dark gray to keep the focus on buttons */
+    color: #FFFFFF;
+}

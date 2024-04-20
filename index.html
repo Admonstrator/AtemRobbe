@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breathing Exercise App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css" id="theme-stylesheet">
+    <audio id="inhaleSound" src="sounds/inhale.mp3" preload="auto"></audio>
+    <audio id="exhaleSound" src="sounds/exhale.mp3" preload="auto"></audio>
 </head>
 <body>
     <div class="app">
@@ -19,6 +21,8 @@
         </svg>
         <div id="breathingStage" class="stage">Start</div>
         <div id="totalTime" class="total-time">Remaining Time: 0s</div>
+        <p>Choose a mode and start the exercise. Breathe in when the circle expands and breathe out when it contracts.</p>
+        <br>
         <select id="modeSelector">
             <option value="2-1-3-1">2-1-3-1</option>
             <option value="2-1-3-2">2-1-3-2</option>
@@ -39,6 +43,13 @@
             <option value="6-5-11-8">6-5-11-8</option>
         </select>
         <button onclick="startSelectedMode()">Start Exercise</button>
+        <select id="styleSwitcher" onchange="switchStylesheet(this.value)">
+            <option value="css/styles.css" selected>Default design</option>
+            <option value="css/90s.css">90s</option>
+            <option value="css/80s.css">80s</option>
+            <option value="css/vaporwave.css">Vaporwave</option>
+            <option value="css/c64.css">C64</option>
+        </select>
     </div>
     <script src="script.js"></script>
 </body>

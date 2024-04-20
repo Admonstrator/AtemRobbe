@@ -50,3 +50,7 @@ function startExercise(totalDuration, stages) {
 
     requestAnimationFrame(animate);
 }
+
+function switchStylesheet(path) {
+    document.getElementById('theme-stylesheet').href = path;
+}

@@ -1,30 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breathing Exercise App</title>
+    <title>AtemRobbe 😮‍💨 🦭 </title>
     <link rel="stylesheet" href="css/styles.css" id="theme-stylesheet">
-    <audio id="inhaleSound" src="sounds/ping.mp3" preload="auto"></audio>
-    <audio id="exhaleSound" src="sounds/ping.mp3" preload="auto"></audio>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="apple-mobile-web-app-title" content="AtemRobbe">
+    <meta name="application-name" content="AtemRobbe">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <audio id="inhaleSound" src="sounds/inhale.mp3" preload="auto"></audio>
+    <audio id="exhaleSound" src="sounds/exhale.mp3" preload="auto"></audio>
     <audio id="pauseSound" src="sounds/pause.mp3" preload="auto"></audio>
 </head>
 <body>
     <div class="app">
-        <h1>Breathing Exercise</h1>
+        <h1 id="appTitle">AtemRobbe 😮‍💨 🦭</h1>
         <svg class="timer-circle" width="200" height="200" viewbox="0 0 200 200">
             <!-- Breathing circle, ensure it's below the guide circles -->
             <circle id="breathingCircle" cx="100" cy="100" r="40" stroke="#03A9F4" stroke-width="4" fill="#B3E5FC" />
             <!-- Maximum circle size, made slightly darker for contrast -->
-            <circle cx="100" cy="100" r="70" stroke="#FF5722" stroke-width="2" fill="none" stroke-dasharray="5,5" />
+            <circle cx="100" cy="100" r="70" stroke="#0086bf" stroke-width="2" fill="none" stroke-dasharray="5,5" />
             <!-- Minimum circle size, enhanced for visibility -->
-            <circle cx="100" cy="100" r="40" stroke="#FFC107" stroke-width="4" fill="none" stroke-dasharray="5,5" visibility="visible" />
+            <circle cx="100" cy="100" r="40" stroke="#0086bf" stroke-width="2" fill="none" stroke-dasharray="5,5" visibility="visible" />
         </svg>
         <div id="breathingStage" class="stage">Start</div>
-        <div id="totalTime" class="total-time">Remaining Time: 0s</div>
-        <p>Choose a mode and start the exercise. Breathe in when the circle expands and breathe out when it contracts.</p>
+        <div id="totalTime" class="total-time">Verbleibende Zeit: 0s</div>
+        <p id="introText">Wählen Sie eine Übung aus. Atmen Sie ein, wenn der Kreis größer wird. Atmen Sie aus, wenn er kleiner wird.</p>
+        <br>
+        <p id="exerciseDuration">Jede Übung dauert 10 Minuten.</p>
         <br>
         <select id="modeSelector">
+            <option value="" selected>Wählen ...</option>
             <option value="2-1-3-1">2-1-3-1</option>
             <option value="2-1-3-2">2-1-3-2</option>
             <option value="3-1-3-2">3-1-3-2</option>
@@ -43,15 +55,20 @@
             <option value="6-4-10-6">6-4-10-6</option>
             <option value="6-5-11-8">6-5-11-8</option>
         </select>
-        <button onclick="startSelectedMode()">Start Exercise</button>
+        <button id="startExercise" onclick="startSelectedMode()">Übung starten</button>
+        <button id="buttonSound" onclick="disableSound()" title="Sound ausschalten">🔇</button>
         <select id="styleSwitcher" onchange="switchStylesheet(this.value)">
-            <option value="css/styles.css" selected>Default design</option>
+            <option value="css/styles.css" selected>Standarddesign</option>
             <option value="css/90s.css">90s</option>
             <option value="css/80s.css">80s</option>
             <option value="css/vaporwave.css">Vaporwave</option>
             <option value="css/c64.css">C64</option>
         </select>
     </div>
-    <script src="script.js"></script>
+    <div id="credits">
+        <p>Hilft der 🦭 richtig zu Atmen seit 2024 - Version 2024-04-20-01</p>
+        <p>Inspiriert durch die Atem-App der <a href="https://www.weiss.de/" target="_blank" style="text-decoration: underline; color: inherit;">Dr. Thomas Weiss Praxisklinik, Mannheim</a></p>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -76,3 +76,13 @@ select {
     background-color: #7a77ff; /* Light blue, common in vaporwave palettes */
     color: #ffffff;
 }
+
+#credits {
+    position: fixed; /* Fixed position keeps it at the bottom of the viewport */
+    bottom: 10px; /* Distance from the bottom */
+    width: 100%; /* Full width to center the text easily */
+    text-align: center; /* Centers the text horizontally */
+    color: lightgrey; /* Light grey color for the text */
+    font-size: 12px; /* Smaller font size for subtlety */
+    font-family: Arial, sans-serif; /* Optional: Sets the font */
+}

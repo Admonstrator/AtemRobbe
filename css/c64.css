@@ -1,80 +1,65 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Press Start 2P', cursive; /* Mimics 80s video game fonts */
-}
-
+/* c64.css - Commodore 64 inspired retro theme */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #000; /* Black background to emulate a C64 screen */
-    color: #646464; /* Greyish text, common on the C64 */
+    background-color: #000; /* Classic C64 blue screen background */
+    color: #fff; /* White text */
+    font-family: 'Arial', monospace; /* Monospace font for a vintage computer look */
+    margin: 0;
 }
 
 .app {
     text-align: center;
     padding: 20px;
-    border: 5px solid #403E3E; /* Dark grey border simulating C64 borders */
-    background: #7070DB; /* Blueish background typical of the C64 display */
-    width: 340px;
+    border: 5px solid #646464; /* Grey border to mimic old computer monitors */
+    background-color: #000080; /* Dark blue background */
+    box-shadow: inset 0 0 10px #000000; /* Inner shadow for depth */
+    width: 360px;
+    border-radius: 0; /* Sharp corners for a classic look */
 }
 
 h1 {
-    font-size: 20px;
-    color: #FFFFFF; /* White text for contrast */
+    color: #ffff00; /* Bright yellow for headers, common in C64 graphics */
+    text-shadow: 1px 1px 2px #000; /* Soft shadow for text depth */
 }
 
-.timer-circle {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
+.timer-circle svg {
+    filter: contrast(150%); /* Enhance the contrast for a more vivid display */
 }
 
-circle {
-    transition: r 0.3s ease;
-}
-
-.stage {
-    font-size: 16px;
-    margin: 10px 0;
-    color: #FFFFFF; /* Maintain white for readability */
-}
-
-.total-time {
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #FFFFFF;
+.stage, .total-time {
+    font-size: 18px; /* Larger font size for readability */
+    color: #00ff00; /* Bright green, typical of old monitor outputs */
 }
 
 button, select {
     padding: 10px 20px;
-    background-color: #FF8C00; /* Bright orange, used for highlights on C64 */
-    color: #FFFFFF;
-    border: none;
+    background-color: #008000; /* Green background */
+    color: #ffffff;
+    border: 2px outset #ffffff; /* Outset border for a 3D button look */
     cursor: pointer;
-    font-size: 12px;
-    transition: background-color 0.3s;
+    font-family: 'Courier', monospace;
+    margin-top: 10px;
 }
 
-button:hover, button:focus {
-    background-color: #FFA500; /* A lighter shade of orange for hover */
+button:hover {
+    background-color: #00ff00; /* Brighter green on hover */
 }
 
 select {
-    margin-bottom: 20px;
-    background-color: #000; /* Keeping buttons starkly different */
-    color: #FFFFFF;
+    background-color: #000; /* Keeping select elements consistent with the dark theme */
+    color: #ffffff;
+    border: 1px solid #fff; /* White border for visibility */
 }
 
-/* Line effect style */
-.app:before {
-    content: '';
-    position: absolute;
-    top: -10px; right: -10px; bottom: -10px; left: -10px;
-    border: 1px solid #B0B0B0; /* Light grey border for added C64 effect */
-    pointer-events: none;
+#credits {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: lightgrey;
+    font-size: 12px;
+    font-family: 'Courier', monospace;
 }

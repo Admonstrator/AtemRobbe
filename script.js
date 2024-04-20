@@ -38,7 +38,7 @@ function startExercise(totalDuration, stages) {
 
         breathingCircle.setAttribute('r', currentRadius);
         breathingStage.textContent = `${stage.action}: ${Math.ceil(stageTimeLeft / 1000)}s`;
-        totalTimeDisplay.textContent = `Total Time: ${Math.ceil(totalTimeLeft / 1000)}s`;
+        totalTimeDisplay.textContent = `Remaining Time: ${Math.ceil(totalTimeLeft / 1000)}s`;
 
         if (totalTimeLeft > 0) {
             requestAnimationFrame(animate);

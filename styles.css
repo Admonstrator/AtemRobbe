@@ -1,20 +1,76 @@
-body, html {
-    height: 100%;
+/* Basic Reset */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
+    align-items: center;
+    height: 100vh;
+    background-color: #fafafa;
+    color: #333;
 }
 
 .app {
     text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width: 350px;
 }
 
-.timer {
-    font-size: 48px;
-    margin: 20px;
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
     color: #333;
 }
 
+.timer-circle {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+circle {
+    transition: r 0.3s ease;
+}
+
+.stage {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #666;
+}
+
+.total-time {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #999;
+}
+
+button, select {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007aff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    outline: none;
+}
+
+button:hover, button:focus {
+    background-color: #005ecb;
+}
+
+select {
+    margin-bottom: 20px;
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+}

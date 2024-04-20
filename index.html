@@ -10,7 +10,12 @@
     <div class="app">
         <h1>Breathing Exercise</h1>
         <svg class="timer-circle" width="200" height="200" viewbox="0 0 200 200">
+            <!-- Breathing circle, ensure it's below the guide circles -->
             <circle id="breathingCircle" cx="100" cy="100" r="40" stroke="#03A9F4" stroke-width="4" fill="#B3E5FC" />
+            <!-- Maximum circle size, made slightly darker for contrast -->
+            <circle cx="100" cy="100" r="70" stroke="#FF5722" stroke-width="2" fill="none" stroke-dasharray="5,5" />
+            <!-- Minimum circle size, enhanced for visibility -->
+            <circle cx="100" cy="100" r="40" stroke="#FFC107" stroke-width="4" fill="none" stroke-dasharray="5,5" visibility="visible" />
         </svg>
         <div id="breathingStage" class="stage">Start</div>
         <button onclick="startExercise(120)">120 Seconds</button>

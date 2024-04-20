@@ -19,6 +19,9 @@ function startExercise(totalDuration, stages) {
     const breathingCircle = document.getElementById('breathingCircle');
     const breathingStage = document.getElementById('breathingStage');
     const totalTimeDisplay = document.getElementById('totalTime');
+    const inhaleSound = document.getElementById('inhaleSound');
+    const exhaleSound = document.getElementById('exhaleSound');
+    const pauseSound = document.getElementById('pauseSound');
 
     function animate() {
         const now = Date.now();
@@ -26,6 +29,14 @@ function startExercise(totalDuration, stages) {
         const totalTimeLeft = totalTimeEndTime - now;
 
         if (stageTimeLeft <= 0) {
+            if (stages[currentStageIndex].action === "Inhale") {
+                pauseSound.play();
+            } else if (stages[currentStageIndex].action === "Exhale") {
+                pauseSound.play();
+            } else if (stages[currentStageIndex].action === "Pause") {
+                exhaleSound.play();
+            }
+
             currentStageIndex = (currentStageIndex + 1) % stages.length;
             stageStartTime = now;
             stageEndTime = now + stages[currentStageIndex].time * 1000;

@@ -1,49 +1,44 @@
 function startExercise(totalDuration) {
     const stages = [
-        { action: "Inhale", time: 3, circleId: 'inhaleCircle' },
-        { action: "Exhale", time: 5, circleId: 'exhaleCircle' },
-        { action: "Pause", time: 5, circleId: 'pauseCircle' } // Adjusted pause time for demo purposes
+        { action: "Inhale", time: 3, minRadius: 40, maxRadius: 70 },
+        { action: "Pause", time: 2, minRadius: 70, maxRadius: 70 },
+        { action: "Exhale", time: 5, minRadius: 70, maxRadius: 40 },
+        { action: "Pause", time: 3, minRadius: 40, maxRadius: 40 }
     ];
-    let currentStage = 0;
-    let stageTimeLeft = stages[currentStage].time;
-    let totalTimeLeft = totalDuration;
-    let segmentFullDash = 565.48;
+    let currentStageIndex = 0;
+    let startTime = Date.now();
+    let stageEndTime = startTime + stages[currentStageIndex].time * 1000;
+    let totalTimeLeft = totalDuration * 1000;
 
+    var breathingCircle = document.getElementById('breathingCircle');
     var breathingStage = document.getElementById('breathingStage');
-    var circles = stages.map(stage => document.getElementById(stage.circleId));
 
-    function resetCircles() {
-        circles.forEach(circle => {
-            circle.style.strokeDashoffset = segmentFullDash;
-        });
+    function animate() {
+        let now = Date.now();
+        let stageTimeLeft = stageEndTime - now;
+        let totalTimeElapsed = now - startTime;
+        if (totalTimeElapsed >= totalTimeLeft) {
+            breathingStage.textContent = "Complete";
+            breathingCircle.setAttribute('r', 40); // Reset to the initial size
+            return; // Stop the animation when the total time is up
+        }
+
+        if (stageTimeLeft <= 0) {
+            // Move to the next stage
+            currentStageIndex = (currentStageIndex + 1) % stages.length;
+            stageEndTime = now + stages[currentStageIndex].time * 1000;
+            stageTimeLeft = stages[currentStageIndex].time * 1000;
+        }
+
+        let stageProgress = 1 - (stageTimeLeft / (stages[currentStageIndex].time * 1000));
+        let currentRadius = stages[currentStageIndex].minRadius +
+                            (stages[currentStageIndex].maxRadius - stages[currentStageIndex].minRadius) * stageProgress;
+
+        breathingCircle.setAttribute('r', currentRadius);
+        breathingStage.textContent = stages[currentStageIndex].action + ": " + Math.ceil(stageTimeLeft / 1000) + "s";
+
+        requestAnimationFrame(animate);
     }
 
-    resetCircles(); // Initialize all circles as empty at start
-
-    clearInterval(window.timerInterval); // Clear any existing intervals
-
-    window.timerInterval = setInterval(function () {
-        let progress = (stages[currentStage].time - stageTimeLeft) / stages[currentStage].time;
-        let currentCircle = document.getElementById(stages[currentStage].circleId);
-        currentCircle.style.strokeDashoffset = segmentFullDash * (1 - progress);
-
-        breathingStage.textContent = stages[currentStage].action + ": " + stageTimeLeft + "s";
-
-        stageTimeLeft--;
-        totalTimeLeft--;
-
-        if (stageTimeLeft < 0) {
-            resetCircles(); // Reset all circles for next phase
-            currentStage = (currentStage + 1) % stages.length;
-            stageTimeLeft = stages[currentStage].time;
-        }
-
-        if (totalTimeLeft < 0) {
-            clearInterval(window.timerInterval);
-            breathingStage.textContent = "Complete";
-            circles.forEach(circle => {
-                circle.style.strokeDashoffset = 0; // Fill all circles to indicate completion
-            });
-        }
-    }, 1000);
+    requestAnimationFrame(animate);
 }

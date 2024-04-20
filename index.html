@@ -9,14 +9,8 @@
 <body>
     <div class="app">
         <h1>Breathing Exercise</h1>
-        <svg class="timer-circle" width="200" height="200">
-            <circle cx="100" cy="100" r="90" stroke="#ddd" stroke-width="10" fill="none" />
-            <circle id="inhaleCircle" cx="100" cy="100" r="90" stroke="#4CAF50" stroke-width="10" fill="none"
-                    stroke-dasharray="565.48" stroke-dashoffset="565.48" transform="rotate(-90 100 100)" />
-            <circle id="exhaleCircle" cx="100" cy="100" r="90" stroke="#F44336" stroke-width="10" fill="none"
-                    stroke-dasharray="565.48" stroke-dashoffset="565.48" transform="rotate(-90 100 100)" />
-            <circle id="pauseCircle" cx="100" cy="100" r="90" stroke="#FFEB3B" stroke-width="10" fill="none"
-                    stroke-dasharray="565.48" stroke-dashoffset="565.48" transform="rotate(-90 100 100)" />
+        <svg class="timer-circle" width="200" height="200" viewbox="0 0 200 200">
+            <circle id="breathingCircle" cx="100" cy="100" r="40" stroke="#03A9F4" stroke-width="4" fill="#B3E5FC" />
         </svg>
         <div id="breathingStage" class="stage">Start</div>
         <button onclick="startExercise(120)">120 Seconds</button>

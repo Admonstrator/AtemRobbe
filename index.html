@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing Exercise App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <h1>Breathing Exercise</h1>
+        <svg class="timer-circle" width="200" height="200">
+            <!-- Background circle -->
+            <circle cx="100" cy="100" r="90" stroke="#ccc" stroke-width="10" fill="none" />
+            <!-- Dynamic overlay for progress -->
+            <circle id="progressCircle" cx="100" cy="100" r="90" stroke="#03A9F4" stroke-width="10" fill="none"
+                    stroke-dasharray="565.48" stroke-dashoffset="565.48" transform="rotate(-90 100 100)" />
+            <text id="timerText" x="100" y="110" text-anchor="middle" font-size="20px">Ready</text>
+        </svg>
+        <div id="breathingStage" class="stage">Start</div>
+        <button onclick="startExercise(60)">60 Seconds</button>
+        <button onclick="startExercise(120)">120 Seconds</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

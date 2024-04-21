@@ -55,27 +55,80 @@ circle {
     color: #999;
 }
 
-button, select {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007aff;
-    color: white;
-    cursor: pointer;
+#text {
+    margin-bottom: 20px;
     font-size: 16px;
-    transition: background-color 0.3s;
+    color: #666;
+
+}
+
+#text > p {
+    margin-bottom: 10px;
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+}
+
+.emoji {
+    font-size: 18px; /* Explicitly set emoji size */
+    margin-right: 8px; /* Space between emoji and text */
+    padding: 6px;
+}
+
+button, select {
+    padding: 10px 20px; /* Consistent padding for both */
+    border: 1px solid #007aff; /* Same border size and color */
+    border-radius: 8px; /* Consistent border radius */
+    background-color: #007aff; /* Same background color for buttons */
+    color: white; /* Consistent text color */
+    cursor: pointer; /* Cursor indicates clickable for buttons */
+    font-size: 16px; /* Consistent font size */
+    transition: background-color 0.3s; /* Smooth transition for hover effects */
     outline: none;
+    margin-bottom: 20px;
+    width: auto;
+    margin-right: 20px;
+    box-sizing: border-box; /* Include padding and border in the element's total width */;
 }
 
 button:hover, button:focus {
-    background-color: #005ecb;
+    background-color: #005ecb; /* Slightly darker on hover/focus */
 }
 
 select {
-    margin-bottom: 20px;
-    background-color: white;
+    background-color: white; /* Different background color for select */
+    color: #333; /* Text color that's visible on white */
+    appearance: none; /* Remove default styling to control padding and borders */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+}
+
+/* Custom dropdown arrow for selects to match the style of buttons */
+select {
+    background-image: linear-gradient(45deg, transparent 50%, #333 50%),
+                      linear-gradient(135deg, #333 50%, transparent 50%);
+    background-position: right 15px top 1em, right 10px top 1em;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    -webkit-background-size: 5px 5px, 5px 5px; /* for Safari */
+}
+
+/* Additional wrapper for custom styling */
+.wrapper {
+    position: relative;
+    display: block;
+}
+
+.wrapper::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Make it non-interactive */
     color: #333;
-    border: 1px solid #ccc;
 }
 
 #credits {

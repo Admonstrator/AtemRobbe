@@ -13,6 +13,8 @@ body {
     height: 100vh;
     background-color: #008080; /* Teal background, common in 90s software */
     color: #ffff00; /* Bright yellow text */
+    background-image: url('images/bg.jpg');
+    background-size: cover;
 }
 
 .app {

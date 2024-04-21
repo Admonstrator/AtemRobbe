@@ -13,7 +13,7 @@ body {
     height: 100vh;
     background-color: #fafafa;
     color: #333;
-    background-image: url('images/bg.jpg');
+    background-image: url('images/background.jpg');
     background-size: cover;
     background-position: center;
 }

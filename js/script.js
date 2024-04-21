@@ -65,6 +65,7 @@ function startExercise(totalDuration, stages) {
     const inhaleSound = document.getElementById('inhaleSound');
     const exhaleSound = document.getElementById('exhaleSound');
     const pauseSound = document.getElementById('pauseSound');
+    const endSound = document.getElementById('endSound');
 
     isExerciseRunning = true;
 
@@ -104,9 +105,14 @@ function startExercise(totalDuration, stages) {
         if (totalTimeLeft > 0 && isExerciseRunning) {
             requestAnimationFrame(animate);
         } else {
+            // All done
             breathingStage.textContent = "Abgeschlossen!";
+            totalTimeDisplay.textContent = "Noch eine Übung?";
+            endSound.play();
             breathingCircle.setAttribute('r', 40); // Reset to the initial size
             isExerciseRunning = false;
+            // Reset button
+            stopExercise();
             // Reset the title
             document.title = "AtemRobbe 😮‍💨 🦭";
         }
@@ -123,10 +129,12 @@ function disableSound() {
     const inhaleSound = document.getElementById('inhaleSound');
     const exhaleSound = document.getElementById('exhaleSound');
     const pauseSound = document.getElementById('pauseSound');
+    const endSound = document.getElementById('endSound');
 
     inhaleSound.muted = !inhaleSound.muted;
     exhaleSound.muted = !exhaleSound.muted;
     pauseSound.muted = !pauseSound.muted;
+    endSound.muted = !endSound.muted;
 
     // Update the button text on id sound
     const soundButton = document.getElementById('buttonSound');

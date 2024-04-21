@@ -13,6 +13,9 @@ body {
     height: 100vh;
     background-color: #fafafa;
     color: #333;
+    background-image: url('images/bg.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .app {
@@ -80,7 +83,7 @@ select {
     bottom: 10px; /* Distance from the bottom */
     width: 100%; /* Full width to center the text easily */
     text-align: center; /* Centers the text horizontally */
-    color: lightgrey; /* Light grey color for the text */
+    color: rgb(0, 0, 0); /* Light grey color for the text */
     font-size: 12px; /* Smaller font size for subtlety */
     font-family: Arial, sans-serif; /* Optional: Sets the font */
 }

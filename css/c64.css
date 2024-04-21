@@ -1,3 +1,5 @@
+@import url('styles.css'); /* Imports the base styles */
+
 /* c64.css - Commodore 64 inspired retro theme */
 body {
     display: flex;
@@ -6,8 +8,10 @@ body {
     height: 100vh;
     background-color: #000; /* Classic C64 blue screen background */
     color: #fff; /* White text */
-    font-family: 'Arial', monospace; /* Monospace font for a vintage computer look */
     margin: 0;
+    background-image: url('../images/bg_c64.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .app {
@@ -29,19 +33,31 @@ h1 {
     filter: contrast(150%); /* Enhance the contrast for a more vivid display */
 }
 
+#text {
+    color: #fff;
+}
+
 .stage, .total-time {
     font-size: 18px; /* Larger font size for readability */
     color: #00ff00; /* Bright green, typical of old monitor outputs */
 }
 
+#options {
+    display: flex;
+    justify-content: center;
+}
+
+.emoji {
+    font-size: 18px; /* Explicitly set emoji size */
+    margin-right: 8px; /* Space between emoji and text */
+    padding: 6px;
+}
+
 button, select {
-    padding: 10px 20px;
     background-color: #008000; /* Green background */
     color: #ffffff;
     border: 2px outset #ffffff; /* Outset border for a 3D button look */
     cursor: pointer;
-    font-family: 'Courier', monospace;
-    margin-top: 10px;
 }
 
 button:hover {
@@ -52,14 +68,4 @@ select {
     background-color: #000; /* Keeping select elements consistent with the dark theme */
     color: #ffffff;
     border: 1px solid #fff; /* White border for visibility */
-}
-
-#credits {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    color: lightgrey;
-    font-size: 12px;
-    font-family: 'Courier', monospace;
 }

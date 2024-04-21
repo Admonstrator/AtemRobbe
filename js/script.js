@@ -22,6 +22,15 @@ const translations = {
         "language": "Sprache ändern"    }
 };
 
+function stopExercise() {
+    // stop the exercise and reset the button
+    const startButton = document.getElementById('startExercise');
+    startButton.textContent = "Übung starten";
+    startButton.onclick = startSelectedMode;
+
+    // Stop the exercise
+    isExerciseRunning = false;
+}
 
 function startSelectedMode() {
     const selectedMode = document.getElementById('modeSelector').value.split('-').map(Number);
@@ -29,6 +38,11 @@ function startSelectedMode() {
        alert('Bitte wählen Sie einen Modus aus!');
        return;
     }
+    // Change name of id startExerciseButton
+    const startButton = document.getElementById('startExercise');
+    startButton.textContent = "Übung stoppen";
+    startButton.onclick = stopExercise;
+
     const totalDuration = 10 * 60; // 10 minutes in seconds
     const stages = [
         { action: "Einatmen", time: selectedMode[0], minRadius: 40, maxRadius: 70 },
@@ -51,6 +65,8 @@ function startExercise(totalDuration, stages) {
     const inhaleSound = document.getElementById('inhaleSound');
     const exhaleSound = document.getElementById('exhaleSound');
     const pauseSound = document.getElementById('pauseSound');
+
+    isExerciseRunning = true;
 
     function animate() {
         const now = Date.now();
@@ -85,11 +101,14 @@ function startExercise(totalDuration, stages) {
         const seconds = Math.ceil((totalTimeLeft % 60000) / 1000);
         totalTimeDisplay.textContent = `Verbleibende Zeit: ${minutes}m ${seconds}s`;
 
-        if (totalTimeLeft > 0) {
+        if (totalTimeLeft > 0 && isExerciseRunning) {
             requestAnimationFrame(animate);
         } else {
             breathingStage.textContent = "Abgeschlossen!";
             breathingCircle.setAttribute('r', 40); // Reset to the initial size
+            isExerciseRunning = false;
+            // Reset the title
+            document.title = "AtemRobbe 😮‍💨 🦭";
         }
     }
 
@@ -111,7 +130,7 @@ function disableSound() {
 
     // Update the button text on id sound
     const soundButton = document.getElementById('buttonSound');
-    soundButton.textContent = inhaleSound.muted ? '🔊' : '🔇';
+    soundButton.textContent = inhaleSound.muted ? '🔇' : '🔊';
     // change title of button
     soundButton.title = inhaleSound.muted ? 'Sound einschalten' : 'Sound ausschalten';    
 }

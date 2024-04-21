@@ -29,6 +29,7 @@ function stopExercise() {
     startButton.onclick = startSelectedMode;
 
     // Stop the exercise
+    clearInterval(intervalId); // Stop the interval
     isExerciseRunning = false;
 }
 
@@ -67,6 +68,7 @@ function startExercise(totalDuration, stages) {
     const pauseSound = document.getElementById('pauseSound');
 
     isExerciseRunning = true;
+    intervalId = setInterval(animate, 1000);
 
     function animate() {
         const now = Date.now();
@@ -101,9 +103,8 @@ function startExercise(totalDuration, stages) {
         const seconds = Math.ceil((totalTimeLeft % 60000) / 1000);
         totalTimeDisplay.textContent = `Verbleibende Zeit: ${minutes}m ${seconds}s`;
 
-        if (totalTimeLeft > 0 && isExerciseRunning) {
-            requestAnimationFrame(animate);
-        } else {
+        if (totalTimeLeft <= 0 || !isExerciseRunning) {
+            clearInterval(intervalId); // Stop the interval
             breathingStage.textContent = "Abgeschlossen!";
             breathingCircle.setAttribute('r', 40); // Reset to the initial size
             isExerciseRunning = false;

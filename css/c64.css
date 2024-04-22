@@ -1,18 +1,19 @@
 @import url('styles.css'); /* Imports the base styles */
+@font-face {
+    font-family: 'Silkscreen';
+    src: url('../fonts/Silkscreen-Regular.ttf') format('truetype');
+}
 
 /* c64.css - Commodore 64 inspired retro theme */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     background-color: #000; /* Classic C64 blue screen background */
     color: #fff; /* White text */
-    margin: 0;
     background-image: url('../images/bg_c64.jpg');
     background-size: cover;
     background-position: center;
+    font-family: 'Silkscreen';
 }
+
 
 .app {
     text-align: center;
@@ -20,7 +21,7 @@ body {
     border: 5px solid #646464; /* Grey border to mimic old computer monitors */
     background-color: #000080; /* Dark blue background */
     box-shadow: inset 0 0 10px #000000; /* Inner shadow for depth */
-    width: 360px;
+    width: 365px;
     border-radius: 0; /* Sharp corners for a classic look */
 }
 
@@ -40,17 +41,6 @@ h1 {
 .stage, .total-time {
     font-size: 18px; /* Larger font size for readability */
     color: #00ff00; /* Bright green, typical of old monitor outputs */
-}
-
-#options {
-    display: flex;
-    justify-content: center;
-}
-
-.emoji {
-    font-size: 18px; /* Explicitly set emoji size */
-    margin-right: 8px; /* Space between emoji and text */
-    padding: 6px;
 }
 
 button, select {

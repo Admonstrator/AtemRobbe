@@ -1,11 +1,7 @@
 @import url('styles.css'); /* Imports the base styles */
-
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif; /* Smooth and common in older web designs */
+@font-face {
+    font-family: 'Anta';
+    src: url('../fonts/Anta-Regular.ttf') format('truetype');
 }
 
 body {
@@ -19,6 +15,7 @@ body {
     background-image: url('../images/bg_vaporwave.jpg');
     background-size: cover;
     background-position: center;
+    font-family: 'Anta';
 }
 
 .app {

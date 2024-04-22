@@ -1,14 +1,8 @@
-@font-face {
-    font-family: 'Jersey';
-    src: url('../fonts/Jersey15-Regular.ttf') format('truetype');
-}
-
 /* Basic Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
@@ -21,6 +15,7 @@ body {
     background-image: url('../images/bg_default.jpg');
     background-size: cover;
     background-position: center;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .app {

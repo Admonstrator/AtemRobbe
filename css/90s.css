@@ -21,41 +21,24 @@ body {
     padding: 20px;
     border: 3px outset #ffffff; /* White border with 3D effect */
     background: lightgray;
-    width: 360px;
+    width: 363px;
 }
 
 h1 {
-    font-size: 24px;
     color: darkblue; /* Orange title for contrast */
     text-shadow: 1px 1px whitesmoke; /* Black shadow for depth */
 }
 
-.timer-circle {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
-}
-
-circle {
-    transition: r 0.3s ease;
-}
-
 .stage {
-    font-size: 16px;
     text-shadow: 1px 1px #000000; /* Text shadow for depth */
 }
 
-.total-time {
-    margin-bottom: 20px;
-    font-size: 14px;
-}
 
 button, select {
     background-color: #ff4500; /* Orange, popular in 90s interfaces */
     color: #ffffff;
     border: 2px outset #ffffff; /* 3D border effect */
     cursor: pointer;
-    font-size: 16px;
     transition: background-color 0.3s;
 }
 
@@ -64,7 +47,6 @@ button:hover, button:focus {
 }
 
 select {
-    margin-bottom: 20px;
     background-color: lightskyblue; /* Bright yellow dropdowns */
     color: #000000;
 }

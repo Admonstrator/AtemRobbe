@@ -43,7 +43,7 @@ function startSelectedMode() {
     startButton.textContent = "Übung stoppen";
     startButton.onclick = stopExercise;
 
-    const totalDuration = 10 * 60; // 10 minutes in seconds
+    const totalDuration = 10 * 60; // 10 minutes
     const stages = [
         { action: "Einatmen", time: selectedMode[0], minRadius: 40, maxRadius: 70 },
         { action: "Bald ausatmen", time: selectedMode[1], minRadius: 70, maxRadius: 70 },
@@ -98,8 +98,8 @@ function startExercise(totalDuration, stages) {
         breathingCircle.setAttribute('r', currentRadius);
         breathingStage.textContent = `${stage.action}: ${Math.ceil(stageTimeLeft / 1000)}s`;
         document.title = `${stage.action}: ${Math.ceil(stageTimeLeft / 1000)}s`;
-        const minutes = Math.floor(totalTimeLeft / 60000);
-        const seconds = Math.ceil((totalTimeLeft % 60000) / 1000);
+        const minutes = Math.floor(totalTimeLeft / 60100);
+        const seconds = Math.ceil((totalTimeLeft % 60100) / 1000);
         totalTimeDisplay.textContent = `Verbleibende Zeit: ${minutes}m ${seconds}s`;
 
         if (totalTimeLeft > 0 && isExerciseRunning) {

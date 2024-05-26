@@ -1,34 +1,81 @@
+// Hilfsfunktionen zum Umgang mit Cookies
+function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+}
+
+function getCookie(name) {
+    return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=');
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+    }, '');
+}
+
+// Stylesheet wechseln und in einem Cookie speichern
+function switchStylesheet(path) {
+    document.getElementById('theme-stylesheet').href = path;
+    setCookie('theme', path, 365); // Theme-Auswahl für ein Jahr speichern
+}
+
+// Ausgewähltes Theme und Übung beim Laden der Seite anwenden
+document.addEventListener('DOMContentLoaded', (event) => {
+    const savedTheme = getCookie('theme');
+    if (savedTheme) {
+        document.getElementById('theme-stylesheet').href = savedTheme;
+        const styleSwitcher = document.getElementById('styleSwitcher');
+        styleSwitcher.value = savedTheme;
+    }
+
+    const savedExercise = getCookie('exercise');
+    if (savedExercise) {
+        const modeSelector = document.getElementById('modeSelector');
+        modeSelector.value = savedExercise;
+    }
+});
+
 function stopExercise() {
-    // stop the exercise and reset the button
     const startButton = document.getElementById('startExercise');
     startButton.textContent = "Übung starten";
     startButton.onclick = startSelectedMode;
 
-    // Stop the exercise
     isExerciseRunning = false;
 }
 
 function startSelectedMode() {
-    const selectedMode = document.getElementById('modeSelector').value.split('-').map(Number);
+    const modeSelector = document.getElementById('modeSelector');
+    const selectedMode = modeSelector.value.split('-').map(Number);
     if (selectedMode.length !== 4) {
-       alert('Bitte wählen Sie einen Modus aus!');
-       return;
+        alert('Bitte wählen Sie einen Modus aus!');
+        return;
     }
-    // Change name of id startExerciseButton
+
+    // Ausgewählten Modus in einem Cookie speichern
+    setCookie('exercise', modeSelector.value, 365);
+
     const startButton = document.getElementById('startExercise');
     startButton.textContent = "Übung stoppen";
     startButton.onclick = stopExercise;
 
-    const totalDuration = 10 * 60; // 10 minutes
+    const totalDuration = 1 * 60; // 10 Minuten
     const stages = [
         { action: "Einatmen", time: selectedMode[0], minRadius: 40, maxRadius: 70 },
         { action: "Bald ausatmen", time: selectedMode[1], minRadius: 70, maxRadius: 70 },
         { action: "Ausatmen", time: selectedMode[2], minRadius: 40, maxRadius: 70 },
         { action: "Bald einatmen", time: selectedMode[3], minRadius: 40, maxRadius: 40 }
     ];
+
     startExercise(totalDuration, stages);
 }
 
+// Beispiel zum Deaktivieren des Sounds
+function disableSound() {
+    const soundElements = document.querySelectorAll('audio');
+    soundElements.forEach(sound => sound.muted = !sound.muted);
+    const soundButton = document.getElementById('buttonSound');
+    soundButton.textContent = soundButton.textContent === '🔊' ? '🔇' : '🔊';
+}
+
+// Diese Funktion setzt die Atemübung fort
 function startExercise(totalDuration, stages) {
     let currentStageIndex = 0;
     let stageStartTime = Date.now();
@@ -95,26 +142,4 @@ function startExercise(totalDuration, stages) {
     }
 
     requestAnimationFrame(animate);
-}
-
-function switchStylesheet(path) {
-    document.getElementById('theme-stylesheet').href = path;
-}
-
-function disableSound() {
-    const inhaleSound = document.getElementById('inhaleSound');
-    const exhaleSound = document.getElementById('exhaleSound');
-    const pauseSound = document.getElementById('pauseSound');
-    const endSound = document.getElementById('endSound');
-
-    inhaleSound.muted = !inhaleSound.muted;
-    exhaleSound.muted = !exhaleSound.muted;
-    pauseSound.muted = !pauseSound.muted;
-    endSound.muted = !endSound.muted;
-
-    // Update the button text on id sound
-    const soundButton = document.getElementById('buttonSound');
-    soundButton.textContent = inhaleSound.muted ? '🔇' : '🔊';
-    // change title of button
-    soundButton.title = inhaleSound.muted ? 'Sound einschalten' : 'Sound ausschalten';    
 }

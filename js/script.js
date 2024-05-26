@@ -56,7 +56,7 @@ function startSelectedMode() {
     startButton.textContent = "Übung stoppen";
     startButton.onclick = stopExercise;
 
-    const totalDuration = 1 * 60; // 10 Minuten
+    const totalDuration = 10 * 60; // 10 Minuten
     const stages = [
         { action: "Einatmen", time: selectedMode[0], minRadius: 40, maxRadius: 70 },
         { action: "Bald ausatmen", time: selectedMode[1], minRadius: 70, maxRadius: 70 },

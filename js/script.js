@@ -1,27 +1,3 @@
-const translations = {
-    "en": {
-        "appTitle": "Breathing Exercise",
-        "introText": "Choose an exercise mode. Inhale when the circle expands and exhale when it contracts.",
-        "exerciseDuration": "Exercise Duration: 10 minutes",
-        "remainingTime": "Remaining Time:",
-        "startExerciseButton": "Start Exercise",
-        "mute": "Mute Sound",
-        "credits": "Helping the 🦭 to breath since 2024 - Version 2024-04-20-01",
-        "inspiredBy": "Inspired by the AtemApp at Dr. Thomas Weiss Praxisklinik, Mannheim",
-        "language": "Change Language"
-    },
-    "de": {
-        "appTitle": "Atemübung",
-        "introText": "Wählen Sie eine Übung aus. Atmen Sie ein, wenn der Kreis größer wird. Atmen Sie aus, wenn er kleiner wird.",
-        "exerciseDuration": "Übungsdauer: 10 Minuten",
-        "remainingTime": "Verbleibende Zeit:",
-        "startExerciseButton": "Übung starten",
-        "mute": "Sound ausschalten",
-        "credits": "Hilft der 🦭 richtig zu Atmen seit 2024 - Version 2024-04-20-01",
-        "inspiredBy": "Inspiriert durch die Atem-App der Dr. Thomas Weiss Praxisklinik, Mannheim",
-        "language": "Sprache ändern"    }
-};
-
 function stopExercise() {
     // stop the exercise and reset the button
     const startButton = document.getElementById('startExercise');
@@ -98,9 +74,9 @@ function startExercise(totalDuration, stages) {
         breathingCircle.setAttribute('r', currentRadius);
         breathingStage.textContent = `${stage.action}: ${Math.ceil(stageTimeLeft / 1000)}s`;
         document.title = `${stage.action}: ${Math.ceil(stageTimeLeft / 1000)}s`;
-        const minutes = Math.floor(totalTimeLeft / 60100);
-        const seconds = Math.ceil((totalTimeLeft % 60100) / 1000);
-        totalTimeDisplay.textContent = `Verbleibende Zeit: ${minutes}m ${seconds}s`;
+        const minutes = Math.floor(totalTimeLeft / 60000);
+        const seconds = Math.floor((totalTimeLeft % 60000) / 1000); // Floor to avoid jumping from 6m 60s to 6m 59s
+        totalTimeDisplay.textContent = `Verbleibende Zeit: ${minutes}m ${seconds < 10 ? '0' : ''}${seconds}s`;
 
         if (totalTimeLeft > 0 && isExerciseRunning) {
             requestAnimationFrame(animate);

@@ -31,6 +31,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const modeSelector = document.getElementById('modeSelector');
         modeSelector.value = savedExercise;
     }
+
+    const savedDuration = getCookie('duration');
+    if (savedDuration) {
+        document.getElementById('durationInput').value = savedDuration;
+        document.getElementById('exerciseDurationValue').textContent = savedDuration;
+    }
 });
 
 function stopExercise() {
@@ -56,7 +62,7 @@ function startSelectedMode() {
     startButton.textContent = "Übung stoppen";
     startButton.onclick = stopExercise;
 
-    const totalDuration = 10 * 60; // 10 Minuten
+    const totalDuration = getCookie('duration') ? parseInt(getCookie('duration')) * 60 : 10 * 60; // Dauer aus Cookie oder 10 Minuten
     const stages = [
         { action: "Einatmen", time: selectedMode[0], minRadius: 40, maxRadius: 70 },
         { action: "Bald ausatmen", time: selectedMode[1], minRadius: 70, maxRadius: 70 },
@@ -137,9 +143,29 @@ function startExercise(totalDuration, stages) {
             // Reset button
             stopExercise();
             // Reset the title
-            document.title = "AtemRobbe 😮‍💨 🦭";
+            document.title = "Die AtemRobbe 😮‍💨 🦭";
         }
     }
 
     requestAnimationFrame(animate);
+}
+
+function openDurationModal() {
+    document.getElementById('durationModal').style.display = 'block';
+}
+
+function closeDurationModal() {
+    document.getElementById('durationModal').style.display = 'none';
+}
+
+function setDuration() {
+    const durationInput = document.getElementById('durationSelect');
+    const duration = parseInt(durationInput.value);
+    if (duration > 0 && duration <= 120) {
+        setCookie('duration', duration, 365);
+        document.getElementById('exerciseDurationValue').textContent = duration;
+        closeDurationModal();
+    } else {
+        alert('Bitte geben Sie eine gültige Dauer zwischen 1 und 120 Minuten ein.');
+    }
 }

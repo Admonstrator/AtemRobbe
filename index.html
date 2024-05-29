@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AtemRobbe 😮‍💨 🦭</title>
+    <title>Die AtemRobbe 😮‍💨 🦭</title>
+    <link rel="stylesheet" href="css/base.css" id="theme-base">
     <link rel="stylesheet" href="css/styles.css" id="theme-stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -16,13 +18,15 @@
     <meta name="theme-color" content="#ffffff">
     <meta property="og:title" content="AtemRobbe hilft beim Atmen">
     <meta property="og:url" content="https://atmen.admon.in.ua">
-    <meta property="og:description" content="Die AtemRobbe hilft bei Atemübungen gegen funktionelle Atemstörungen. Eine einfache, kleine WebApp - erstellt in einer Nacht.">
+    <meta property="og:description"
+        content="Die AtemRobbe hilft bei Atemübungen gegen funktionelle Atemstörungen. Eine einfache, kleine WebApp - erstellt in einer Nacht.">
     <meta property="og:image" content="https://atmen.admon.in.ua/css/images/background.jpg">
     <audio id="inhaleSound" src="sounds/inhale.mp3" preload="auto"></audio>
     <audio id="exhaleSound" src="sounds/exhale.mp3" preload="auto"></audio>
     <audio id="pauseSound" src="sounds/pause.mp3" preload="auto"></audio>
     <audio id="endSound" src="sounds/end.mp3" preload="auto"></audio>
 </head>
+
 <body>
     <div class="app">
         <h1 id="appTitle">AtemRobbe 😮‍💨 🦭</h1>
@@ -30,15 +34,18 @@
             <!-- Breathing circle, ensure it's below the guide circles -->
             <circle id="breathingCircle" cx="100" cy="100" r="40" stroke="#03A9F4" stroke-width="4" fill="#B3E5FC" />
             <!-- Maximum circle size, made slightly darker for contrast -->
-            <circle id="maxCircle" cx="100" cy="100" r="70" stroke="#0086bf" stroke-width="2" fill="none" stroke-dasharray="5,5" />
+            <circle id="maxCircle" cx="100" cy="100" r="70" stroke="#0086bf" stroke-width="2" fill="none"
+                stroke-dasharray="5,5" />
             <!-- Minimum circle size, enhanced for visibility -->
-            <circle id="minCircle" cx="100" cy="100" r="40" stroke="#0086bf" stroke-width="2" fill="none" stroke-dasharray="5,5" visibility="visible" />
+            <circle id="minCircle" cx="100" cy="100" r="40" stroke="#0086bf" stroke-width="2" fill="none"
+                stroke-dasharray="5,5" visibility="visible" />
         </svg>
         <div id="breathingStage" class="stage">Start</div>
         <div id="totalTime" class="total-time">Verbleibende Zeit: 0s</div>
         <div id="text">
-            <p id="introText">Wählen Sie eine Übung aus. Atmen Sie ein, wenn der Kreis größer wird. Atmen Sie aus, wenn er kleiner wird.</p>
-            <p id="exerciseDuration">Jede Übung dauert 10 Minuten.</p>
+            <p id="introText">Wählen Sie eine Übung aus. Atmen Sie ein, wenn der Kreis größer wird. Atmen Sie aus, wenn
+                er kleiner wird.</p>
+            <p id="exerciseDuration">Jede Übung dauert <span id="exerciseDurationValue">10</span> Minuten.</p>
         </div>
         <div id="Excercises">
             <select id="modeSelector">
@@ -63,8 +70,10 @@
             </select>
             <button id="startExercise" onclick="startSelectedMode()">Übung starten</button>
         </div>
-       <div id="options">
+        <div id="options">
             <button id="buttonSound" class="emoji" onclick="disableSound()" title="Sound ausschalten">🔊</button>
+            <button id="buttonSetDuration" class="emoji" onclick="openDurationModal()"
+                title="Dauer einstellen">⏱️</button>
             <select id="styleSwitcher" onchange="switchStylesheet(this.value)">
                 <option value="css/styles.css" selected>Standarddesign</option>
                 <option value="css/c64.css">C64</option>
@@ -73,12 +82,34 @@
                 <option value="css/90s.css">90s</option>
             </select>
         </div>
-    
     </div>
     <div id="credits">
-        <p>Hilft der 🦭 richtig zu Atmen seit 2024 - <a href="https://github.com/Admonstrator/AtemRobbe" target="_blank" style="text-decoration: underline; color: inherit;">Version 2024-05-26-02</a></p>
-        <p>Inspiriert durch die Atem-App der <a href="https://www.weiss.de/" target="_blank" style="text-decoration: underline; color: inherit;">Dr. Thomas Weiss Praxisklinik, Mannheim</a></p>
+        <p>Hilft der 🦭 richtig zu Atmen seit 2024 - <a href="https://github.com/Admonstrator/AtemRobbe" target="_blank"
+                style="text-decoration: underline; color: inherit;">Version 2024-05-29-01</a></p>
+        <p>Inspiriert durch die Atem-App der <a href="https://www.weiss.de/" target="_blank"
+                style="text-decoration: underline; color: inherit;">Dr. Thomas Weiss Praxisklinik, Mannheim</a></p>
+    </div>
+
+    <!-- Modal -->
+    <div id="durationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDurationModal()">&times;</span>
+            <h2>Übungsdauer in Minuten</h2>
+            <select id="durationSelect">
+                <option value="5">5 Minuten</option>
+                <option value="10" selected>10 Minuten</option>
+                <option value="15">15 Minuten</option>
+                <option value="20">20 Minuten</option>
+                <option value="30">30 Minuten</option>
+                <option value="45">45 Minuten</option>
+                <option value="60">1 Stunde</option>
+            </select>
+            <div class="modal-footer">
+                <button onclick="setDuration()">Speichern</button>
+            </div>
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>
+
 </html>

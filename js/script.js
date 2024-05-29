@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     const savedDuration = getCookie('duration');
     if (savedDuration) {
-        document.getElementById('durationInput').value = savedDuration;
         document.getElementById('exerciseDurationValue').textContent = savedDuration;
+        document.getElementById('durationSelect').value = savedDuration;
     }
 });
 

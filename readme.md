@@ -1,22 +1,34 @@
 # AtemRobbe 😮‍💨 🦭
 
-AtemRobbe ist eine Webanwendung, die Benutzer durch Atemübungen führt. Die Anwendung ist in HTML geschrieben und verwendet SVG für visuelle Elemente.
+**Die AtemRobbe** ist eine kleine WebApp, die dir bei Atemübungen hilft. Diese Anwendung bietet verschiedene Übungen, die dir das Atmen erleichtern und verbessern können. Die Übungen können bei chronischem Stress, Angstzuständen, Schlafstörungen oder einfach zur Entspannung helfen.
 
-## Funktionen
+## So benutzt du die App
 
-- **Atemkreis**: Eine visuelle Anleitung, die sich ausdehnt und zusammenzieht, um Ihre Atmung zu leiten.
-- **Soundeffekte**: Audiohinweise zum Einatmen, Ausatmen und Pausieren.
-- **Auswahl der Übung**: Wählen Sie aus einer Vielzahl von Atemmustern für Ihre Übung.
-- **Anzeige der Dauer**: Zeigt die verbleibende Zeit für die aktuelle Übung an.
+In der Mitte der Seite befindet sich ein animierter Kreis. Dieser Kreis zeigt dir, wann du ein- und ausatmen sollst. Wenn der Kreis größer wird, atmest du ein. Wenn er kleiner wird, atmest du aus.
 
-## Verwendung
+Im Bereich "Übungen" kannst du aus verschiedenen Atemübungen wählen. Öffne das Dropdown-Menü, wähle eine Übung und klicke auf "Übung starten". Die Zeiten für das Ein- und Ausatmen sind für jede Übung unterschiedlich. Dabei ist der erste Wert die Zeit für das Einatmen, dann folgt eine Pause, danach die Zeit für das Ausatmen und eine weitere Pause. Die Übungen sind nach der Anzahl der Sekunden für das Ein- und Ausatmen benannt.
 
-1. Öffnen Sie die Datei `index.html` in Ihrem Webbrowser.
-2. Wählen Sie eine Atemübung aus dem Dropdown-Menü.
-3. Folgen Sie den visuellen und akustischen Hinweisen zum Einatmen, Ausatmen und Pausieren.
+Zum Beispiel bedeutet "4-4-4-4":
 
-## Dateistruktur
+* 4 Sekunden einatmen
+* 4 Sekunden Pause
+* 4 Sekunden ausatmen
+* 4 Sekunden Pause.
 
-- `index.html`: Die Haupt-HTML-Datei, die die Struktur der Webanwendung enthält.
-- `css/styles.css`: Die CSS-Datei, die die Stile für die Webanwendung enthält.
-- `sounds/`: Dieses Verzeichnis enthält die Audiodateien, die für die Hinweise zum Einatmen, Ausatmen und Pausieren verwendet werden.
+Die entspricht ca. 3-4 Atemzügen pro Minute.
+
+Die App funktioniert am besten in Kombination mit einem Kapnometer, das die CO2-Konzentration in der Ausatemluft misst. Ein Kapnometer kann dir helfen, die Übungen zu optimieren und deine Atmung zu verbessern. Wenn du kein Kapnometer hast, kannst du die App natürlich auch ohne verwenden!
+
+### Optionen
+
+* **🔊 Sound ausschalten**: Damit kannst du den Sound ein- oder ausschalten.
+* **⏱️ Dauer einstellen**: Klicke auf das Uhr-Symbol, um die Dauer der Übung zu ändern.
+* **Designauswahl**: Du kannst das Design der App ändern.
+
+## Wie kam es dazu?
+
+Die Idee für die AtemRobbe kam mir, als ich mich aufgrund chronischer Hyperventilation mit dem Thema Atmung beschäftigte. In der [Praxisklinik von Dr. Thomas Weiss in Mannheim](https://www.weiss.de/) lernte ich verschiedene Atemübungen kennen, die mir halfen, meine Atmung zu verbessern. Die dortige Atemapp war jedoch nicht so, wie ich sie mir wünschte. Also beschloss ich, meine eigene App zu entwickeln.
+
+## Warum eine Robbe?
+
+Ich liebe Robben! 🦭

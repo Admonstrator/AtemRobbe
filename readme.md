@@ -1,3 +1,5 @@
+<img src="images/bg_default.jpg" width="400" align="right" alt="Profile Picture" style="border-radius: 10%;">
+
 # AtemRobbe 😮‍💨 🦭
 
 **Die AtemRobbe** ist eine kleine WebApp, die dir bei Atemübungen hilft. Diese Anwendung bietet verschiedene Übungen, die dir das Atmen erleichtern und verbessern können. Die Übungen können bei chronischem Stress, Angstzuständen, Schlafstörungen oder einfach zur Entspannung helfen.

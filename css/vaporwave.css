@@ -19,6 +19,7 @@ body {
     background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white for a modern touch */
     backdrop-filter: blur(10px); /* Blurred background for depth */
     border: 1px solid rgba(255, 255, 255, 0.3); /* Light reflective border */
+    z-index: 1;
 }
 
 h1 {
@@ -74,4 +75,7 @@ select {
     font-family: Arial, sans-serif; /* Optional: Sets the font */
     color: #000000;
     text-shadow: 1px 1px #ff00ff; /* Neon-like shadow */
+    z-index: 0; /* Stellt sicher, dass die Credits hinter der App liegen */
+    white-space: normal; /* Stellt sicher, dass der Text bei Bedarf umbricht */
+    word-wrap: break-word; /* Bricht lange Wörter um */
 }

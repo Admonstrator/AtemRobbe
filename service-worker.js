@@ -27,10 +27,20 @@ const urlsToCache = [
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll(urlsToCache.map(url => new Request(url, { credentials: 'same-origin' })))
-                .catch(error => {
-                    console.error('Failed to cache', error);
-                });
+            return Promise.all(
+                urlsToCache.map(url => {
+                    return fetch(url, { credentials: 'same-origin' })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new TypeError('Bad response status');
+                            }
+                            return cache.put(url, response);
+                        })
+                        .catch(error => {
+                            console.error('Failed to cache', url, error);
+                        });
+                })
+            );
         })
     );
 });

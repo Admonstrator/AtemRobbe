@@ -27,7 +27,10 @@ const urlsToCache = [
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll(urlsToCache);
+            return cache.addAll(urlsToCache.map(url => new Request(url, { credentials: 'same-origin' })))
+                .catch(error => {
+                    console.error('Failed to cache', error);
+                });
         })
     );
 });
@@ -48,7 +51,11 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request).then(response => {
-            return response || fetch(event.request);
+            return response || fetch(event.request).catch(() => {
+                if (event.request.destination === 'document') {
+                    return caches.match('./index.html');
+                }
+            });
         })
     );
 });

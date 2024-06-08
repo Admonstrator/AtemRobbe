@@ -169,3 +169,26 @@ function setDuration() {
         alert('Bitte geben Sie eine gültige Dauer zwischen 1 und 120 Minuten ein.');
     }
 }
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(registration => {
+        registration.onupdatefound = () => {
+          const installingWorker = registration.installing;
+          installingWorker.onstatechange = () => {
+            if (installingWorker.state === 'installed') {
+              if (navigator.serviceWorker.controller) {
+                // Neue Version verfügbar
+                alert('Neue Version verfügbar! Bitte die Seite neu laden.');
+              } else {
+                // Inhalte wurden zum ersten Mal gecached
+                console.log('Inhalte wurden zum ersten Mal gecached.');
+              }
+            }
+          };
+        };
+      }).catch(error => {
+        console.error('Service Worker registration failed:', error);
+      });
+  }
+  

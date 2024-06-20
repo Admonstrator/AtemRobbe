@@ -158,6 +158,14 @@ function closeDurationModal() {
     document.getElementById('durationModal').style.display = 'none';
 }
 
+function openInfoModal() {
+    document.getElementById('infoModal').style.display = 'block';
+}
+
+function closeInfoModal() {
+    document.getElementById('infoModal').style.display = 'none';
+}
+
 function setDuration() {
     const durationInput = document.getElementById('durationSelect');
     const duration = parseInt(durationInput.value);

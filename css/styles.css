@@ -144,3 +144,8 @@ select {
     white-space: normal; /* Stellt sicher, dass der Text bei Bedarf umbricht */
     word-wrap: break-word; /* Bricht lange Wörter um */
 }
+
+#infoText {
+    display: flex;
+    justify-content: center;
+}

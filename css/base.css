@@ -58,3 +58,7 @@
     margin-top: 20px;
 }
 
+.modal-content > p,h2 {
+    margin-bottom: 20px;
+}
+

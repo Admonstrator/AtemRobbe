@@ -74,6 +74,7 @@
             <button id="buttonSound" class="emoji" onclick="disableSound()" title="Sound ausschalten">🔊</button>
             <button id="buttonSetDuration" class="emoji" onclick="openDurationModal()"
                 title="Dauer einstellen">⏱️</button>
+            <button id="buttonInfo" class="emoji" onclick="openInfoModal()" title="Anleitung">ℹ️</button>
             <select id="styleSwitcher" onchange="switchStylesheet(this.value)">
                 <option value="css/styles.css" selected>Standarddesign</option>
                 <option value="css/c64.css">C64</option>
@@ -85,7 +86,7 @@
     </div>
     <div id="credits">
         <p>Hilft der 🦭 richtig zu Atmen seit 2024 - <a href="https://github.com/Admonstrator/AtemRobbe" target="_blank"
-                style="text-decoration: underline; color: inherit;">Version 2024-06-08-05</a></p>
+                style="text-decoration: underline; color: inherit;">Version 2024-06-20-01</a></p>
         <p>Inspiriert durch die Atem-App der <a href="https://www.weiss.de/" target="_blank"
                 style="text-decoration: underline; color: inherit;">Dr. Thomas Weiss Praxisklinik, Mannheim</a></p>
     </div>
@@ -109,17 +110,37 @@
             </div>
         </div>
     </div>
-    <script src="js/script.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('./service-worker.js')
-            .then(registration => {
-              console.log('Service Worker registered with scope:', registration.scope);
-            }).catch(error => {
-              console.error('Service Worker registration failed:', error);
-            });
-        }
-      </script>
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeInfoModal()">&times;</span>
+            <h2>Anleitung</h2>
+            <p class="info-content">
+                Mit der AtemRobbe können Sie Atemübungen gegen funktionelle Atemstörungen durchführen. Wählen Sie eine
+                Übung aus und atmen Sie ein, wenn der Kreis größer wird. Atmen Sie aus, wenn er kleiner wird.</p>
+            <p>Die Übungen sind benannt nach der Dauer der einzelnen Phasen. Die erste Zahl steht für die Dauer des
+                Einatmens, die zweite für die Pause, die dritte für das Ausatmen und die vierte für die Pause danach.
+            </p>
+            <p>Wenn Sie mehr über chronische Hyperventilation und funktionelle Atemstörungen erfahren möchten, empfehle
+                ich Ihnen das Video <a href="https://www.youtube.com/watch?v=nh8vuYYBOrU" target="_blank">Unbewusste
+                    Hyperventilation? So kommst Du raus - Hypochondrie, Schwindel, Panik und Benommenheit</a> von <a
+                    href="https://lukasrick.de/">Lukas
+                    Rick, Psychotherapeut aus Bonn.</a></p>
+            </p>
+            <div class="modal-footer">
+                <button onclick="closeInfoModal()">Danke!</button>
+            </div>
+        </div>
+        <script src="js/script.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    }).catch(error => {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            }
+        </script>
 </body>
 
 </html>

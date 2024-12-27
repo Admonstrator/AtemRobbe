@@ -64,5 +64,7 @@
 
 a {
     color: #888;
+    text-decoration: underline;
     text-decoration: none;
+    border-bottom: 1px dotted;
 }

@@ -1,0 +1,116 @@
+/* Cozy Styles */
+@import url('styles.css');
+/* Imports the base styles */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5e6ca;
+    /* Warm beige background */
+    color: #5a3e2b;
+    /* Warm brown text */
+    background-image: url('../images/bg_feenstaub.jpg');
+    /* Cozy background image */
+    background-size: cover;
+    background-position: center;
+}
+
+.app {
+    text-align: center;
+    padding: 30px;
+    border-radius: 12px;
+    background: rgba(255, 250, 240, 0.9);
+    /* Soft cream background with slight transparency */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #8b5e3c;
+    /* Warm brown heading */
+}
+
+.timer-circle,
+.stage,
+.total-time,
+#text,
+#text>p {
+    color: #5a3e2b;
+    /* Cozy brown text for readability */
+}
+
+#options,
+.emoji {
+    color: #a67c52;
+    /* Slightly lighter brown for accents */
+}
+
+button,
+select {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: #d9a679;
+    /* Warm orange-brown button color */
+    color: #fff5e1;
+    /* Soft cream text color */
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    margin-bottom: 20px;
+    width: auto;
+    margin-right: 20px;
+    box-sizing: border-box;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover,
+button:focus {
+    background-color: #bf8656;
+    /* Darker cozy brown on hover */
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+select {
+    background-color: #fff5e1;
+    /* Light cream background */
+    color: #5a3e2b;
+    /* Dark brown text */
+    border: 1px solid #a67c52;
+    padding: 10px;
+    border-radius: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+select {
+    background-image: linear-gradient(45deg, transparent 50%, #a67c52 50%),
+        linear-gradient(135deg, #a67c52 50%, transparent 50%);
+    background-position: right 15px top 1em, right 10px top 1em;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    -webkit-background-size: 5px 5px, 5px 5px;
+}
+
+.wrapper::after {
+    color: #5a3e2b;
+    /* Warm brown arrow color */
+}
+
+#credits {
+    color: #79091b;
+}

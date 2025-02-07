@@ -1,4 +1,4 @@
-const CACHE_NAME = 'atemrobbe-cache-v4';
+const CACHE_NAME = 'atemrobbe-cache-v5';
 const urlsToCache = [
     './index.html',
     './css/styles.css',
@@ -13,6 +13,7 @@ const urlsToCache = [
     './images/bg_default.jpg',
     './images/bg_ukraine.jpg',
     './images/bg_vaporwave.jpg',
+    './images/bg_feenstaub.jpg',
     './sounds/end.mp3',
     './sounds/exhale.mp3',
     './sounds/inhale.mp3',
@@ -22,6 +23,7 @@ const urlsToCache = [
     './css/base.css',
     './css/ukraine.css',
     './css/vaporwave.css',
+    './css/feenstaub.css'
 ];
 
 self.addEventListener('install', event => {

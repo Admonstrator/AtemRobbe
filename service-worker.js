@@ -1,4 +1,4 @@
-const CACHE_NAME = 'atemrobbe-cache-v5';
+const CACHE_NAME = 'atemrobbe-cache-v6';
 const urlsToCache = [
     './index.html',
     './css/styles.css',

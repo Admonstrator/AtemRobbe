@@ -186,8 +186,26 @@ if ('serviceWorker' in navigator) {
           installingWorker.onstatechange = () => {
             if (installingWorker.state === 'installed') {
               if (navigator.serviceWorker.controller) {
-                // Neue Version verfügbar
-                alert('Neue Version verfügbar! Bitte die Seite neu laden.');
+                // Neue Version verfügbar: Zeige Benachrichtigung
+                const updateNotification = document.createElement('div');
+                updateNotification.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#4CAF50;color:white;padding:10px 20px;border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,0.2);z-index:9999;';
+                updateNotification.innerHTML = 'Neue Version verfügbar! Wird geladen... <span id="update-countdown">3</span>';
+                document.body.appendChild(updateNotification);
+                
+                let countdown = 3;
+                const timer = setInterval(() => {
+                  countdown--;
+                  document.getElementById('update-countdown').textContent = countdown;
+                  if (countdown <= 0) {
+                    clearInterval(timer);
+                    // Cache leeren und Seite neu laden
+                    caches.keys().then(function(names) {
+                      return Promise.all(names.map(name => caches.delete(name)));
+                    }).then(function() {
+                      location.reload(true);
+                    });
+                  }
+                }, 1000);
               } else {
                 // Inhalte wurden zum ersten Mal gecached
                 console.log('Inhalte wurden zum ersten Mal gecached.');

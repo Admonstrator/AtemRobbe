@@ -1,4 +1,4 @@
-const CACHE_NAME = 'atemrobbe-cache-v7';
+const CACHE_NAME = 'atemrobbe-cache-v8';
 const urlsToCache = [
     './index.html',
     './css/styles.css',
@@ -8,11 +8,11 @@ const urlsToCache = [
     './fonts/Anta-Regular.ttf',
     './fonts/Silkscreen-Regular.ttf',
     './fonts/SourceCodePro-Regular.ttf',
-    './images/bg_90s.jpg',
-    './images/bg_c64.jpg',
-    './images/bg_default.jpg',
-    './images/bg_ukraine.jpg',
-    './images/bg_vaporwave.jpg',
+    './images/bg_90s.webp',
+    './images/bg_c64.webp',
+    './images/bg_default.webp',
+    './images/bg_ukraine.webp',
+    './images/bg_vaporwave.webp',
     './images/bg_feenstaub.webp',
     './sounds/end.mp3',
     './sounds/exhale.mp3',

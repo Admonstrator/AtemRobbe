@@ -1,4 +1,4 @@
-<img src="images/bg_default.jpg" width="400" align="right" alt="Profile Picture" style="border-radius: 10%;">
+<img src="images/bg_default.webp" width="400" align="right" alt="Profile Picture" style="border-radius: 10%;">
 
 # AtemRobbe 😮‍💨 🦭
 

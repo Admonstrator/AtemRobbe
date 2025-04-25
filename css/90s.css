@@ -7,7 +7,7 @@ body {
     height: 100vh;
     background-color: #008080; /* Teal background, common in 90s software */
     color: #ffff00; /* Bright yellow text */
-    background-image: url('../images/bg_90s.jpg');
+    background-image: url('../images/bg_90s.webp');
     background-size: cover;
     background-position: center;
 }

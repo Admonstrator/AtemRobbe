@@ -1,4 +1,4 @@
-const CACHE_NAME = 'atemrobbe-cache-v6';
+const CACHE_NAME = 'atemrobbe-cache-v7';
 const urlsToCache = [
     './index.html',
     './css/styles.css',
@@ -13,7 +13,7 @@ const urlsToCache = [
     './images/bg_default.jpg',
     './images/bg_ukraine.jpg',
     './images/bg_vaporwave.jpg',
-    './images/bg_feenstaub.jpg',
+    './images/bg_feenstaub.webp',
     './sounds/end.mp3',
     './sounds/exhale.mp3',
     './sounds/inhale.mp3',

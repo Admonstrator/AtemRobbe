@@ -15,7 +15,7 @@ body {
     height: 100vh;
     background-color: #0057B7; /* Blue color from the Ukrainian flag */
     color: #FFD700; /* Yellow color for text, from the Ukrainian flag */
-    background-image: url('../images/bg_ukraine.jpg'); /* Consider changing or removing the image */
+    background-image: url('../images/bg_ukraine.webp'); /* Consider changing or removing the image */
     background-size: cover;
     background-position: center;
 }

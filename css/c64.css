@@ -8,7 +8,7 @@
 body {
     background-color: #000; /* Classic C64 blue screen background */
     color: #fff; /* White text */
-    background-image: url('../images/bg_c64.jpg');
+    background-image: url('../images/bg_c64.webp');
     background-size: cover;
     background-position: center;
     font-family: 'Silkscreen';

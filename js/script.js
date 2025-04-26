@@ -63,6 +63,10 @@ function addStyleSwatches() {
       case 'css/feenstaub.css':
         swatch.style.backgroundColor = '#d9a679';
         break;
+      case 'css/gothic.css':
+        swatch.style.backgroundColor = '#2c3e50';
+        swatch.style.border = '1px solid #6e8cb2';
+        break;
     }
     
     // Insert swatch at the beginning of the button

@@ -117,7 +117,7 @@ function startSelectedMode() {
   const selectedMode = modeSelector.value.split('-').map(Number);
   
   if (selectedMode.length !== 4) {
-    alert('Bitte wählen Sie einen Modus aus!');
+    alert('Bitte wähle einen Modus aus!');
     return;
   }
 

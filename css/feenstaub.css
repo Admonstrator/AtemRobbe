@@ -1,116 +1,126 @@
-/* Cozy Styles */
+/* Feenstaub Theme for AtemRobbe */
 @import url('styles.css');
-/* Imports the base styles */
 
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+:root {
+  /* Override color variables */
+  --primary-color: #d9a679;
+  --primary-dark: #bf8656;
+  --text-color: #5a3e2b;
+  --text-secondary: #8b5e3c;
+  --text-muted: #a67c52;
+  --background-color: rgba(255, 250, 240, 0.9);
+  --background-light: #f5e6ca;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-color: #a67c52;
+  --spacing-lg: 24px;
+  --spacing-md: 16px;
+  
+  /* Modal theme variables */
+  --modal-content-bg: rgba(255, 250, 240, 0.95);
+  --modal-content-color: #5a3e2b;
+  --modal-border-color: #d9a679;
+  
+  /* Theme-specific variables */
+  --feenstaub-accent: #79091b;
+  --feenstaub-button-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f5e6ca;
-    /* Warm beige background */
-    color: #5a3e2b;
-    /* Warm brown text */
-    background-image: url('../images/bg_feenstaub.webp');
-    /* Cozy background image */
-    background-size: cover;
-    background-position: center;
+  background-color: var(--background-light);
+  color: var(--text-color);
+  background-image: url('../images/bg_feenstaub.webp');
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .app {
-    text-align: center;
-    padding: 30px;
-    border-radius: 12px;
-    background: rgba(255, 250, 240, 0.9);
-    /* Soft cream background with slight transparency */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: var(--background-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
 }
 
 h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #8b5e3c;
-    /* Warm brown heading */
+  color: var(--text-secondary);
+  font-size: 24px;
 }
 
 .timer-circle,
 .stage,
 .total-time,
 #text,
-#text>p {
-    color: #5a3e2b;
-    /* Cozy brown text for readability */
+#text > p {
+  color: var(--text-color);
 }
 
-#options,
-.emoji {
-    color: #a67c52;
-    /* Slightly lighter brown for accents */
+#breathingCircle {
+  fill: #f0e4d4;
+  stroke: #d9a679;
 }
 
 button,
 select {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 10px;
-    background-color: #d9a679;
-    /* Warm orange-brown button color */
-    color: #fff5e1;
-    /* Soft cream text color */
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease-in-out;
-    outline: none;
-    margin-bottom: 20px;
-    width: auto;
-    margin-right: 20px;
-    box-sizing: border-box;
-    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px; /* Fixed syntax error (had comma) */
+  border: 1px solid #8b5e3c; /* Added border for visibility */
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: #fff5e1;
+  box-shadow: var(--feenstaub-button-shadow);
+  transition: all 0.3s ease-in-out;
 }
 
+.emoji {
+  background-color: #f0e4d4;
+  color: var(--text-color);
+  border: 1px solid #8b5e3c; /* Added stronger border */
+  box-shadow: 1px 1px 3px rgba(90, 62, 43, 0.3); /* Added shadow */
+}
+
+/* Exercise controls spacing fix */
+#exercise-controls button,
+#exercise-controls select {
+  padding: 8px 16px; /* Reduced padding */
+}
+
+/* Improve hover state for all buttons */
 button:hover,
-button:focus {
-    background-color: #bf8656;
-    /* Darker cozy brown on hover */
-    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.15);
+select:hover {
+  border-color: var(--text-color); /* Darker border on hover */
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
-select {
-    background-color: #fff5e1;
-    /* Light cream background */
-    color: #5a3e2b;
-    /* Dark brown text */
-    border: 1px solid #a67c52;
-    padding: 10px;
-    border-radius: 8px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+/* Style-specific modal styles */
+.modal-content {
+  background-color: var(--modal-content-bg);
+  color: var(--modal-content-color);
+  border-color: var(--modal-border-color);
 }
 
-select {
-    background-image: linear-gradient(45deg, transparent 50%, #a67c52 50%),
-        linear-gradient(135deg, #a67c52 50%, transparent 50%);
-    background-position: right 15px top 1em, right 10px top 1em;
-    background-size: 5px 5px, 5px 5px;
-    background-repeat: no-repeat;
-    -webkit-background-size: 5px 5px, 5px 5px;
+.style-button {
+  background-color: #f0e4d4;
+  color: var(--text-color);
+  border-color: var(--primary-color);
 }
 
-.wrapper::after {
-    color: #5a3e2b;
-    /* Warm brown arrow color */
+.style-button:hover {
+  background-color: rgba(217, 166, 121, 0.2);
+}
+
+.style-button.active {
+  background-color: var(--primary-color);
+  color: #fff5e1;
 }
 
 #credits {
-    color: #79091b;
+  color: var(--feenstaub-accent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .app {
+    padding: var(--spacing-md);
+  }
+  
+  button, select {
+    padding: 10px 20px;
+  }
 }

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="manifest" href="manifest.json">
     <title>Die AtemRobbe 😮‍💨 🦭</title>
     <link rel="stylesheet" href="css/base.css" id="theme-base">
@@ -21,6 +21,7 @@
     <meta property="og:description"
         content="Die AtemRobbe hilft bei Atemübungen gegen funktionelle Atemstörungen. Eine einfache, kleine WebApp - erstellt in einer Nacht.">
     <meta property="og:image" content="https://atemrobbe.de/images/bg_feenstaub.webp">
+    <!-- Audio preload -->
     <audio id="inhaleSound" src="sounds/inhale.mp3" preload="auto"></audio>
     <audio id="exhaleSound" src="sounds/exhale.mp3" preload="auto"></audio>
     <audio id="pauseSound" src="sounds/pause.mp3" preload="auto"></audio>
@@ -28,9 +29,10 @@
 </head>
 
 <body>
-    <div class="app">
+    <div class="app" aria-live="polite">
         <h1 id="appTitle">AtemRobbe 😮‍💨 🦭</h1>
-        <svg class="timer-circle" width="200" height="200" viewbox="0 0 200 200">
+        
+        <svg class="timer-circle" width="200" height="200" viewbox="0 0 200 200" role="img" aria-label="Atemkreis-Animation">
             <!-- Breathing circle, ensure it's below the guide circles -->
             <circle id="breathingCircle" cx="100" cy="100" r="40" stroke="#03A9F4" stroke-width="4" fill="#B3E5FC" />
             <!-- Maximum circle size, made slightly darker for contrast -->
@@ -40,15 +42,19 @@
             <circle id="minCircle" cx="100" cy="100" r="40" stroke="#0086bf" stroke-width="2" fill="none"
                 stroke-dasharray="5,5" visibility="visible" />
         </svg>
+        
         <div id="breathingStage" class="stage">Start</div>
         <div id="totalTime" class="total-time">Verbleibende Zeit: 0s</div>
+        
         <div id="text">
             <p id="introText">Wählen Sie eine Übung aus. Atmen Sie ein, wenn der Kreis größer wird. Atmen Sie aus, wenn
                 er kleiner wird.</p>
             <p id="exerciseDuration">Jede Übung dauert <span id="exerciseDurationValue">10</span> Minuten.</p>
         </div>
-        <div id="Excercises">
-            <select id="modeSelector">
+        
+        <!-- First row: exercise selection and start button -->
+        <div id="exercise-controls">
+            <select id="modeSelector" aria-describedby="introText">
                 <option value="" selected>Wählen ...</option>
                 <option value="2-1-3-1">2-1-3-1</option>
                 <option value="2-1-3-2">2-1-3-2</option>
@@ -68,35 +74,28 @@
                 <option value="6-4-10-6">6-4-10-6</option>
                 <option value="6-5-11-8">6-5-11-8</option>
             </select>
-            <button id="startExercise" onclick="startSelectedMode()">Übung starten</button>
+            <button id="startExercise" aria-label="Übung starten">Übung starten</button>
         </div>
-        <div id="options">
-            <button id="buttonSound" class="emoji" onclick="disableSound()" title="Sound ausschalten">🔊</button>
-            <button id="buttonSetDuration" class="emoji" onclick="openDurationModal()"
-                title="Dauer einstellen">⏱️</button>
-            <button id="buttonInfo" class="emoji" onclick="openInfoModal()" title="Anleitung">ℹ️</button>
-            <select id="styleSwitcher" onchange="switchStylesheet(this.value)">
-                <option value="css/styles.css">Standarddesign</option>
-                <option value="css/c64.css">C64</option>
-                <option value="css/ukraine.css">Ukraine</option>
-                <option value="css/vaporwave.css">Vaporwave</option>
-                <option value="css/90s.css">90s</option>
-                <option value="css/feenstaub.css" selected>Feenstaub</option>
-            </select>
+        
+        <!-- Second row: buttons -->
+        <div id="app-controls">
+            <button id="buttonSound" class="emoji" aria-label="Sound ein/ausschalten" title="Sound ein/ausschalten">🔊</button>
+            <button id="buttonSetDuration" class="emoji" aria-label="Dauer einstellen" title="Dauer einstellen">⏱️</button>
+            <button id="buttonInfo" class="emoji" aria-label="Anleitung anzeigen" title="Anleitung">ℹ️</button>
+            <button id="buttonStyle" class="emoji" aria-label="Design auswählen" title="Design auswählen">🎨</button>
         </div>
     </div>
+    
     <div id="credits">
-        <p>Hilft der 🦭 richtig zu Atmen seit 2024 - <a href="https://github.com/Admonstrator/AtemRobbe" target="_blank"
-                style="text-decoration: underline; color: inherit;">Version 2025-04-25-03</a></p>
-        <p>Inspiriert durch die Atem-App der <a href="https://www.weiss.de/" target="_blank"
-                style="text-decoration: underline; color: inherit;">Dr. Thomas Weiss Praxisklinik, Mannheim</a></p>
+        <p>Hilft der 🦭 gegen Panikattacken seit 2024 - <a href="#changelog" class="version-link">Version 2025-04-26-01</a></p>
     </div>
 
-    <!-- Modal -->
-    <div id="durationModal" class="modal">
+    <!-- Modal for exercise duration -->
+    <div id="durationModal" class="modal" aria-labelledby="durationModalTitle" aria-modal="true" role="dialog">
         <div class="modal-content">
-            <span class="close" onclick="closeDurationModal()">&times;</span>
-            <h2>Übungsdauer in Minuten</h2>
+            <span class="close" aria-label="Schließen">&times;</span>
+            <h2 id="durationModalTitle">Übungsdauer in Minuten</h2>
+            <label for="durationSelect">Wählen Sie die Übungsdauer:</label>
             <select id="durationSelect">
                 <option value="5">5 Minuten</option>
                 <option value="10" selected>10 Minuten</option>
@@ -107,41 +106,71 @@
                 <option value="60">1 Stunde</option>
             </select>
             <div class="modal-footer">
-                <button onclick="setDuration()">Speichern</button>
+                <button id="saveDuration">Speichern</button>
             </div>
         </div>
     </div>
-    <div id="infoModal" class="modal">
+
+    <div id="infoModal" class="modal" aria-labelledby="infoModalTitle" aria-modal="true" role="dialog">
         <div class="modal-content">
-            <span class="close" onclick="closeInfoModal()">&times;</span>
-            <h2>Anleitung</h2>
-            <p class="info-content">
-                Mit der AtemRobbe können Sie Atemübungen gegen funktionelle Atemstörungen durchführen. Wählen Sie eine
-                Übung aus und atmen Sie ein, wenn der Kreis größer wird. Atmen Sie aus, wenn er kleiner wird.</p>
-            <p>Die Übungen sind benannt nach der Dauer der einzelnen Phasen. Die erste Zahl steht für die Dauer des
-                Einatmens, die zweite für die Pause, die dritte für das Ausatmen und die vierte für die Pause danach.
-            </p>
-            <p>Wenn Sie mehr über chronische Hyperventilation und funktionelle Atemstörungen erfahren möchten, empfehle
-                ich Ihnen das Video <a href="https://www.youtube.com/watch?v=nh8vuYYBOrU" target="_blank">Unbewusste
-                    Hyperventilation? So kommst Du raus - Hypochondrie, Schwindel, Panik und Benommenheit</a> von <a
-                    href="https://lukasrick.de/">Lukas
-                    Rick, Heilpraktiker für Psychotherapie aus Bonn.</a></p>
-            </p>
+            <span class="close" aria-label="Schließen">&times;</span>
+            <h2 id="infoModalTitle">Anleitung</h2>
+            <div class="info-content">
+                <p>Mit der AtemRobbe kannst du Atemübungen gegen funktionelle Atemstörungen durchführen. Wähle eine
+                    Übung aus und folge dem animierten Kreis: Atme ein, wenn der Kreis größer wird, halte deinen Atem, wenn er gleich groß bleibt, und atme aus, wenn er kleiner wird.</p>
+                
+                <p>Die Übungen sind nach der Dauer der einzelnen Phasen in Sekunden benannt. Die erste Zahl steht für die Dauer des Einatmens, die zweite für die Pause danach, die dritte für das Ausatmen und die vierte für die abschließende Pause.</p>
+                
+                <p>Eine "4-4-4-4"-Übung bedeutet also: 4 Sekunden einatmen, 4 Sekunden halten, 4 Sekunden ausatmen, 4 Sekunden halten.</p>
+                
+                <p>Regelmäßige Atemübungen können bei chronischer Hyperventilation, Angstzuständen und Stresssymptomen helfen. Die bewusste Verlängerung der Ausatmung fördert die Entspannung des Nervensystems und kann den CO₂-Spiegel im Blut normalisieren.</p>
+            </div>
             <div class="modal-footer">
-                <button onclick="closeInfoModal()">Danke!</button>
+                <button id="closeInfoModal">Verstanden</button>
             </div>
         </div>
-        <script src="js/script.js"></script>
-        <script>
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('./service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registered with scope:', registration.scope);
-                    }).catch(error => {
-                        console.error('Service Worker registration failed:', error);
-                    });
-            }
-        </script>
+    </div>
+
+    <!-- Modal for style selection -->
+    <div id="styleModal" class="modal" aria-labelledby="styleModalTitle" aria-modal="true" role="dialog">
+        <div class="modal-content">
+            <span class="close" aria-label="Schließen">&times;</span>
+            <h2 id="styleModalTitle">Design auswählen</h2>
+            <div class="style-options">
+                <button class="style-button" data-style="css/styles.css">Einfaches Design</button>
+                <button class="style-button" data-style="css/c64.css">C64</button>
+                <button class="style-button" data-style="css/ukraine.css">Ukraine</button>
+                <button class="style-button" data-style="css/vaporwave.css">Vaporwave</button>
+                <button class="style-button" data-style="css/90s.css">90s</button>
+                <button class="style-button" data-style="css/feenstaub.css">Feenstaub</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="changelogModal" class="modal" aria-labelledby="changelogModalTitle" role="dialog">
+        <div class="modal-content">
+            <span class="close" aria-label="Schließen">&times;</span>
+            <h2 id="changelogModalTitle">Changelog - AtemRobbe</h2>
+            <div class="changelog-content">
+                <h3>Version 2025-04-26-01</h3>
+                <ul>
+                    <li>Design-Menü als Modal mit Farbvorschau</li>
+                    <li>Verbesserte Buttonanordnung</li>
+                    <li>Performance-Optimierungen</li>
+                </ul>
+                
+                <h3>Version 2024-07-20-01</h3>
+                <ul>
+                    <li>Erstveröffentlichung</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button id="closeChangelogModal">Schließen</button>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>

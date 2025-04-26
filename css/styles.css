@@ -1,151 +1,283 @@
-/* Basic Reset */
-* {
+/* Base styles with CSS variables for AtemRobbe */
+:root {
+    /* Color palette */
+    --primary-color: #007aff;
+    --primary-dark: #005ecb;
+    --text-color: #333;
+    --text-secondary: #666;
+    --text-muted: #999;
+    --background-color: white;
+    --background-light: #fafafa;
+    --shadow-color: rgba(0,0,0,0.05);
+    --border-color: #007aff;
+    
+    /* Sizes and spacing */
+    --border-radius: 8px;
+    --button-padding: 10px 20px;
+    --container-width: 363px; /* Exact original width */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    
+    /* Animation speeds */
+    --transition-speed: 0.3s;
+  }
+  
+  /* Accessibility helpers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Basic Reset */
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #fafafa;
-    color: #333;
+    min-height: 100vh;
+    background-color: var(--background-light);
+    color: var(--text-color);
     background-image: url('../images/bg_default.webp');
     background-size: cover;
     background-position: center;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-
-.app {
+    line-height: 1.5;
+  }
+  
+  .app {
     text-align: center;
-    padding: 20px;
-    border-radius: 8px;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    width: 363px;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    background: var(--background-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    width: var(--container-width);
     z-index: 1;
-}
-
-h1 {
-    margin-bottom: 20px;
+  }
+  
+  h1 {
+    margin-bottom: var(--spacing-md);
     font-size: 24px;
-    color: #333;
-}
-
-.timer-circle {
+    color: var(--text-color);
+  }
+  
+  .timer-circle {
     display: flex;
     justify-content: center;
-    margin: 20px auto;
-}
-
-circle {
-    transition: r 0.3s ease;
-}
-
-.stage {
+    margin: var(--spacing-md) auto;
+  }
+  
+  circle {
+    transition: r var(--transition-speed) ease;
+  }
+  
+  .stage {
     font-size: 18px;
-    margin: 10px 0;
-    color: #666;
-}
-
-.total-time {
-    margin-bottom: 20px;
+    margin: var(--spacing-sm) 0;
+    color: var(--text-secondary);
+  }
+  
+  .total-time {
+    margin-bottom: var(--spacing-md);
     font-size: 16px;
-    color: #999;
-}
-
-#text {
-    margin-bottom: 20px;
+    color: var(--text-muted);
+  }
+  
+  #text {
+    margin: 0 auto var(--spacing-md);
     font-size: 16px;
-    color: #666;
-
-}
-
-#text > p {
-    margin-bottom: 10px;
-}
-
-#options {
+    color: var(--text-secondary);
+    max-width: 320px;
+  }
+  
+  #text > p {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  /* Exercise controls - first row */
+  #exercise-controls {
     display: flex;
-    justify-content: center;
-}
-
-.emoji {
-    font-size: 18px; /* Explicitly set emoji size */
-    margin-right: 8px; /* Space between emoji and text */
-    padding: 6px;
-}
-
-button, select {
-    padding: 10px 20px; /* Consistent padding for both */
-    border: 1px solid #007aff; /* Same border size and color */
-    border-radius: 8px; /* Consistent border radius */
-    background-color: #007aff; /* Same background color for buttons */
-    color: white; /* Consistent text color */
-    cursor: pointer; /* Cursor indicates clickable for buttons */
-    font-size: 16px; /* Consistent font size */
-    transition: background-color 0.3s; /* Smooth transition for hover effects */
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    width: 100%;
+  }
+  
+  #exercise-controls select {
+    flex: 1;
+  }
+  
+  #exercise-controls button {
+    flex: 1;
+  }
+  
+  /* App controls - second row */
+  #app-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    width: 100%;
+  }
+  
+  #app-controls .emoji {
+    padding: 8px;
+    font-size: 18px;
+    flex: 1;
+  }
+  
+  /* Style button modal options */
+  .style-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .style-button {
+    padding: var(--spacing-sm);
+    text-align: left;
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+  }
+  
+  .style-button:hover {
+    background-color: rgba(0,122,255,0.1);
+  }
+  
+  .style-button.active {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  /* Button styling */
+  button, select {
+    padding: var(--button-padding);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color var(--transition-speed);
     outline: none;
-    margin-bottom: 20px;
-    width: auto;
-    margin-right: 20px;
-    box-sizing: border-box; /* Include padding and border in the element's total width */;
-}
-
-button:hover, button:focus {
-    background-color: #005ecb; /* Slightly darker on hover/focus */
-}
-
-select {
-    background-color: white; /* Different background color for select */
-    color: #333; /* Text color that's visible on white */
-    appearance: none; /* Remove default styling to control padding and borders */
-    -webkit-appearance: none; /* For Safari */
-    -moz-appearance: none; /* For Firefox */
-}
-
-/* Custom dropdown arrow for selects to match the style of buttons */
-select {
-    background-image: linear-gradient(45deg, transparent 50%, #333 50%),
-                      linear-gradient(135deg, #333 50%, transparent 50%);
-    background-position: right 15px top 1em, right 10px top 1em;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  button:hover, button:focus {
+    background-color: var(--primary-dark);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
+  
+  select {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 30px;
+    background-image: linear-gradient(45deg, transparent 50%, var(--text-color) 50%),
+                      linear-gradient(135deg, var(--text-color) 50%, transparent 50%);
+    background-position: right 15px top 50%, right 10px top 50%;
     background-size: 5px 5px, 5px 5px;
     background-repeat: no-repeat;
-    -webkit-background-size: 5px 5px, 5px 5px; /* for Safari */
-}
-
-/* Additional wrapper for custom styling */
-.wrapper {
-    position: relative;
-    display: block;
-}
-
-.wrapper::after {
-    content: '\25BC';
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    pointer-events: none; /* Make it non-interactive */
-    color: #333;
-}
-
-#credits {
-    position: fixed; /* Fixed position keeps it at the bottom of the viewport */
-    bottom: 10px; /* Distance from the bottom */
-    width: 100%; /* Full width to center the text easily */
-    text-align: center; /* Centers the text horizontally */
-    color: rgb(0, 0, 0); /* Light grey color for the text */
-    font-size: 12px; /* Smaller font size for subtlety */
-    font-family: Arial, sans-serif; /* Optional: Sets the font */
-    z-index: 0; /* Stellt sicher, dass die Credits hinter der App liegen */
-    white-space: normal; /* Stellt sicher, dass der Text bei Bedarf umbricht */
-    word-wrap: break-word; /* Bricht lange Wörter um */
-}
-
-#infoText {
-    display: flex;
-    justify-content: center;
-}
+  }
+  
+  select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+  
+  #modeSelector, #styleSwitcher {
+    width: auto;
+    display: inline-block;
+  }
+  
+  #startExercise {
+    margin: 0;
+  }
+  
+  #credits {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 12px;
+    z-index: 0;
+    padding: 0 var(--spacing-md);
+  }
+  
+  #credits a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media (max-width: 480px) {
+    :root {
+      --container-width: 95%;
+    }
+    
+    .app {
+      padding: var(--spacing-sm);
+    }
+    
+    button, select {
+      padding: 8px 15px;
+      font-size: 14px;
+    }
+    
+    #app-controls, #exercise-controls {
+      gap: 5px;
+    }
+    
+    .emoji {
+      font-size: 16px;
+      padding: 6px;
+    }
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: more) {
+    :root {
+      --primary-color: #0056b3;
+      --text-color: #000;
+      --background-color: #fff;
+      --border-color: #000;
+    }
+    
+    button, select {
+      border: 2px solid black;
+    }
+  }
+  
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    circle {
+      transition: r 0.5s linear;
+    }
+    
+    button, select {
+      transition: none;
+    }
+  }

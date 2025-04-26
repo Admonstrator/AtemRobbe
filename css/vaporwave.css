@@ -1,81 +1,115 @@
-@import url('styles.css'); /* Imports the base styles */
+/* Vaporwave Theme for AtemRobbe */
+@import url('styles.css');
+
 @font-face {
-    font-family: 'Anta';
-    src: url('../fonts/Anta-Regular.ttf') format('truetype');
+  font-family: 'Anta';
+  src: url('../fonts/Anta-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  /* Override color variables */
+  --primary-color: #ff00ff;
+  --primary-dark: #ff77ff;
+  --text-color: #000000;
+  --text-secondary: #000000;
+  --text-muted: #ffffff;
+  --background-color: rgba(255, 255, 255, 0.1);
+  --background-light: linear-gradient(to right, #ff77e9, #7a77ff);
+  --shadow-color: rgba(255, 0, 255, 0.2);
+  --border-color: rgba(255, 255, 255, 0.3);
+  
+  /* Theme-specific variables */
+  --vaporwave-glow: 0 0 10px #ff00ff;
+  --vaporwave-text-shadow: 2px 2px #ff00ff;
+  --vaporwave-blur: blur(10px);
 }
 
 body {
-    background: linear-gradient(to right, #ff77e9, #7a77ff); /* Dreamy gradient background */
-    color: #ffffff;
-    font-size: 16px;
-    background-image: url('../images/bg_vaporwave.webp');
-    background-size: cover;
-    background-position: center;
-    font-family: 'Anta';
+  background: var(--background-light);
+  color: #ffffff;
+  background-image: url('../images/bg_vaporwave.webp');
+  font-family: 'Anta', sans-serif;
 }
 
 .app {
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white for a modern touch */
-    backdrop-filter: blur(10px); /* Blurred background for depth */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Light reflective border */
-    z-index: 1;
+  background-color: var(--background-color);
+  backdrop-filter: var(--vaporwave-blur);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--vaporwave-glow);
 }
 
 h1 {
-    color: #000000; /* High contrast title */
-    text-shadow: 2px 2px #ff00ff; /* Neon-like shadow */
+  color: var(--text-color);
+  text-shadow: var(--vaporwave-text-shadow);
 }
 
-
 .stage {
-    color: #000000; /* Bright white for clear visibility */
-    text-shadow: 1px 1px #00ffff; /* Cyan shadow for a glitch effect */
+  color: var(--text-color);
+  text-shadow: 1px 1px #00ffff;
 }
 
 .total-time {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 #breathingCircle {
-    fill: #ff00ff; /* Neon magenta for circles */
-    stroke: #7a77ff; /* White stroke for contrast */
+  fill: var(--primary-color);
+  stroke: #7a77ff;
 }
 
 #text {
-    color: #000000;
-    text-shadow: 1px 1px #ff00ff; /* Neon-like shadow */
+  color: var(--text-color);
+  text-shadow: 1px 1px var(--primary-color);
 }
 
-button, select {
-    background-color: #ff00ff; /* Neon magenta for buttons */
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-    box-shadow: 0 0 10px #ff00ff; /* Glowing effect */
+button, 
+select {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--vaporwave-glow);
 }
 
-button:hover, button:focus {
-    background-color: #ff77ff; /* Lighter magenta on hover */
+button:hover, 
+button:focus {
+  background-color: var(--primary-dark);
 }
 
 select {
-    background-color: #7a77ff; /* Light blue, common in vaporwave palettes */
-    color: #ffffff;
+  background-color: #7a77ff;
+  color: #ffffff;
+  background-image: linear-gradient(45deg, transparent 50%, #ffffff 50%),
+                    linear-gradient(135deg, #ffffff 50%, transparent 50%);
 }
 
 #credits {
-    position: fixed; /* Fixed position keeps it at the bottom of the viewport */
-    bottom: 10px; /* Distance from the bottom */
-    width: 100%; /* Full width to center the text easily */
-    text-align: center; /* Centers the text horizontally */
-    color: lightgrey; /* Light grey color for the text */
-    font-size: 12px; /* Smaller font size for subtlety */
-    font-family: Arial, sans-serif; /* Optional: Sets the font */
-    color: #000000;
-    text-shadow: 1px 1px #ff00ff; /* Neon-like shadow */
-    z-index: 0; /* Stellt sicher, dass die Credits hinter der App liegen */
-    white-space: normal; /* Stellt sicher, dass der Text bei Bedarf umbricht */
-    word-wrap: break-word; /* Bricht lange Wörter um */
+  color: #000000;
+  text-shadow: 1px 1px var(--primary-color);
+  z-index: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+  
+  .app {
+    backdrop-filter: var(--vaporwave-blur);
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: more) {
+  .app {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: none;
+  }
+  
+  #text, h1, .stage {
+    color: white;
+    text-shadow: none;
+  }
 }

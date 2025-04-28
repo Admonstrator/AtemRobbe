@@ -303,7 +303,7 @@ function setupChangelogLink() {
 // Set up the application on load
 document.addEventListener('DOMContentLoaded', function() {
   // Load saved theme
-  const savedTheme = getPreference('theme', 'css/styles.css');
+  const savedTheme = getPreference('theme', 'css/feenstaub.css');
   document.getElementById('theme-stylesheet').href = savedTheme;
   
   // Add style swatches

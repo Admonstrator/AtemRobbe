@@ -65,6 +65,10 @@ button, select {
     border-radius: 0;
     font-size: 18px;
     box-shadow: 2px 2px 0 #000000;
+    min-width: auto !important; /* Override min-width */
+    width: auto !important; /* Override width */
+    padding: 10px !important; /* Consistent padding */
+    margin: 0 !important; /* Remove margins */
 }
 
 .emoji:hover {
@@ -149,7 +153,10 @@ h1 {
     transform: none !important; /* Prevent hover transform */
     box-shadow: 3px 3px 0 #000000; /* Hard shadow */
     white-space: nowrap; /* Prevent text wrapping */
-    min-width: 160px; /* Ensure button is wide enough */
+    min-width: 180px; /* Ensure button is wide enough */
+    font-size: 14px; /* Smaller font size */
+    width: 100%; /* Use full width available */
+    box-sizing: border-box;
 }
 
 #startExercise:hover,
@@ -168,8 +175,10 @@ select {
     color: #ffffff;
     border: 1px solid #aaffee; /* Cyan border */
     font-family: 'Silkscreen', monospace;
-    width: auto; /* Allow select to size based on content */
+    width: 100%; /* Full width */
     min-width: 160px; /* Ensure minimum width */
+    font-size: 14px; /* Smaller font size */
+    box-sizing: border-box;
 }
 
 /* Make exercise controls match width */
@@ -178,10 +187,23 @@ select {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    margin-bottom: 15px;
 }
 
 #exercise-controls select,
 #exercise-controls button {
     flex: 1;
     min-width: 0; /* Allow flex to control width */
+}
+
+/* Improve app controls spacing */
+#app-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#app-controls button {
+    flex: 1;
 }

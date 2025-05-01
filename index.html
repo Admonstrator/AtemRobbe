@@ -88,7 +88,7 @@
     </div>
     
     <div id="credits">
-        <p>Hilft der 🦭 gegen Panikattacken seit 2024 - <a href="#changelog" class="version-link">Version 2025-05-02-13</a></p>
+        <p>Hilft der 🦭 gegen Panikattacken seit 2024 - <a href="#changelog" class="version-link">Version 2025-05-02-01</a></p>
         <p>Teil der <a href="https://seelen.app">seelen.app - Die kleine Toolbox für Deine mentale Unterstützung</a></p></p>
     </div>
 
@@ -154,13 +154,15 @@
             <h2 id="changelogModalTitle">Changelog - AtemRobbe</h2>
                 <div class="version-accordion">
                     <div class="version-header">
-                        <h3>Version 2025-05-02-13</h3>
-                        <span class="toggle-icon">▶</span>
+                        <h3>Version 2025-05-02-01</h3>
+                        <span class="toggle-icon">▼</span>
                     </div>
-                    <div class="version-content">
+                    <div class="version-content active">
                         <ul>
-                            <li>Theme-übergreifende Verbesserungen und Fehlerbehebungen</li>
-                            <li>Feenstaub-Theme: Wärmere, gemütlichere Farbgebung für den Atemkreis</li>
+                            <li>Verbesserte Benutzeroberfläche mit themespezifischen Modals statt JavaScript-Alerts</li>
+                            <li>Feenstaub-Theme: Optimierte Farbgebung des Atemkreises mit kräftigeren Goldtönen</li>
+                            <li>Feenstaub-Theme: Punktierte Hilfskreise in passenden Goldtönen für ein harmonisches Gesamtbild</li>
+                            <li>Theme-übergreifende Verbesserungen und Fehlerbehebungen für konsistentes Erscheinungsbild</li>
                         </ul>
                     </div>
                 </div>
@@ -194,6 +196,20 @@
             </div>
         </div>
     </div>
+    <!-- Warning modal for exercise selection -->
+    <div id="warningModal" class="modal" aria-labelledby="warningModalTitle" aria-modal="true" role="dialog">
+        <div class="modal-content">
+            <span class="close" aria-label="Schließen">&times;</span>
+            <h2 id="warningModalTitle">Achtung</h2>
+            <div class="warning-content">
+                <p>Bitte wähle erst eine Atemübung aus der Liste aus, bevor Du startest.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="closeWarningModal">Verstanden</button>
+            </div>
+        </div>
+    </div>
+    
     <!-- Scripts -->
     <script src="js/script.js"></script>
 </body>

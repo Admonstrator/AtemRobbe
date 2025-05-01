@@ -186,7 +186,7 @@
   text-shadow: none;
 }
 
-/* Add columns for wider displays */
+/* Add columns for info content only on wider displays */
 @media (min-width: 768px) {
   .info-content {
     column-count: 2;
@@ -198,6 +198,13 @@
     break-inside: avoid;
     margin-top: 0;
   }
+}
+
+/* Warning content should never use columns */
+.warning-content {
+  text-align: left;
+  line-height: 1.6;
+  column-count: 1 !important;
 }
 
 /* Modal link styles */

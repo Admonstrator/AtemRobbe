@@ -130,7 +130,7 @@ function startSelectedMode() {
   const selectedMode = modeSelector.value.split('-').map(Number);
   
   if (selectedMode.length !== 4) {
-    alert('Bitte wähle einen Modus aus!');
+    openModal('warningModal');
     return;
   }
 
@@ -430,6 +430,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add style swatches
   addStyleSwatches();
   setupChangelogLink();
+  
+  // Set up warning modal close button
+  const closeWarningBtn = document.getElementById('closeWarningModal');
+  if (closeWarningBtn) {
+    closeWarningBtn.onclick = function() { closeModal('warningModal'); };
+  }
 
   // Load saved exercise
   const savedExercise = getPreference('exercise', '');

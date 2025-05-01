@@ -63,11 +63,17 @@ h1 {
   color: var(--text-color);
 }
 
-/* Der Breathing Circle im Feenstaub-Stil - mit cozy warmen Farben */
+/* Der Breathing Circle im Feenstaub-Stil - jetzt mit solidem goldenem Sand */
 #breathingCircle {
-  fill: #ffecd1; /* Wärmere, gemütlichere Sand-Farbe */
-  stroke: #d9a679; /* Warm-beige Rahmen beibehalten */
+  fill: #d9a679; /* Goldener Sand ohne Transparenz */
+  stroke: #8b5e3c; /* Dunklerer Rahmen für mehr Kontrast */
   stroke-width: 4;
+}
+
+/* Die punktierten Hilfskreise in Feenstaub-Farben */
+#maxCircle, #minCircle {
+  stroke: #a67c52; /* Harmonisierende braun-goldene Farbe für die Hilfskreise */
+  stroke-width: 2;
 }
 
 button,

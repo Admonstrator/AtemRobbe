@@ -115,19 +115,36 @@ h1 {
     color: #00ff00; /* Bright green, typical of old monitor outputs */
 }
 
-button, select {
+/* Override buttons for authentic C64 style */
+#startExercise,
+#saveDuration,
+#closeInfoModal,
+#closeChangelogModal {
     background-color: #008000; /* Green background */
     color: #ffffff;
     border: 2px outset #ffffff; /* Outset border for a 3D button look */
+    border-radius: 0; /* Square corners */
     cursor: pointer;
+    font-family: 'Silkscreen', monospace;
+    padding: 8px 16px;
+    transform: none !important; /* Prevent hover transform */
+    box-shadow: 3px 3px 0 #000000; /* Hard shadow */
 }
 
-button:hover {
-    background-color: #00ff00; /* Brighter green on hover */
+#startExercise:hover,
+#saveDuration:hover,
+#closeInfoModal:hover,
+#closeChangelogModal:hover {
+    background-color: #00b000; /* Brighter green on hover */
+    box-shadow: 2px 2px 0 #000000; /* Change shadow for press effect */
+    position: relative;
+    top: 1px;
+    left: 1px;
 }
 
 select {
-    background-color: #000; /* Keeping select elements consistent with the dark theme */
+    background-color: #000040; /* Dark blue background */
     color: #ffffff;
-    border: 1px solid #fff; /* White border for visibility */
+    border: 1px solid #aaffee; /* Cyan border */
+    font-family: 'Silkscreen', monospace;
 }

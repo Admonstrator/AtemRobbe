@@ -108,3 +108,45 @@ select {
     background-color: var(--primary-color);
     color: var(--background-light);
 }
+
+/* Ukraine modal styles */
+.modal-content {
+    background-color: var(--surface-color);
+    color: var(--text-secondary);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    margin: -20px -20px 20px -20px;
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--background-light);
+    text-align: center;
+    font-weight: bold;
+}
+
+.info-content {
+    background-color: var(--background-light);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.info-content p {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+#closeInfoModal,
+#saveDuration,
+#closeChangelogModal {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    border: 1px solid var(--background-light);
+    font-weight: bold;
+    padding: 10px 25px;
+}

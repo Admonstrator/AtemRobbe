@@ -161,11 +161,56 @@ select:hover {
   background-color: #3a4d61;
 }
 
-/* Style-specific modal styles */
+/* Style-specific modal styles - dark theme with good readability */
 .modal-content {
-  background-color: var(--modal-content-bg);
-  color: var(--modal-content-color);
-  border-color: var(--modal-border-color);
+  background-color: #12202e; /* Noch dunklerer Hintergrund */
+  color: #e8e8e8; /* Noch hellerer Text für mehr Kontrast */
+  border: 1px solid #495d6e;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(110, 140, 178, 0.3);
+}
+
+.modal-content h2 {
+  color: #ffffff;
+  background-color: #1c2735; /* Dunklerer Blauton für den Titel */
+  margin: -20px -20px 20px -20px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #6e8cb2;
+  text-shadow: 0 0 5px rgba(110, 140, 178, 0.7);
+  font-weight: 600; /* Fetterer Schriftstil */
+}
+
+.info-content p,
+.modal-content p {
+  color: #f0f0f0; /* Sehr heller Text für maximalen Kontrast */
+  text-shadow: none;
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Lesbarere Schrift */
+  line-height: 1.8; /* Noch mehr Zeilenabstand für bessere Lesbarkeit */
+  letter-spacing: 0.2px; /* Leicht erhöhter Buchstabenabstand */
+}
+
+/* Dunkler Hintergrund für Info-Content */
+.info-content {
+  background-color: #0e1822; /* Noch dunklerer Hintergrund für den Inhaltsbereich */
+  padding: 15px;
+  border: 1px solid #2c3e50;
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+#closeInfoModal,
+#saveDuration,
+#closeChangelogModal {
+  background-color: #6e8cb2;
+  color: #ffffff;
+  border: 1px solid #495d6e;
+  box-shadow: 0 0 10px rgba(110, 140, 178, 0.3);
+}
+
+#closeInfoModal:hover,
+#saveDuration:hover,
+#closeChangelogModal:hover {
+  background-color: #566e8c;
+  box-shadow: 0 0 15px rgba(110, 140, 178, 0.5);
 }
 
 /* Changelog accordion gothic styling */
@@ -188,6 +233,12 @@ select:hover {
   background-color: var(--background-color) !important;
   color: var(--text-color) !important;
   border-color: rgba(110, 140, 178, 0.3) !important;
+}
+
+/* Stärkere Farben für Listenelemente im Changelog */
+.version-content li {
+  color: #ffffff;
+  margin-bottom: 8px;
 }
 
 .version-header:hover {

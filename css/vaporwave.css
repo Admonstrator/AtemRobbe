@@ -57,12 +57,16 @@ h1 {
 }
 
 .stage {
-  color: var(--text-color);
-  text-shadow: 1px 1px #00ffff;
+  color: #ffffff; /* Weiß für bessere Lesbarkeit */
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.8); /* Cyan-Glow für den Vaporwave-Look */
+  font-weight: 600; /* Fetter für besseren Kontrast */
+  letter-spacing: 1px; /* Mehr Buchstabenabstand */
 }
 
 .total-time {
   color: #ffffff;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.7);
+  font-weight: 500; /* Leicht fetter für besseren Kontrast */
 }
 
 #breathingCircle {
@@ -71,8 +75,10 @@ h1 {
 }
 
 #text {
-  color: var(--text-color);
-  text-shadow: 1px 1px var(--primary-color);
+  color: #ffffff; /* Weiß für bessere Lesbarkeit */
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8); /* Subtiler Schlagschatten für Kontrast */
+  letter-spacing: 0.5px; /* Bessere Lesbarkeit durch mehr Buchstabenabstand */
+  font-weight: 500; /* Etwas kräftigere Schrift */
 }
 
 button, 
@@ -136,6 +142,47 @@ select {
   color: #000000;
   text-shadow: 1px 1px var(--primary-color);
   z-index: 0;
+}
+
+/* Vaporwave modal styles with improved readability */
+.modal-content {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+.modal-content h2 {
+  background: linear-gradient(135deg, #ff00ff 0%, #00ffff 100%);
+  color: #ffffff;
+  margin: -20px -20px 20px -20px;
+  padding: 10px 20px;
+  text-shadow: 2px 2px #000000;
+  border-bottom: 1px solid #ffffff;
+}
+
+.info-content p,
+.modal-content p {
+  color: #000000;
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* More readable font */
+  text-shadow: none;
+}
+
+#closeInfoModal,
+#saveDuration,
+#closeChangelogModal {
+  background: linear-gradient(135deg, #ff00ff 0%, #7a77ff 100%);
+  color: #ffffff;
+  border: 2px solid #7a77ff;
+  text-shadow: 1px 1px #000000;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+#closeInfoModal:hover,
+#saveDuration:hover,
+#closeChangelogModal:hover {
+  background: linear-gradient(135deg, #ff33ff 0%, #9a97ff 100%);
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
 }
 
 /* Responsive adjustments */

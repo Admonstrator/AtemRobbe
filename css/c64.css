@@ -204,6 +204,38 @@ select {
     gap: 10px;
 }
 
+/* C64 modal overrides for better readability */
+.modal-content {
+    background-color: #ffffff; /* White background */
+    color: #000000; /* Black text */
+    border: 3px solid #0000aa; /* C64 blue border */
+}
+
+.modal-content h2 {
+    background-color: #0000aa; /* C64 blue */
+    color: #ffffff; /* White text */
+    padding: 5px 10px;
+    margin: -20px -20px 20px -20px;
+}
+
+.info-content p,
+.modal-content p {
+    color: #000000; /* Black text */
+    font-family: Arial, sans-serif; /* Use regular font instead of Silkscreen */
+    text-shadow: none;
+}
+
+/* Keep Silkscreen font for buttons only */
+#closeInfoModal,
+#saveDuration,
+#closeChangelogModal {
+    font-family: 'Silkscreen', monospace;
+    background-color: #008000; /* Green */
+    color: #ffffff;
+    border: 2px outset #ffffff;
+    box-shadow: 3px 3px 0 #000000;
+}
+
 #app-controls button {
     flex: 1;
 }

@@ -90,7 +90,7 @@
 
 /* Close button */
 .close {
-  color: var(--modal-close-color);
+  color: #444444; /* Fixed color for better visibility */
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -100,7 +100,7 @@
 
 .close:hover,
 .close:focus {
-  color: var(--modal-close-hover);
+  color: #000000; /* Clear black on hover */
   text-decoration: none;
 }
 
@@ -123,6 +123,24 @@
   margin-top: 20px;
 }
 
+/* Ensure modal buttons are visible and readable */
+#closeInfoModal,
+#saveDuration,
+#closeChangelogModal {
+  background-color: #0056b3; /* Standard blue */
+  color: white;
+  border: 1px solid #0056b3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+#closeInfoModal:hover,
+#saveDuration:hover,
+#closeChangelogModal:hover {
+  background-color: #004494;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
 /* Modal content paragraphs and headers */
 .modal-content > p,
 .modal-content > h2,
@@ -140,6 +158,25 @@
 .info-content {
   text-align: left;
   line-height: 1.6;
+}
+
+/* Ensure all modal content has good contrast - but allow theme background colors */
+#infoModal .modal-content,
+#durationModal .modal-content,
+#changelogModal .modal-content {
+  color: inherit; /* Übernimmt Textfarbe vom Theme */
+  /* Kein Hintergrund hier, damit Themes ihre eigenen nutzen können */
+}
+
+/* Ensure modal headings are always readable - but allow theme colors */
+.modal-content h2 {
+  color: inherit; /* Übernimmt Textfarbe vom Theme */
+}
+
+/* Ensure info content is high contrast - but allow theme colors */
+.info-content p {
+  color: inherit; /* Übernimmt Textfarbe vom Theme */
+  text-shadow: none;
 }
 
 /* Add columns for wider displays */

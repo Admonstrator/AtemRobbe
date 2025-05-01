@@ -1,0 +1,295 @@
+/* 
+ * AtemRobbe - Theme-Definitionen
+ * Alle Theme-Stile sind hier mit Datenattributen definiert
+ */
+
+/* Standard-Theme */
+:root {
+  /* Farbpalette - Basis */
+  --primary-color: #007aff;
+  --primary-dark: #005ecb;
+  --text-color: #333;
+  --text-secondary: #666;
+  --text-muted: #999;
+  --background-color: white;
+  --background-light: #fafafa;
+  --shadow-color: rgba(0,0,0,0.1);
+  --border-color: #007aff;
+  
+  /* Hintergrundbild */
+  --bg-image: url('../images/bg_default.webp');
+  
+  /* Komponenten-spezifische Variablen */
+  --button-bg: var(--primary-color);
+  --button-text: white;
+  --button-hover-bg: var(--primary-dark);
+  --button-hover-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  
+  /* Atemkreis-Variablen */
+  --circle-fill: #B3E5FC;
+  --circle-stroke: #03A9F4;
+  --guide-circle-stroke: #0086bf;
+  
+  /* Komponenten-übergreifende Variablen */
+  --container-shadow: 0 10px 30px var(--shadow-color);
+  --container-border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  /* Nachtmodus-Button */
+  --night-button-bg: var(--primary-color);
+  --night-button-color: white;
+  --night-button-border: none;
+  --night-button-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Gothic Theme */
+body[data-theme="gothic"] {
+  /* Farbpalette */
+  --primary-color: #6e8cb2; /* Mondlicht-Blau */
+  --primary-dark: #2c3e50; /* Dunkleres Blau */
+  --text-color: #d8d8d8; /* Helles Grau */
+  --text-secondary: #a6b1c0; /* Helleres Blau-Grau */
+  --text-muted: #7f8c8d; /* Gedämpftes Grau */
+  --background-color: rgba(20, 31, 44, 0.85); /* Dunkles Blau mit Transparenz */
+  --background-light: #1c2735; /* Dunkles Blau */
+  --shadow-color: rgba(0, 0, 0, 0.3); /* Dunklerer Schatten */
+  --border-color: #495d6e; /* Dunklerer Rand */
+  
+  /* Hintergrundbild */
+  --bg-image: url('../images/bg_gothic.webp');
+  
+  /* Komponenten-spezifische Variablen */
+  --button-bg: var(--primary-dark);
+  --button-text: var(--text-color);
+  --button-hover-bg: #3a4d61;
+  --button-hover-shadow: 0 0 10px rgba(160, 180, 255, 0.5);
+  
+  /* Atemkreis-Variablen */
+  --circle-fill: #e4eef9; /* Mondfarbe */
+  --circle-stroke: #d0d9e8; /* Mondrand */
+  --guide-circle-stroke: rgba(160, 180, 255, 0.3);
+  
+  /* Komponenten-übergreifende Variablen */
+  --container-shadow: 0 4px 15px var(--shadow-color), 0 0 15px rgba(180, 200, 255, 0.3);
+  --container-border: 1px solid rgba(110, 140, 178, 0.3);
+  
+  /* Nachtmodus-Button */
+  --night-button-bg: #2c3e50;
+  --night-button-color: #d8d8d8;
+  --night-button-border: 1px solid #495d6e;
+  --night-button-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  
+  /* Modal-Variablen */
+  --modal-content-bg: rgba(20, 31, 44, 0.95);
+  --modal-content-color: #d8d8d8;
+  --modal-border-color: #495d6e;
+}
+
+/* Ukraine Theme */
+body[data-theme="ukraine"] {
+  /* Farbpalette */
+  --primary-color: #0057B7; /* Blau der ukrainischen Flagge */
+  --primary-dark: #003C9D; /* Dunkleres Blau */
+  --text-color: #FFD700; /* Gelb der ukrainischen Flagge */
+  --text-secondary: #FFD700; 
+  --background-color: #FFD700; /* Gelber Hintergrund für Kontrast */
+  --background-light: #0066CC;
+  --border-color: #FFD700;
+  
+  /* Hintergrundbild */
+  --bg-image: url('../images/bg_ukraine.webp');
+  
+  /* Komponenten-spezifische Variablen */
+  --button-bg: var(--primary-color);
+  --button-text: var(--text-color);
+  --button-hover-bg: var(--primary-dark);
+  
+  /* Atemkreis-Variablen - Blau auf Gelb */
+  --circle-fill: #B3E5FC;
+  --circle-stroke: #0057B7;
+  --guide-circle-stroke: #0057B7;
+  
+  /* Nachtmodus-Button */
+  --night-button-bg: #0057B7;
+  --night-button-color: #FFD700;
+  --night-button-border: 2px solid #FFD700;
+  --night-button-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* C64 Theme */
+body[data-theme="c64"] {
+  /* Farbpalette */
+  --primary-color: #000080; /* C64 Blau */
+  --primary-dark: #000070;
+  --text-color: #AAF;
+  --text-secondary: #AAF;
+  --background-color: #000080;
+  --background-light: #000090;
+  --border-color: #AAF;
+  
+  /* Hintergrundbild */
+  --bg-image: url('../images/bg_c64.webp');
+  
+  /* Atemkreis-Variablen */
+  --circle-fill: #AAF;
+  --circle-stroke: #8888FF;
+}
+
+/* 90s Theme */
+body[data-theme="90s"] {
+  /* Farbpalette */
+  --primary-color: #008080; /* 90er Türkis */
+  --primary-dark: #006666;
+  --text-color: #FFFF00; /* Neon Gelb */
+  --text-secondary: #FF00FF; /* Neon Pink */
+  --background-color: #008080;
+  --background-light: #009999;
+  --border-color: #FFFF00;
+  
+  /* Hintergrundbild */
+  --bg-image: url('../images/bg_90s.webp');
+}
+
+/* Feenstaub Theme */
+body[data-theme="feenstaub"] {
+  /* Farbpalette */
+  --primary-color: #d9a679; /* Warmes Gold/Braun */
+  --primary-dark: #c08b5f;
+  --text-color: #6e5a4c; /* Warmes Braun */
+  --text-secondary: #8a6f5d;
+  --background-color: rgba(255, 245, 230, 0.7); /* Durchscheinendes Beige */
+  --background-light: #fff5e6;
+  --shadow-color: rgba(110, 90, 76, 0.2);
+  --border-color: #d9a679;
+  
+  /* Hintergrundbild */
+  --bg-image: url('../images/bg_feenstaub.webp');
+}
+
+/* Vaporwave Theme */
+body[data-theme="vaporwave"] {
+  /* Farbpalette */
+  --primary-color: #7a77ff; /* Vaporwave Lila */
+  --primary-dark: #5e5cd1;
+  --text-color: #ff77e9; /* Vaporwave Rosa */
+  --text-secondary: #7a77ff; /* Vaporwave Lila */
+  --background-color: #24123a; /* Dunkles Lila */
+  --background-light: #312152;
+  --border-color: #ff77e9;
+  
+  /* Hintergrundbild */
+  --bg-image: url('../images/bg_vaporwave.webp');
+  
+  /* Spezielle Vaporwave-Effekte */
+  --container-shadow: 0 10px 30px var(--shadow-color), 0 0 15px #ff77e9;
+}
+
+/* Spezielle Theme-Überschreibungen */
+
+/* In Ukraine-Theme: Stellen Sicher, dass bestimmte Elemente blaue Farbe haben */
+body[data-theme="ukraine"] .app h1,
+body[data-theme="ukraine"] .app .timer-circle,
+body[data-theme="ukraine"] .app .stage,
+body[data-theme="ukraine"] .app .total-time,
+body[data-theme="ukraine"] .app #text,
+body[data-theme="ukraine"] .app #text > p {
+  color: #0057B7;
+}
+
+/* In Ukraine-Theme: Zentrieren der Buttons */
+body[data-theme="ukraine"] #exercise-controls,
+body[data-theme="ukraine"] #app-controls {
+  justify-content: center;
+}
+
+/* Gothic-Theme: Spezieller Mond-Krater-Effekt */
+body[data-theme="gothic"] .timer-circle {
+  position: relative;
+}
+
+body[data-theme="gothic"] .timer-circle::before {
+  content: '';
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle at 60% 40%,
+    rgba(228, 238, 249, 0.1) 10%,
+    rgba(200, 215, 235, 0.2) 20%,
+    rgba(228, 238, 249, 0) 35%
+  ), 
+  radial-gradient(
+    circle at 40% 60%,
+    rgba(228, 238, 249, 0) 30%,
+    rgba(200, 215, 235, 0.1) 40%,
+    rgba(228, 238, 249, 0) 50%
+  ),
+  radial-gradient(
+    circle at 20% 30%,
+    rgba(200, 215, 235, 0.2) 5%,
+    rgba(228, 238, 249, 0) 20%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5;
+  mix-blend-mode: overlay;
+}
+
+/* Gothic-Theme: Mondlicht-Glow für Überschriften */
+body[data-theme="gothic"] h1 {
+  text-shadow: 0 0 5px rgba(110, 140, 178, 0.7);
+}
+
+/* Gothic-Theme: Mondumlaufbahnen für Guide-Kreise */
+body[data-theme="gothic"] #maxCircle, 
+body[data-theme="gothic"] #minCircle {
+  stroke-dasharray: 3,5;
+  stroke-width: 1;
+  filter: drop-shadow(0 0 2px rgba(160, 180, 255, 0.3));
+}
+
+/* Gothic-Theme: Spezielle Credits-Farbe */
+body[data-theme="gothic"] #credits {
+  color: var(--primary-color);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Night Mode Button - Basis-Styling mit Variablen */
+.night-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--night-button-bg);
+  color: var(--night-button-color);
+  border: var(--night-button-border);
+  box-shadow: var(--night-button-shadow);
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+/* Responsive Anpassungen für alle Themes */
+@media (max-width: 480px) {
+  .night-mode-toggle {
+    top: calc(20px + env(safe-area-inset-top, 0px));
+    right: calc(10px + env(safe-area-inset-right, 0px));
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  body[data-theme="gothic"] .timer-circle::before {
+    width: 100px;
+    height: 100px;
+  }
+}

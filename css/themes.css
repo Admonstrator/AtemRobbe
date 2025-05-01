@@ -1,0 +1,205 @@
+/**
+ * AtemRobbe - Themes
+ * Designvarianten für die Anwendung mit data-theme Attributen
+ */
+
+/* Standard Design (Default) */
+body[data-theme="default"] {
+  --primary-color: #007aff;
+  --primary-dark: #0062cc;
+  --secondary-color: #6c757d;
+  --background-color: #ffffff;
+  --surface-color: rgba(255, 255, 255, 0.85);
+  --text-color: #333333;
+  --border-color: #dddddd;
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --button-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  --glass-background: rgba(255, 255, 255, 0.25);
+  --glass-blur: 10px;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+  
+  /* Hintergrundbild */
+  background-image: url('../images/bg_default.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* C64 Theme */
+body[data-theme="c64"] {
+  /* Farbpalette */
+  --primary-color: #7b68ee; /* Blau */
+  --primary-dark: #000080; /* Dunkleres Blau */
+  --secondary-color: #4040a1;
+  --background-color: #0000aa;
+  --surface-color: rgba(0, 0, 170, 0.8);
+  --text-color: #70dbff;
+  --border-color: #70a4b2;
+  --success-color: #4eb22f;
+  --error-color: #cc0000;
+  
+  /* Schatten und Effekte */
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --button-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+  --glass-background: rgba(0, 0, 170, 0.7);
+  --glass-blur: 5px;
+  --glass-border: 1px solid rgba(112, 219, 255, 0.3);
+  
+  /* Typografie */
+  --font-family: 'Silkscreen', monospace;
+  
+  /* Hintergrundbild */
+  background-image: url('../images/bg_c64.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Ukraine Theme */
+body[data-theme="ukraine"] {
+  /* Farbpalette */
+  --primary-color: #0057B7; /* Blau der ukrainischen Flagge */
+  --primary-dark: #003C9D; /* Dunkleres Blau */
+  --secondary-color: #3071C8;
+  --background-color: #0057B7;
+  --surface-color: rgba(0, 87, 183, 0.8);
+  --text-color: #FFD700; /* Gelb der ukrainischen Flagge */
+  --border-color: #FFD700;
+  --success-color: #4CC14E;
+  --error-color: #FF6B6B;
+  
+  /* Schatten und Effekte */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --button-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  --glass-background: rgba(0, 87, 183, 0.5);
+  --glass-blur: 8px;
+  --glass-border: 1px solid rgba(255, 215, 0, 0.3);
+  
+  /* Hintergrundbild */
+  background-image: url('../images/bg_ukraine.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Vaporwave Theme */
+body[data-theme="vaporwave"] {
+  /* Farbpalette */
+  --primary-color: #ff80bf; /* Pinkes Neonrosa */
+  --primary-dark: #ec5bb3; /* Dunkleres Pink */
+  --secondary-color: #7a77ff; /* Neonviolett */
+  --background-color: #241734;
+  --surface-color: rgba(36, 23, 52, 0.8);
+  --text-color: #f1e5ff;
+  --border-color: #45bde9;
+  --success-color: #11e980;
+  --error-color: #ff5b8f;
+  
+  /* Schatten und Effekte */
+  --box-shadow: 0 0 20px rgba(162, 0, 255, 0.4);
+  --button-shadow: 0 0 15px rgba(255, 128, 191, 0.6);
+  --glass-background: rgba(36, 23, 52, 0.6);
+  --glass-blur: 15px;
+  --glass-border: 1px solid rgba(231, 95, 254, 0.4);
+  
+  /* Typografie */
+  --font-family: 'SourceCodePro', monospace;
+  
+  /* Hintergrundbild */
+  background-image: url('../images/bg_vaporwave.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* 90s Theme */
+body[data-theme="90s"] {
+  /* Farbpalette */
+  --primary-color: #f65c8c; /* Hellpink */
+  --primary-dark: #e42f67; /* Dunkleres Pink */
+  --secondary-color: #55ecd0; /* Türkis */
+  --background-color: #008080; /* Teal */
+  --surface-color: rgba(0, 128, 128, 0.8);
+  --text-color: #f8f8f8;
+  --border-color: #f3a5f9;
+  --success-color: #32cd32;
+  --error-color: #ff4567;
+  
+  /* Schatten und Effekte */
+  --box-shadow: 0 0 0 3px #f65c8c, 0 0 0 6px #55ecd0;
+  --button-shadow: 0 3px 0 #e42f67;
+  --glass-background: rgba(0, 128, 128, 0.7);
+  --glass-blur: 5px;
+  --glass-border: 2px solid #f3a5f9;
+  
+  /* Typografie */
+  --font-family: 'Silkscreen', monospace;
+  
+  /* Hintergrundbild */
+  background-image: url('../images/bg_90s.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Feenstaub Theme */
+body[data-theme="feenstaub"] {
+  /* Farbpalette */
+  --primary-color: #d9a679; /* Goldener Sand */
+  --primary-dark: #a67c58; /* Dunklerer Sand */
+  --secondary-color: #a1887f; /* Holzfarbe */
+  --background-color: #f3e5d8;
+  --surface-color: rgba(243, 229, 216, 0.8);
+  --text-color: #5d4037;
+  --border-color: #bcaaa4;
+  --success-color: #81c784;
+  --error-color: #e57373;
+  
+  /* Schatten und Effekte */
+  --box-shadow: 0 4px 8px rgba(142, 113, 82, 0.3);
+  --button-shadow: 0 2px 4px rgba(142, 113, 82, 0.2);
+  --glass-background: rgba(243, 229, 216, 0.6);
+  --glass-blur: 10px;
+  --glass-border: 1px solid rgba(217, 166, 121, 0.3);
+  
+  /* Typografie */
+  --font-family: 'Anta', sans-serif;
+  
+  /* Hintergrundbild */
+  background-image: url('../images/bg_feenstaub.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Gothic Theme (Dark Mode) */
+body[data-theme="gothic"] {
+  /* Farbpalette */
+  --primary-color: #6e8cb2; /* Mondlicht-Blau */
+  --primary-dark: #2c3e50; /* Dunkleres Blau */
+  --text-color: #d8d8d8; /* Helles Grau */
+  --secondary-color: #515a6a; /* Mittleres Grau */
+  --background-color: #121920; /* Sehr dunkel */
+  --surface-color: rgba(18, 25, 32, 0.85);
+  --border-color: #2c3e50;
+  --success-color: #4a735e;
+  --error-color: #984a4a;
+  
+  /* Schatten und Effekte */
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  --button-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --glass-background: rgba(18, 25, 32, 0.8);
+  --glass-blur: 12px;
+  --glass-border: 1px solid rgba(110, 140, 178, 0.2);
+  
+  /* Typografie */
+  --font-family: 'Anta', sans-serif;
+  
+  /* Hintergrundbild */
+  background-image: url('../images/bg_gothic.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}

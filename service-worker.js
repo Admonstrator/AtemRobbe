@@ -4,11 +4,12 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'atemrobbe-cache-v52';
+const CACHE_NAME = 'atemrobbe-cache-v53';
 const APP_SHELL = [
   './index.html',
   './css/styles.css',
-  './css/base.css',
+  './css/variables.css',
+  './css/themes.css',
   './js/script.js'
 ];
 
@@ -46,23 +47,13 @@ const SOUNDS = [
   './sounds/pause.mp3'
 ];
 
-const THEMES = [
-  './css/90s.css',
-  './css/c64.css',
-  './css/ukraine.css',
-  './css/vaporwave.css',
-  './css/feenstaub.css',
-  './css/gothic.css',
-];
-
 // Combined resources to cache
 const urlsToCache = [
   ...APP_SHELL,
   ...ASSETS,
   ...FONTS,
   ...IMAGES,
-  ...SOUNDS,
-  ...THEMES
+  ...SOUNDS
 ];
 
 /**

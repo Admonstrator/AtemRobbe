@@ -173,7 +173,8 @@ select:hover {
   color: var(--text-color);
 }
 
-.version-content {
+.version-content,
+.version-content.active {
   background-color: var(--background-color);
   color: var(--text-color);
 }

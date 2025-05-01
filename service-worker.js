@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'atemrobbe-cache-v60';
+const CACHE_NAME = 'atemrobbe-cache-v70';
 const APP_SHELL = [
   './index.html',
   './css/styles.css',
@@ -47,14 +47,8 @@ const SOUNDS = [
   './sounds/pause.mp3'
 ];
 
-const THEMES = [
-  './css/90s.css',
-  './css/c64.css',
-  './css/ukraine.css',
-  './css/vaporwave.css',
-  './css/feenstaub.css',
-  './css/gothic.css',
-];
+// Themes are now included in themes.css
+const THEMES = [];
 
 // Combined resources to cache
 const urlsToCache = [

@@ -87,7 +87,7 @@
     </div>
     
     <div id="credits">
-        <p>Hilft der 🦭 gegen Panikattacken seit 2024 - <a href="#changelog" class="version-link">Version 2025-05-02-01</a></p>
+        <p>Hilft der 🦭 gegen Panikattacken seit 2024 - <a href="#changelog" class="version-link">Version 2025-05-02-02</a></p>
     </div>
 
     <!-- Modal for exercise duration -->
@@ -135,13 +135,13 @@
             <span class="close" aria-label="Schließen">&times;</span>
             <h2 id="styleModalTitle">Design auswählen</h2>
             <div class="style-options">
-                <button class="style-button" data-style="css/styles.css">Einfaches Design</button>
-                <button class="style-button" data-style="css/c64.css">C64</button>
-                <button class="style-button" data-style="css/ukraine.css">Ukraine</button>
-                <button class="style-button" data-style="css/vaporwave.css">Vaporwave</button>
-                <button class="style-button" data-style="css/90s.css">90s</button>
-                <button class="style-button" data-style="css/feenstaub.css">Feenstaub</button>
-                <button class="style-button" data-style="css/gothic.css">Gothic</button>
+                <button class="style-button" data-theme="default">Einfaches Design</button>
+                <button class="style-button" data-theme="c64">C64</button>
+                <button class="style-button" data-theme="ukraine">Ukraine</button>
+                <button class="style-button" data-theme="vaporwave">Vaporwave</button>
+                <button class="style-button" data-theme="90s">90s</button>
+                <button class="style-button" data-theme="feenstaub">Feenstaub</button>
+                <button class="style-button" data-theme="gothic">Gothic</button>
             </div>
         </div>
     </div>
@@ -153,10 +153,25 @@
             <div class="changelog-content">
                 <div class="version-accordion">
                     <div class="version-header">
-                        <h3>Version 2025-05-02-01</h3>
+                        <h3>Version 2025-05-02-02</h3>
                         <span class="toggle-icon">▼</span>
                     </div>
                     <div class="version-content active">
+                        <ul>
+                            <li>Entfernung individueller Theme-Dateien für mehr Performance</li>
+                            <li>Optimierung des Theme-Systems mit data-attribute</li>
+                            <li>Reduzierung der Dateigröße und HTTP-Anfragen</li>
+                            <li>Verbesserte Ladezeiten durch konsolidierte CSS-Dateien</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="version-accordion">
+                    <div class="version-header">
+                        <h3>Version 2025-05-02-01</h3>
+                        <span class="toggle-icon">▶</span>
+                    </div>
+                    <div class="version-content">
                         <ul>
                             <li>Komplette Überarbeitung des Theming-Systems</li>
                             <li>Verbesserte Performance durch Verwendung von data-attributes</li>

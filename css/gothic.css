@@ -175,8 +175,9 @@ select:hover {
 
 .version-content,
 .version-content.active {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border-color: rgba(110, 140, 178, 0.3) !important;
 }
 
 .version-header:hover {

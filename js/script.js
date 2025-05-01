@@ -285,20 +285,7 @@ function setDuration() {
   }
 }
 
-function setupChangelogLink() {
-    const versionLink = document.querySelector('.version-link');
-    if (versionLink) {
-      versionLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        openModal('changelogModal');
-      });
-    }
-    
-    const closeBtn = document.getElementById('closeChangelogModal');
-    if (closeBtn) {
-      closeBtn.onclick = function() { closeModal('changelogModal'); };
-    }
-  }
+// Diese Funktion wird weiter unten neu definiert
 
 // Set up the application on load
 document.addEventListener('DOMContentLoaded', function() {
@@ -424,11 +411,7 @@ function setupChangelogLink() {
   });
 }
 
-// Füge dies zum DOM-Ready-Event hinzu
-document.addEventListener('DOMContentLoaded', function() {
-  // Bestehender Code...
-  setupChangelogLink();
-});
+// Bereits im DOM-Ready-Event oben integriert
 
 // Initialize service worker
 if ('serviceWorker' in navigator) {

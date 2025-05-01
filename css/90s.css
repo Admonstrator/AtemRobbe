@@ -30,100 +30,170 @@ body {
     background-image: url('../images/bg_90s.webp');
     background-size: cover;
     background-position: center;
-    font-family: 'Silkscreen', monospace;
+    font-family: 'Arial', sans-serif;
 }
 
-/* 90s specific button styles */
-button, select {
-    padding: 10px 20px;
-    border: 3px solid #f65c8c;
-    border-radius: 8px;
-    background-color: var(--primary-color);
-    color: white;
-    box-shadow: var(--button-shadow);
-    transition: all 0.3s ease-in-out;
-}
-
-/* Smaller padding for exercise controls */
-#exercise-controls button,
-#exercise-controls select {
-    padding: 8px 16px;
-}
-
-/* Emoji buttons */
-.emoji {
-    background-color: #55ecd0;
-    color: black;
-    border: 3px solid #f65c8c;
-}
-
-button:hover, button:focus {
-    background-color: var(--primary-dark);
-    border-color: #55ecd0;
-    box-shadow: 0 4px 0 #e42f67;
-}
-
-/* Style buttons in the 90s theme */
-.style-button {
-    background-color: #008080;
-    color: white;
-    border: 3px solid #f65c8c;
-}
-
-.style-button:hover {
-    background-color: #00a0a0;
-}
-
-.style-button.active {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: #55ecd0;
-}
-
-#text,#totalTime {
-    color: #000000;
-}
-
+/* Windows 95/98 UI styles */
 .app {
     text-align: center;
     padding: 20px;
-    border: 3px outset #ffffff; /* White border with 3D effect */
-    background: lightgray;
+    border: 2px outset #ffffff; /* Classic Windows 3D border */
+    background-color: #c0c0c0; /* Classic Windows grey */
+    box-shadow: 1px 1px 0 #ffffff inset, -1px -1px 0 #707070 inset; /* Inner shadow */
+    border-radius: 0; /* No rounded corners */
 }
 
 h1 {
-    color: darkblue; /* Orange title for contrast */
-    text-shadow: 1px 1px whitesmoke; /* Black shadow for depth */
+    color: #000000; /* Black title text */
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 1px 1px white; /* subtle shadow for that Windows look */
+    background-color: #0000AA; /* Classic Windows blue */
+    color: white;
+    padding: 4px 8px;
+    margin: -20px -20px 20px -20px; /* Extend to edges */
+    border-bottom: 2px solid #ffffff;
 }
 
-.stage {
-    text-shadow: 1px 1px #000000; /* Text shadow for depth */
+#text, #totalTime, .stage {
+    color: #000000; /* Black text */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Enhance the Windows 95 look */
+#breathingCircle {
+    fill: #ffffff;
+    stroke: #000080;
+}
+
+#maxCircle, #minCircle {
+    stroke: #808080;
 }
 
 
-button, select {
-    background-color: #ff4500; /* Orange, popular in 90s interfaces */
-    color: #ffffff;
+/* Windows 95/98 style buttons */
+button {
+    background-color: #c0c0c0; /* Classic Windows grey */
+    color: #000000; /* Black text */
     border: 2px outset #ffffff; /* 3D border effect */
+    border-radius: 0; /* No rounded corners in Windows 95 */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: none; /* No transitions in old Windows */
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    box-shadow: 1px 1px 0 #ffffff inset, -1px -1px 0 #707070 inset;
+    padding: 4px 10px;
+}
+
+/* Special styling for main action buttons */
+#startExercise, 
+#saveDuration,
+#closeInfoModal,
+#closeChangelogModal {
+    background-color: #0000AA; /* Classic Windows blue */
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+/* Emoji buttons in the Windows 95 style toolbar */
+.emoji {
+    background-color: #c0c0c0;
+    color: #000000;
+    border: 2px outset #ffffff;
+    border-radius: 0;
+    box-shadow: 1px 1px 0 #ffffff inset, -1px -1px 0 #707070 inset;
+}
+
+/* Pressed button effect */
+button:active, 
+.emoji:active {
+    border: 2px inset #ffffff;
+    padding: 5px 9px 3px 11px; /* Shift content slightly to create "pressed" effect */
+    box-shadow: 1px 1px 0 #707070 inset, -1px -1px 0 #ffffff inset;
 }
 
 button:hover, button:focus {
-    background-color: #ff6347; /* Tomato red, on hover */
+    background-color: #d0d0d0; /* Slightly lighter grey on hover */
 }
 
+#startExercise:hover, 
+#saveDuration:hover,
+#closeInfoModal:hover,
+#closeChangelogModal:hover {
+    background-color: #0000CC; /* Brighter blue on hover */
+}
+
+/* Windows 95 style select dropdown */
 select {
-    background-color: lightskyblue; /* Bright yellow dropdowns */
+    background-color: #FFFFFF;
     color: #000000;
+    border: 2px inset #c0c0c0;
+    border-radius: 0;
+    padding: 2px 20px 2px 4px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h10L5 5z' fill='%23000'/%3E%3C/svg%3E");
+    background-position: right 5px center;
+    background-repeat: no-repeat;
 }
 
+/* Style buttons for the theme selector */
+.style-button {
+    text-align: left;
+    background-color: #c0c0c0;
+    color: #000000;
+    border: 2px outset #ffffff;
+    border-radius: 0;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 1px 1px 0 #ffffff inset, -1px -1px 0 #707070 inset;
+}
+
+.style-button:hover {
+    background-color: #d0d0d0;
+}
+
+.style-button.active {
+    background-color: #0000AA;
+    color: #FFFFFF;
+    border: 2px inset #ffffff;
+    box-shadow: 1px 1px 0 #707070 inset, -1px -1px 0 #ffffff inset;
+}
+
+/* App Control panel styling */
+#exercise-controls, #app-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 2px inset #ffffff;
+    background-color: #c0c0c0;
+}
+
+/* Make the emoji buttons look like Windows toolbar buttons */
+#app-controls {
+    padding: 4px;
+    background-color: #c0c0c0;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+}
+
+/* Credits styling */
 #credits {
-    position: fixed; /* Fixed position keeps it at the bottom of the viewport */
-    bottom: 10px; /* Distance from the bottom */
-    width: 100%; /* Full width to center the text easily */
-    text-align: center; /* Centers the text horizontally */
-    color: black !important; /* Light grey color for the text */
-    font-size: 12px; /* Smaller font size for subtlety */
-    font-family: Arial, sans-serif; /* Optional: Sets the font */
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: black !important;
+    font-size: 12px;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 1px 1px white;
+    background-color: #c0c0c0;
+    padding: 3px 0;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #ffffff;
 }

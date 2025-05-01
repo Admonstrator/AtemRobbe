@@ -421,8 +421,9 @@ document.addEventListener('DOMContentLoaded', function() {
   setupModalListeners();
   
   // Highlight active style button
+  const currentTheme = getPreference('theme', 'css/feenstaub.css');
   document.querySelectorAll('.style-button').forEach(button => {
-    if (button.dataset.style === savedTheme) {
+    if (button.dataset.style === currentTheme) {
       button.classList.add('active');
     }
     

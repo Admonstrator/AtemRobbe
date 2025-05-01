@@ -43,14 +43,33 @@ h1, .timer-circle, .stage, .total-time, #text, #text > p {
 }
 
 button, select {
+    padding: 10px 20px;
+    border: 1px solid var(--primary-color);
     border-radius: var(--border-radius);
     background-color: var(--primary-color); /* Blue buttons */
     color: var(--background-light); /* Yellow text */
+    box-shadow: var(--button-shadow);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Smaller padding for exercise controls */
+#exercise-controls button,
+#exercise-controls select {
+    padding: 8px 16px;
+}
+
+/* Emoji buttons */
+.emoji {
+    background-color: var(--background-light);
+    color: var(--primary-color);
     border: 1px solid var(--primary-color);
 }
 
 button:hover, button:focus {
     background-color: var(--primary-dark);
+    border-color: var(--background-light);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
 }
 
 select {

@@ -39,6 +39,53 @@ body {
     font-family: 'Silkscreen', monospace;
 }
 
+/* C64 specific button styles */
+button, select {
+    padding: 10px 20px;
+    border: 1px solid var(--text-color);
+    border-radius: 4px;
+    background-color: var(--primary-dark);
+    color: var(--text-color);
+    box-shadow: var(--button-shadow);
+    transition: all 0.3s ease-in-out;
+    font-family: 'Silkscreen', monospace;
+}
+
+/* Smaller padding for exercise controls */
+#exercise-controls button,
+#exercise-controls select {
+    padding: 8px 16px;
+}
+
+/* Emoji buttons */
+.emoji {
+    background-color: var(--primary-dark);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+}
+
+button:hover, button:focus {
+    background-color: var(--primary-color);
+    border-color: white;
+}
+
+/* Style buttons in the C64 theme */
+.style-button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+}
+
+.style-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.style-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: white;
+}
+
 
 .app {
     text-align: center;

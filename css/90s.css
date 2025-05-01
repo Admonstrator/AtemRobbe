@@ -33,6 +33,53 @@ body {
     font-family: 'Silkscreen', monospace;
 }
 
+/* 90s specific button styles */
+button, select {
+    padding: 10px 20px;
+    border: 3px solid #f65c8c;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: var(--button-shadow);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Smaller padding for exercise controls */
+#exercise-controls button,
+#exercise-controls select {
+    padding: 8px 16px;
+}
+
+/* Emoji buttons */
+.emoji {
+    background-color: #55ecd0;
+    color: black;
+    border: 3px solid #f65c8c;
+}
+
+button:hover, button:focus {
+    background-color: var(--primary-dark);
+    border-color: #55ecd0;
+    box-shadow: 0 4px 0 #e42f67;
+}
+
+/* Style buttons in the 90s theme */
+.style-button {
+    background-color: #008080;
+    color: white;
+    border: 3px solid #f65c8c;
+}
+
+.style-button:hover {
+    background-color: #00a0a0;
+}
+
+.style-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: #55ecd0;
+}
+
 #text,#totalTime {
     color: #000000;
 }

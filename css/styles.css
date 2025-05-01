@@ -316,7 +316,20 @@
     box-sizing: border-box;
     margin: 0;
     font-weight: 500;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--button-shadow);
+  }
+  
+  /* Smaller padding for exercise controls */
+  #exercise-controls button,
+  #exercise-controls select {
+    padding: 8px 16px;
+  }
+  
+  /* Emoji buttons */
+  .emoji {
+    background-color: var(--background-light);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
   }
   
   button:hover, button:focus {

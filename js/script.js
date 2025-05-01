@@ -510,41 +510,50 @@ document.addEventListener('DOMContentLoaded', function() {
 // Initialize service worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('./service-worker.js')
-      .then(function(registration) {
-        registration.onupdatefound = function() {
-          const installingWorker = registration.installing;
-          installingWorker.onstatechange = function() {
-            if (installingWorker.state === 'installed') {
-              if (navigator.serviceWorker.controller) {
-                // New version available notification
-                const updateNotification = document.createElement('div');
-                updateNotification.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#4CAF50;color:white;padding:10px 20px;border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,0.2);z-index:9999;';
-                updateNotification.innerHTML = 'Neue Version verfügbar! Wird geladen... <span id="update-countdown">3</span>';
-                document.body.appendChild(updateNotification);
-                
-                let countdown = 3;
-                const timer = setInterval(function() {
-                  countdown--;
-                  document.getElementById('update-countdown').textContent = countdown;
-                  if (countdown <= 0) {
-                    clearInterval(timer);
-                    // Clear cache and reload page
-                    caches.keys().then(function(names) {
-                      return Promise.all(names.map(function(name) {
-                        return caches.delete(name);
-                      }));
-                    }).then(function() {
-                      location.reload(true);
-                    });
-                  }
-                }, 1000);
+    // Only try to register service worker if we're in a secure context (https or localhost)
+    if (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          registration.onupdatefound = function() {
+            const installingWorker = registration.installing;
+            installingWorker.onstatechange = function() {
+              if (installingWorker.state === 'installed') {
+                if (navigator.serviceWorker.controller) {
+                  // New version available notification
+                  const updateNotification = document.createElement('div');
+                  updateNotification.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#4CAF50;color:white;padding:10px 20px;border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,0.2);z-index:9999;';
+                  updateNotification.innerHTML = 'Neue Version verfügbar! Wird geladen... <span id="update-countdown">3</span>';
+                  document.body.appendChild(updateNotification);
+                  
+                  let countdown = 3;
+                  const timer = setInterval(function() {
+                    countdown--;
+                    document.getElementById('update-countdown').textContent = countdown;
+                    if (countdown <= 0) {
+                      clearInterval(timer);
+                      // Clear cache and reload page
+                      caches.keys().then(function(names) {
+                        return Promise.all(names.map(function(name) {
+                          return caches.delete(name);
+                        }));
+                      }).then(function() {
+                        location.reload(true);
+                      });
+                    }
+                  }, 1000);
+                }
               }
-            }
+            };
           };
-        };
-      }).catch(function(error) {
-        console.error('Service Worker registration failed:', error);
-      });
+        }).catch(function(error) {
+          console.log('ServiceWorker registration failed: ', error);
+          
+          // App still works without service worker
+          console.log('App running without ServiceWorker. For offline functionality, use a web server.');
+        });
+    } else {
+      console.log('ServiceWorker not registered: Running from file:// URL. For full functionality, use a web server.');
+    }
   });
 }

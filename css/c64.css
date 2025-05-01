@@ -59,31 +59,50 @@ button, select {
 
 /* Emoji buttons */
 .emoji {
-    background-color: var(--primary-dark);
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
+    background-color: #000040;
+    color: #70dbff;
+    border: 2px outset #aaffee;
+    border-radius: 0;
+    font-size: 18px;
+    box-shadow: 2px 2px 0 #000000;
 }
 
-button:hover, button:focus {
-    background-color: var(--primary-color);
-    border-color: white;
+.emoji:hover {
+    background-color: #000080;
+    box-shadow: 1px 1px 0 #000000;
+    position: relative;
+    top: 1px;
+    left: 1px;
 }
+
+/* Style buttons mit C64-spezifischem Hover-Effekt */
 
 /* Style buttons in the C64 theme */
 .style-button {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
+    background-color: #000040;
+    color: #70dbff;
+    border: 2px outset #aaffee;
+    border-radius: 0;
+    font-family: 'Silkscreen', monospace;
+    margin: 5px 0;
+    padding: 10px;
+    transition: none;
+    box-shadow: 2px 2px 0 #000000;
 }
 
 .style-button:hover {
-    background-color: var(--primary-dark);
+    background-color: #000080;
+    box-shadow: 1px 1px 0 #000000;
+    position: relative;
+    top: 1px;
+    left: 1px;
 }
 
 .style-button.active {
-    background-color: var(--primary-color);
+    background-color: #008000;
     color: white;
-    border-color: white;
+    border: 2px inset #ffffff;
+    box-shadow: 1px 1px 0 #000000;
 }
 
 
@@ -129,6 +148,8 @@ h1 {
     padding: 8px 16px;
     transform: none !important; /* Prevent hover transform */
     box-shadow: 3px 3px 0 #000000; /* Hard shadow */
+    white-space: nowrap; /* Prevent text wrapping */
+    min-width: 160px; /* Ensure button is wide enough */
 }
 
 #startExercise:hover,
@@ -147,4 +168,20 @@ select {
     color: #ffffff;
     border: 1px solid #aaffee; /* Cyan border */
     font-family: 'Silkscreen', monospace;
+    width: auto; /* Allow select to size based on content */
+    min-width: 160px; /* Ensure minimum width */
+}
+
+/* Make exercise controls match width */
+#exercise-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#exercise-controls select,
+#exercise-controls button {
+    flex: 1;
+    min-width: 0; /* Allow flex to control width */
 }

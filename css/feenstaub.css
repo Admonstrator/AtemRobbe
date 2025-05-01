@@ -1,18 +1,29 @@
-/* Feenstaub Theme for AtemRobbe */
+/* Feenstaub Theme for AtemRobbe - warm, sand-inspired colors */
 @import url('styles.css');
 
 :root {
-  /* Override color variables */
-  --primary-color: #d9a679;
-  --primary-dark: #bf8656;
-  --text-color: #5a3e2b;
-  --text-secondary: #8b5e3c;
-  --text-muted: #a67c52;
-  --background-color: rgba(255, 250, 240, 0.9);
-  --background-light: #f5e6ca;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --border-color: #a67c52;
-  --spacing-lg: 24px;
+  /* Color palette */
+  --primary-color: #d9a679; /* Golden sand */
+  --primary-dark: #bf8656; /* Darker sand */
+  --text-color: #5a3e2b; /* Dark brown */
+  --text-secondary: #8b5e3c; /* Medium brown */
+  --text-muted: #a67c52; /* Light brown */
+  --background-color: #f3e5d8; /* Light sand */
+  --surface-color: rgba(255, 250, 240, 0.9); /* Almost white with transparency */
+  --background-light: #f5e6ca; /* Very light sand */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  --border-color: #a67c52; /* Light brown border */
+  
+  /* Effects */
+  --box-shadow: 0 4px 8px rgba(142, 113, 82, 0.3);
+  --button-shadow: 0 2px 4px rgba(142, 113, 82, 0.2);
+  --glass-blur: 8px;
+  
+  /* Night mode button */
+  --night-button-bg: #d9a679;
+  --night-button-color: white;
+  --night-button-border: none;
+  --night-button-shadow: 0 2px 5px rgba(142, 113, 82, 0.4);
   --spacing-md: 16px;
   
   /* Modal theme variables */

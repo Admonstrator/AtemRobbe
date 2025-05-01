@@ -8,16 +8,28 @@
 }
 
 :root {
-  /* Override color variables */
-  --primary-color: #ff00ff;
-  --primary-dark: #ff77ff;
-  --text-color: #000000;
-  --text-secondary: #000000;
-  --text-muted: #ffffff;
-  --background-color: rgba(255, 255, 255, 0.1);
-  --background-light: linear-gradient(to right, #ff77e9, #7a77ff);
-  --shadow-color: rgba(255, 0, 255, 0.2);
-  --border-color: rgba(255, 255, 255, 0.3);
+  /* Color palette */
+  --primary-color: #ff00ff; /* Vibrant pink */
+  --primary-dark: #cc00cc; /* Darker pink */
+  --text-color: #000022; /* Almost black with blue tint */
+  --text-secondary: #220033; /* Dark purple */
+  --text-muted: #555566; /* Muted blue-gray */
+  --background-color: #241734; /* Dark purple */
+  --surface-color: rgba(36, 23, 52, 0.85); /* Semi-transparent purple */
+  --background-light: #352458; /* Lighter purple */
+  --shadow-color: rgba(255, 0, 255, 0.2); /* Pink shadow */
+  --border-color: #ff77ff; /* Light pink */
+  
+  /* Effects */
+  --box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+  --button-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+  --glass-blur: 12px;
+  
+  /* Night mode button */
+  --night-button-bg: #ff00ff;
+  --night-button-color: #ffffff;
+  --night-button-border: none;
+  --night-button-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
   
   /* Theme-specific variables */
   --vaporwave-glow: 0 0 10px #ff00ff;

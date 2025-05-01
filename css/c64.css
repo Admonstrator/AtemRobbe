@@ -1,17 +1,42 @@
 @import url('styles.css'); /* Imports the base styles */
+
+/* C64 Theme - Inspired by the Commodore 64 home computer */
+:root {
+    /* Color palette - C64 colors */
+    --primary-color: #7b68ee; /* Purple-blue */
+    --primary-dark: #000080; /* Navy blue */
+    --text-color: #70dbff; /* Light blue */
+    --text-secondary: #aaffee; /* Cyan */
+    --text-muted: #8f8fff; /* Lighter blue */
+    --background-color: #0000aa; /* C64 blue */
+    --surface-color: rgba(0, 0, 170, 0.8); /* Semi-transparent blue */
+    --background-light: #4040a1; /* Medium blue */
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --border-color: #7070fa;
+    
+    /* Effects */
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    --button-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+    --glass-blur: 5px;
+    
+    /* Night mode button */
+    --night-button-bg: #0000aa;
+    --night-button-color: #70dbff;
+    --night-button-border: 2px solid #70dbff;
+    --night-button-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 @font-face {
     font-family: 'Silkscreen';
     src: url('../fonts/Silkscreen-Regular.ttf') format('truetype');
+    font-display: swap;
 }
 
-/* c64.css - Commodore 64 inspired retro theme */
 body {
-    background-color: #000; /* Classic C64 blue screen background */
-    color: #fff; /* White text */
     background-image: url('../images/bg_c64.webp');
     background-size: cover;
     background-position: center;
-    font-family: 'Silkscreen';
+    font-family: 'Silkscreen', monospace;
 }
 
 

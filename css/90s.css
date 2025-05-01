@@ -1,15 +1,36 @@
 @import url('styles.css'); /* Imports the base styles */
 
+/* 90s Theme - Inspired by 90s Web Design and Windows 95/98 */
+:root {
+    /* Color palette - 90s inspired */
+    --primary-color: #f65c8c; /* Hot pink */
+    --primary-dark: #e42f67; /* Darker pink */
+    --text-color: #ffffff; /* White text */
+    --text-secondary: #ffff00; /* Yellow */
+    --text-muted: #cccccc; /* Light gray */
+    --background-color: #008080; /* Teal */
+    --surface-color: rgba(0, 128, 128, 0.8); /* Semi-transparent teal */
+    --background-light: #00a0a0; /* Lighter teal */
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --border-color: #f3a5f9; /* Light pink */
+    
+    /* Effects */
+    --box-shadow: 0 0 0 3px #f65c8c, 0 0 0 6px #55ecd0;
+    --button-shadow: 0 3px 0 #e42f67;
+    --glass-blur: 5px;
+    
+    /* Night mode button */
+    --night-button-bg: #f65c8c;
+    --night-button-color: white;
+    --night-button-border: 2px solid white;
+    --night-button-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #008080; /* Teal background, common in 90s software */
-    color: #ffff00; /* Bright yellow text */
     background-image: url('../images/bg_90s.webp');
     background-size: cover;
     background-position: center;
+    font-family: 'Silkscreen', monospace;
 }
 
 #text,#totalTime {

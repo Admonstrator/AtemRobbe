@@ -1,9 +1,38 @@
 /* 
- * Modal styles for AtemRobbe 
- * Enhanced with accessibility and animations
+ * Base styles for AtemRobbe 
+ * Common variables and element definitions used across all themes
  */
 
- :root {
+:root {
+  /* Global variables - used by all themes */
+  
+  /* Common sizing and spacing */
+  --border-radius: 12px;
+  --button-padding: 12px 20px;
+  --container-width: 363px;
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  
+  /* Typography */
+  --font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-small: 14px;
+  --font-size-base: 16px;
+  --font-size-medium: 18px;
+  --font-size-large: 22px;
+  --line-height: 1.5;
+  
+  /* Animation speeds */
+  --transition-speed: 0.3s;
+  --animation-duration: 0.4s;
+  
+  /* Z-index layers */
+  --z-index-app: 1;
+  --z-index-modal: 100;
+  --z-index-night-mode: 999;
+  
+  /* Modal specific variables */
   --modal-background: rgba(0,0,0,0.4);
   --modal-content-bg: #fefefe;
   --modal-content-color: #333;
@@ -11,7 +40,10 @@
   --modal-close-color: #aaa;
   --modal-close-hover: #000;
   --modal-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.19);
-  --animation-duration: 0.4s;
+  
+  /* Night mode button */
+  --night-button-size: 48px;
+  --night-button-size-mobile: 40px;
 }
 
 /* Modal container */

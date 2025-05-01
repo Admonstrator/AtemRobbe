@@ -10,6 +10,12 @@ AtemRobbe is a breathing exercise web application with multiple themes and custo
 - To test locally, open index.html in a browser
 - For production, deploy the entire directory to a web server
 
+## Version Management
+- When making changes, update the cache version in service-worker.js
+- Update the visible version number in index.html (credits section)
+- Add new version entry to the changelog in index.html
+- Follow the versioning format: YYYY-MM-DD-XX (where XX is a sequence number)
+
 ## Code Style Guidelines
 - Use consistent camelCase for JavaScript variables and functions
 - Indentation: 2 spaces

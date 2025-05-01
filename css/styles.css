@@ -191,6 +191,60 @@
     overflow-y: auto;
   }
   
+  /* Changelog styling */
+  .changelog-content {
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius);
+  }
+  
+  .changelog-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .changelog-content::-webkit-scrollbar-track {
+    background: var(--background-light);
+    border-radius: 10px;
+  }
+  
+  .changelog-content::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+  }
+  
+  .version-accordion {
+    margin-bottom: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .version-header {
+    padding: var(--spacing-sm);
+    background-color: var(--background-light);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color var(--transition-speed);
+  }
+  
+  .version-header:hover {
+    background-color: rgba(0, 122, 255, 0.1);
+  }
+  
+  .version-content {
+    padding: var(--spacing-sm);
+    display: none;
+    background-color: white;
+  }
+  
+  .version-content.active {
+    display: block;
+  }
+  
   .close {
     position: absolute;
     top: 15px;
@@ -203,6 +257,12 @@
   .modal h2 {
     margin-bottom: var(--spacing-md);
     color: var(--text-color);
+  }
+  
+  .version-header h3 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
   }
   
   .modal-footer {

@@ -405,6 +405,23 @@ function setupChangelogLink() {
   if (closeBtn) {
     closeBtn.onclick = function() { closeModal('changelogModal'); };
   }
+  
+  // Setup version accordion toggles
+  document.querySelectorAll('.version-header').forEach(header => {
+    header.addEventListener('click', function() {
+      // Toggle active class on the content
+      const content = this.nextElementSibling;
+      content.classList.toggle('active');
+      
+      // Update the toggle icon
+      const icon = this.querySelector('.toggle-icon');
+      if (content.classList.contains('active')) {
+        icon.textContent = '▼';
+      } else {
+        icon.textContent = '▶';
+      }
+    });
+  });
 }
 
 // Füge dies zum DOM-Ready-Event hinzu

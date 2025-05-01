@@ -30,6 +30,15 @@ function switchStylesheet(path) {
       button.classList.remove('active');
     }
   });
+  
+  // Keine speziellen Fixes mehr nötig, da jetzt alle Themes eine definierte Füllfarbe haben
+}
+
+// Diese Funktion wird nicht mehr benötigt, da wir das Problem in CSS gelöst haben
+// Sie bleibt als Fallback bestehen, falls zukünftig ähnliche Probleme auftreten
+function setFeenstaubCircleFill() {
+  // Leere Funktion, da nicht mehr benötigt
+  // Problem wurde durch korrektes CSS in allen Themes gelöst
 }
 
 // Add preview swatches to style buttons
@@ -313,6 +322,8 @@ function setThemeBasedOnNightMode() {
   // Sonst gespeichertes Theme verwenden
   if (!isNightMode) {
     document.getElementById('theme-stylesheet').href = savedTheme;
+    
+    // Kein spezieller Fix mehr nötig
   }
 }
 
@@ -426,6 +437,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const modeSelector = document.getElementById('modeSelector');
     modeSelector.value = savedExercise;
   }
+  
+  // Keine Fixes mehr nötig, da alle Themes jetzt korrekte CSS-Definitionen haben
 
   // Load saved duration
   const savedDuration = getPreference('duration', '10');

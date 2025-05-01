@@ -3,6 +3,13 @@
  * Common variables and element definitions used across all themes
  */
 
+/* Die Breathing-Circle-Klasse im Basis-CSS */
+.breathing-circle {
+  /* SVG Fallbacks für globale Füllfarbe und Rahmen, können von Themes überschrieben werden */
+  stroke-width: 4;
+  transition: r 0.3s ease;
+}
+
 :root {
   /* Global variables - used by all themes */
   

@@ -63,9 +63,11 @@ h1 {
   color: var(--text-color);
 }
 
+/* Der Breathing Circle im Feenstaub-Stil - mit cozy warmen Farben */
 #breathingCircle {
-  fill: #f0e4d4;
-  stroke: #d9a679;
+  fill: #ffecd1; /* Wärmere, gemütlichere Sand-Farbe */
+  stroke: #d9a679; /* Warm-beige Rahmen beibehalten */
+  stroke-width: 4;
 }
 
 button,

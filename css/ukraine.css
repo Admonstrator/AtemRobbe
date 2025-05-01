@@ -42,6 +42,13 @@ h1, .timer-circle, .stage, .total-time, #text, #text > p {
     color: var(--text-secondary); /* Blue text */
 }
 
+/* Ukraine flag breathing circle */
+#breathingCircle {
+    fill: var(--background-light); /* Yellow from Ukrainian flag */
+    stroke: var(--primary-color); /* Blue from Ukrainian flag */
+    stroke-width: 4;
+}
+
 button, select {
     padding: 10px 20px;
     border: 1px solid var(--primary-color);

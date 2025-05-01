@@ -158,6 +158,38 @@ select:hover {
   border-color: var(--modal-border-color);
 }
 
+/* Changelog accordion gothic styling */
+.version-accordion {
+  border: 1px solid rgba(110, 140, 178, 0.3);
+  background-color: var(--background-light);
+}
+
+.version-header {
+  background-color: var(--primary-dark);
+  color: var(--text-color);
+}
+
+.version-header h3 {
+  color: var(--text-color);
+}
+
+.version-content {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.version-header:hover {
+  background-color: #3a4d61;
+}
+
+.changelog-content::-webkit-scrollbar-track {
+  background: var(--background-light);
+}
+
+.changelog-content::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+
 .style-button {
   background-color: var(--primary-dark);
   color: var(--text-color);

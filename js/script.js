@@ -435,11 +435,6 @@ function migrateThemeSystem() {
 
 // Set up the application on load
 document.addEventListener('DOMContentLoaded', function() {
-  // Stelle sicher, dass das initiale Theme gesetzt wird
-  if (!document.body.hasAttribute('data-theme')) {
-    document.body.setAttribute('data-theme', 'feenstaub');
-  }
-  
   // Migration alter Einstellungen
   migrateThemeSystem();
   

@@ -92,3 +92,18 @@ select {
 #app-controls button {
   margin: 0 auto;
 }
+
+/* Night mode toggle styling for Ukraine theme - with !important to override any flex positioning effects */
+.night-mode-toggle {
+  background-color: #0057B7 !important;
+  color: #FFD700 !important;
+  border: 2px solid #FFD700 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  left: auto !important; /* Force right alignment */
+  transform: none !important; /* Override any transforms */
+  margin: 0 !important; /* Reset any margins */
+  z-index: 999 !important; /* Higher z-index to ensure visibility */
+}

@@ -1,44 +1,20 @@
 /* 
- * Basis-Stilregeln für AtemRobbe
- * Enthält grundlegende Reset-Stile und Barrierefreiheits-Hilfen
+ * Modal styles for AtemRobbe 
+ * Enhanced with accessibility and animations
  */
 
-@import url('variables.css');
-
-/* Grundlegendes Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+ :root {
+  --modal-background: rgba(0,0,0,0.4);
+  --modal-content-bg: #fefefe;
+  --modal-content-color: #333;
+  --modal-border-color: #ddd;
+  --modal-close-color: #aaa;
+  --modal-close-hover: #000;
+  --modal-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.19);
+  --animation-duration: 0.4s;
 }
 
-body {
-  margin: 0;
-  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.5;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
-
-/* Barrierefreiheits-Helfer */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Links */
-a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-/* Modale Fenster */
+/* Modal container */
 .modal {
   display: none;
   position: fixed;
@@ -52,7 +28,7 @@ a {
   padding-top: 60px;
 }
 
-/* Modal-Inhalt */
+/* Modal content */
 .modal-content {
   color: var(--modal-content-color);
   background-color: var(--modal-content-bg);
@@ -61,26 +37,26 @@ a {
   border: 1px solid var(--modal-border-color);
   border-radius: 8px;
   width: 90%;
-  max-width: 600px;
+  max-width: 600px; /* Increased from 400px */
   box-shadow: var(--modal-shadow);
   animation-name: animatetop;
   animation-duration: var(--animation-duration);
   position: relative;
 }
 
-/* Spezielle Behandlung für Info-Modal mit mehr Inhalt */
+/* Special treatment for info modal which has more content */
 #infoModal .modal-content {
   max-width: 700px;
-  width: 80%;
+  width: 80%; /* A bit wider percentage on larger screens */
 }
 
-/* Modal-Animationen */
+/* Modal animations */
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
 }
 
-/* Schließen-Button */
+/* Close button */
 .close {
   color: var(--modal-close-color);
   float: right;
@@ -96,7 +72,7 @@ a {
   text-decoration: none;
 }
 
-/* Auswahlfeld im Modal */
+/* Select input in modal */
 #durationSelect {
   display: block;
   width: 100%;
@@ -108,14 +84,14 @@ a {
   border-radius: 4px;
 }
 
-/* Modal-Footer mit Aktionsbuttons */
+/* Modal footer with action buttons */
 .modal-footer {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-/* Modal-Inhalt-Absätze und Überschriften */
+/* Modal content paragraphs and headers */
 .modal-content > p,
 .modal-content > h2,
 .info-content > p {
@@ -128,27 +104,27 @@ a {
   padding-bottom: 10px;
 }
 
-/* Besseres Layout für Inhalte im Info-Modal */
+/* Improve content layout in info modal */
 .info-content {
   text-align: left;
   line-height: 1.6;
 }
 
-/* Spalten für breitere Displays */
+/* Add columns for wider displays */
 @media (min-width: 768px) {
   .info-content {
     column-count: 2;
     column-gap: 30px;
   }
   
-  /* Verhindert, dass Überschriften über Spalten verteilt werden */
+  /* Prevent headings from breaking across columns */
   .info-content p:first-child {
     break-inside: avoid;
     margin-top: 0;
   }
 }
 
-/* Modal-Link-Styles */
+/* Modal link styles */
 .modal-content a {
   color: #007aff;
   text-decoration: none;
@@ -162,7 +138,7 @@ a {
   border-bottom-style: solid;
 }
 
-/* Style-Modal - immer lesbar unabhängig vom Theme */
+/* Style Modal - always readable regardless of theme */
 #styleModal .modal-content {
   background-color: #ffffff;
   color: #333333;
@@ -211,27 +187,31 @@ a {
   color: #777777;
 }
 
-/* Changelog-Styling */
-.changelog-content {
-  max-height: 50vh;
-  overflow-y: auto;
-  padding-right: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-  border-radius: var(--border-radius);
+/* Media queries for responsive modals */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+    margin: 10% auto 5%;
+    padding: 15px;
+  }
+  
+  .modal {
+    padding-top: 30px;
+  }
 }
 
-.changelog-content::-webkit-scrollbar {
-  width: 6px;
+@media (max-width: 768px) {
+  #infoModal .modal-content {
+    width: 95%;
+    max-width: none; /* Full width on small screens */
+  }
 }
 
-.changelog-content::-webkit-scrollbar-track {
-  background: var(--background-light);
-  border-radius: 10px;
-}
-
-.changelog-content::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 10px;
+/* Support for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .modal-content {
+    animation-duration: 0.1s;
+  }
 }
 
 .changelog-content h3 {
@@ -248,69 +228,4 @@ a {
 .changelog-content li {
   text-align: left;
   margin-bottom: 5px;
-}
-
-/* Akkordeon für Changelog */
-.version-accordion {
-  margin-bottom: var(--spacing-sm);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.version-header {
-  padding: var(--spacing-sm);
-  background-color: var(--background-light);
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background-color var(--transition-speed);
-}
-
-.version-header:hover {
-  background-color: rgba(0, 122, 255, 0.1);
-}
-
-.version-content {
-  padding: var(--spacing-sm);
-  display: none;
-  background-color: white;
-}
-
-.version-content.active {
-  display: block;
-}
-
-.version-header h3 {
-  margin: 0;
-  color: var(--text-color);
-  font-size: var(--font-size-base);
-}
-
-/* Media Queries für responsive Modale */
-@media (max-width: 480px) {
-  .modal-content {
-    width: 95%;
-    margin: 10% auto 5%;
-    padding: 15px;
-  }
-  
-  .modal {
-    padding-top: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  #infoModal .modal-content {
-    width: 95%;
-    max-width: none; /* Volle Breite auf kleinen Bildschirmen */
-  }
-}
-
-/* Unterstützung für reduced-motion-Präferenz */
-@media (prefers-reduced-motion: reduce) {
-  .modal-content {
-    animation-duration: 0.1s;
-  }
 }

@@ -19,32 +19,8 @@ function savePreference(key, value) {
 
 // Switch the CSS theme
 function switchStylesheet(path) {
-  // Determine the theme name from the path
-  let themeName = "default";
-  
-  if (path.includes("gothic")) {
-    themeName = "gothic";
-  } else if (path.includes("ukraine")) {
-    themeName = "ukraine";
-  } else if (path.includes("c64")) {
-    themeName = "c64";
-  } else if (path.includes("90s")) {
-    themeName = "90s";
-  } else if (path.includes("feenstaub")) {
-    themeName = "feenstaub";
-  } else if (path.includes("vaporwave")) {
-    themeName = "vaporwave";
-  }
-  
-  // For backward compatibility, still load the theme file
   document.getElementById('theme-stylesheet').href = path;
-  
-  // Set the data-theme attribute on the body
-  document.body.setAttribute('data-theme', themeName);
-  
-  // Save user preference
   savePreference('theme', path);
-  savePreference('themeName', themeName);
   
   // Update active class on style buttons
   document.querySelectorAll('.style-button').forEach(button => {
@@ -327,7 +303,6 @@ function detectNightMode() {
 function setThemeBasedOnNightMode() {
   const isNightMode = detectNightMode();
   const savedTheme = getPreference('theme', 'css/feenstaub.css');
-  const savedThemeName = getPreference('themeName', 'feenstaub');
   
   // Wenn Nachtmodus aktiv ist und nicht bereits Gothic, zu Gothic wechseln
   if (isNightMode && savedTheme !== 'css/gothic.css') {
@@ -338,9 +313,6 @@ function setThemeBasedOnNightMode() {
   // Sonst gespeichertes Theme verwenden
   if (!isNightMode) {
     document.getElementById('theme-stylesheet').href = savedTheme;
-    
-    // Setze auch das data-theme-Attribut
-    document.body.setAttribute('data-theme', savedThemeName);
   }
 }
 
@@ -436,24 +408,6 @@ function setupChangelogLink() {
 
 // Set up the application on load
 document.addEventListener('DOMContentLoaded', function() {
-  // Lade gespeichertes Theme (für Kompatibilität mit dem neuen System)
-  const savedTheme = getPreference('theme', 'css/feenstaub.css');
-  const savedThemeName = getPreference('themeName', '');
-  
-  // Wenn wir ein gespeichertes Theme haben, aber keinen Themennamen, extrahiere ihn aus dem Pfad
-  if (savedTheme && !savedThemeName) {
-    // Extrahiere den Themennamen aus dem Pfad und speichere ihn
-    let themeName = "default";
-    if (savedTheme.includes("gothic")) themeName = "gothic";
-    else if (savedTheme.includes("ukraine")) themeName = "ukraine"; 
-    else if (savedTheme.includes("c64")) themeName = "c64";
-    else if (savedTheme.includes("90s")) themeName = "90s";
-    else if (savedTheme.includes("feenstaub")) themeName = "feenstaub";
-    else if (savedTheme.includes("vaporwave")) themeName = "vaporwave";
-    
-    savePreference('themeName', themeName);
-  }
-  
   // Nachtmodus-Erkennung und -Einstellung
   const isNightMode = detectNightMode();
   setThemeBasedOnNightMode();

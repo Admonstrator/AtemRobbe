@@ -1,49 +1,56 @@
-/* 
- * Gothic Theme für AtemRobbe
- */
+/* Gothic Theme for AtemRobbe */
 
 @import url('styles.css');
 
-/* Aktiviere Gothic-Theme Variablen */
-:root {
-  /* Override Farbvariablen mit Gothic-Themed Farben */
-  --primary-color: #6e8cb2; /* Mondlicht-Blau */
-  --primary-dark: #2c3e50; /* Dunkleres Blau */
-  --text-color: #d8d8d8; /* Helles Grau */
-  --text-secondary: #a6b1c0; /* Helleres Blau-Grau */
-  --text-muted: #7f8c8d; /* Gedämpftes Grau */
-  --background-color: rgba(20, 31, 44, 0.85); /* Dunkles Blau mit Transparenz */
-  --background-light: #1c2735; /* Dunkles Blau */
-  --shadow-color: rgba(0, 0, 0, 0.3); /* Dunklerer Schatten */
-  --border-color: #495d6e; /* Dunklerer Rand */
-  
-  /* Modal Theme Variablen */
-  --modal-content-bg: rgba(20, 31, 44, 0.95);
-  --modal-content-color: #d8d8d8;
-  --modal-border-color: #495d6e;
-  
-  /* Theme-spezifische Variablen */
-  --gothic-accent: #a0a5cc; /* Lila-ähnlicher Akzent */
-  --gothic-glow: 0 0 15px rgba(180, 200, 255, 0.3); /* Subtiles Mondlicht-Leuchten */
-  --gothic-button-shadow: 2px 3px 8px rgba(0, 0, 0, 0.4);
-  
-  /* Mond-Farben */
-  --moon-fill: #e4eef9; /* Leicht bläuliches Weiß */
-  --moon-stroke: #d0d9e8; /* Leicht dunklerer Rand */
-  --moon-glow: 0 0 20px rgba(228, 238, 249, 0.6); /* Ätherisches Mondlicht */
+/* Night mode toggle styling for gothic theme */
+.night-mode-toggle {
+  background-color: #2c3e50;
+  color: #d8d8d8;
+  border: 1px solid #495d6e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Spezielle Gothic Schriftart */
+/* Using a font that would fit gothic aesthetic */
 @font-face {
   font-family: 'Gothic';
   src: url('../fonts/SourceCodePro-Regular.ttf') format('truetype');
   font-display: swap;
 }
 
+:root {
+  /* Override color variables with gothic-themed colors */
+  --primary-color: #6e8cb2; /* moonlight blue */
+  --primary-dark: #2c3e50; /* darker blue */
+  --text-color: #d8d8d8; /* light gray */
+  --text-secondary: #a6b1c0; /* lighter blue-gray */
+  --text-muted: #7f8c8d; /* muted gray */
+  --background-color: rgba(20, 31, 44, 0.85); /* dark blue with transparency */
+  --background-light: #1c2735; /* dark blue */
+  --shadow-color: rgba(0, 0, 0, 0.3); /* darker shadow */
+  --border-color: #495d6e; /* darker border */
+  --spacing-lg: 24px;
+  --spacing-md: 16px;
+  
+  /* Modal theme variables */
+  --modal-content-bg: rgba(20, 31, 44, 0.95);
+  --modal-content-color: #d8d8d8;
+  --modal-border-color: #495d6e;
+  
+  /* Theme-specific variables */
+  --gothic-accent: #a0a5cc; /* purple-ish accent */
+  --gothic-glow: 0 0 15px rgba(180, 200, 255, 0.3); /* subtle moonlight glow */
+  --gothic-button-shadow: 2px 3px 8px rgba(0, 0, 0, 0.4);
+  
+  /* Moon colors */
+  --moon-fill: #e4eef9; /* Light blueish white */
+  --moon-stroke: #d0d9e8; /* Slightly darker edge */
+  --moon-glow: 0 0 20px rgba(228, 238, 249, 0.6); /* Ethereal moon glow */
+}
+
 body {
   background-color: var(--background-light);
   color: var(--text-color);
-  background-image: url('../images/bg_gothic.webp');
+  background-image: url('../images/bg_gothic.webp'); /* You'll need to save the image with this name */
   font-family: 'Gothic', 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -52,24 +59,32 @@ body {
   box-shadow: 0 4px 15px var(--shadow-color), var(--gothic-glow);
   border-radius: 12px;
   padding: var(--spacing-lg);
-  border: 1px solid rgba(110, 140, 178, 0.3); /* subtiler Rand */
+  border: 1px solid rgba(110, 140, 178, 0.3); /* subtle border */
 }
 
 h1 {
   color: var(--text-secondary);
   font-size: 24px;
-  text-shadow: 0 0 5px rgba(110, 140, 178, 0.7); /* Mondlicht-Leuchten */
+  text-shadow: 0 0 5px rgba(110, 140, 178, 0.7); /* moonlight glow */
 }
 
-/* Mond-thematischer Atemkreis */
+.timer-circle,
+.stage,
+.total-time,
+#text,
+#text > p {
+  color: var(--text-color);
+}
+
+/* Moon-themed breathing circle */
 #breathingCircle {
-  fill: var(--moon-fill); /* Mondfarbe */
-  stroke: var(--moon-stroke); /* Mondrand */
-  stroke-width: 2; /* Dünnerer Strich */
-  filter: drop-shadow(var(--moon-glow)); /* Mondlicht-Effekt */
+  fill: var(--moon-fill); /* Moon color */
+  stroke: var(--moon-stroke); /* Moon edge */
+  stroke-width: 2; /* Thinner stroke */
+  filter: drop-shadow(var(--moon-glow)); /* Moon glow effect */
 }
 
-/* Mond-Krater-Effekt mit Verlauf */
+/* Create moon crater effect with a gradient */
 .timer-circle {
   position: relative;
 }
@@ -105,7 +120,7 @@ h1 {
   mix-blend-mode: overlay;
 }
 
-/* Führungskreise wie Mondumlaufbahnen aussehen lassen */
+/* Make guide circles look like moon orbit paths */
 #maxCircle, #minCircle {
   stroke: rgba(160, 180, 255, 0.3);
   stroke-dasharray: 3,5;
@@ -113,7 +128,8 @@ h1 {
   filter: drop-shadow(0 0 2px rgba(160, 180, 255, 0.3));
 }
 
-button, select {
+button,
+select {
   padding: 10px 20px;
   border: 1px solid #495d6e;
   border-radius: 10px;
@@ -130,15 +146,44 @@ button, select {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* Verbessern Sie den Hover-Status für alle Schaltflächen */
-button:hover, select:hover {
+/* Exercise controls spacing fix */
+#exercise-controls button,
+#exercise-controls select {
+  padding: 8px 16px;
+}
+
+/* Improve hover state for all buttons */
+button:hover,
+select:hover {
   border-color: var(--gothic-accent);
   box-shadow: 0 0 10px rgba(160, 180, 255, 0.5);
   background-color: #3a4d61;
 }
 
-/* Changelog-Akkordeon Gothic-Styling */
-.version-content, .version-content.active {
+/* Style-specific modal styles */
+.modal-content {
+  background-color: var(--modal-content-bg);
+  color: var(--modal-content-color);
+  border-color: var(--modal-border-color);
+}
+
+/* Changelog accordion gothic styling */
+.version-accordion {
+  border: 1px solid rgba(110, 140, 178, 0.3);
+  background-color: var(--background-light);
+}
+
+.version-header {
+  background-color: var(--primary-dark);
+  color: var(--text-color);
+}
+
+.version-header h3 {
+  color: var(--text-color);
+}
+
+.version-content,
+.version-content.active {
   background-color: var(--background-color) !important;
   color: var(--text-color) !important;
   border-color: rgba(110, 140, 178, 0.3) !important;
@@ -148,20 +193,36 @@ button:hover, select:hover {
   background-color: #3a4d61;
 }
 
+.changelog-content::-webkit-scrollbar-track {
+  background: var(--background-light);
+}
+
+.changelog-content::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+
+.style-button {
+  background-color: var(--primary-dark);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.style-button:hover {
+  background-color: rgba(110, 140, 178, 0.2);
+}
+
+.style-button.active {
+  background-color: var(--primary-color);
+  color: var(--background-light);
+  border-color: var(--gothic-accent);
+}
+
 #credits {
   color: var(--gothic-accent);
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
-/* Night mode toggle styling for gothic theme */
-.night-mode-toggle {
-  background-color: #2c3e50;
-  color: #d8d8d8;
-  border: 1px solid #495d6e;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* Responsive Anpassungen */
+/* Responsive adjustments */
 @media (max-width: 480px) {
   .app {
     padding: var(--spacing-md);

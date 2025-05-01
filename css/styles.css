@@ -462,3 +462,42 @@
       transition: none;
     }
   }
+  
+  /* Night mode toggle button */
+  .night-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+
+  .night-mode-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+  }
+
+  /* For mobile devices, adjust position to account for safe areas */
+  @media (max-width: 480px) {
+    .night-mode-toggle {
+      top: calc(20px + env(safe-area-inset-top, 0px));
+      right: calc(10px + env(safe-area-inset-right, 0px));
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  }

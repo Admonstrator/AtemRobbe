@@ -1,5 +1,14 @@
 /* Gothic Theme for AtemRobbe */
+
 @import url('styles.css');
+
+/* Night mode toggle styling for gothic theme */
+.night-mode-toggle {
+  background-color: #2c3e50;
+  color: #d8d8d8;
+  border: 1px solid #495d6e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
 
 /* Using a font that would fit gothic aesthetic */
 @font-face {

@@ -287,11 +287,103 @@ function setDuration() {
 
 // Diese Funktion wird weiter unten neu definiert
 
+// Prüft, ob der Benutzer einen Nachtmodus bevorzugt
+function detectNightMode() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedNightMode = getPreference('nightMode', null);
+  
+  // Falls eine gespeicherte Einstellung existiert, diese verwenden
+  if (savedNightMode !== null) {
+    return savedNightMode === 'true';
+  }
+  
+  // Sonst auf Systemeinstellung zurückfallen
+  return prefersDark;
+}
+
+// Setzt das Theme basierend auf Nachtmodus-Einstellung
+function setThemeBasedOnNightMode() {
+  const isNightMode = detectNightMode();
+  const savedTheme = getPreference('theme', 'css/feenstaub.css');
+  
+  // Wenn Nachtmodus aktiv ist und nicht bereits Gothic, zu Gothic wechseln
+  if (isNightMode && savedTheme !== 'css/gothic.css') {
+    switchStylesheet('css/gothic.css');
+    return;
+  }
+  
+  // Sonst gespeichertes Theme verwenden
+  if (!isNightMode) {
+    document.getElementById('theme-stylesheet').href = savedTheme;
+  }
+}
+
+// Nachverfolgung von Änderungen der Systemeinstellung
+function setupNightModeListener() {
+  if (window.matchMedia) {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Moderne Browser: addEventListener
+    if (darkModeMediaQuery.addEventListener) {
+      darkModeMediaQuery.addEventListener('change', function(event) {
+        // Nur automatisch aktualisieren, wenn keine manuelle Einstellung vorhanden
+        if (getPreference('nightMode', null) === null) {
+          setThemeBasedOnNightMode();
+        }
+      });
+    } 
+    // Ältere Browser: addListener
+    else if (darkModeMediaQuery.addListener) {
+      darkModeMediaQuery.addListener(function(event) {
+        // Nur automatisch aktualisieren, wenn keine manuelle Einstellung vorhanden
+        if (getPreference('nightMode', null) === null) {
+          setThemeBasedOnNightMode();
+        }
+      });
+    }
+  }
+}
+
+// Nachtmodus ein- oder ausschalten
+function toggleNightMode() {
+  const currentNightMode = detectNightMode();
+  const newNightMode = !currentNightMode;
+  
+  // Einstellung speichern
+  savePreference('nightMode', newNightMode.toString());
+  
+  // Theme entsprechend setzen
+  if (newNightMode) {
+    switchStylesheet('css/gothic.css');
+  } else {
+    // Zum Standard-Theme zurückwechseln
+    const defaultTheme = 'css/feenstaub.css';
+    switchStylesheet(defaultTheme);
+  }
+  
+  // Button-Anzeige aktualisieren
+  updateNightModeButton(newNightMode);
+}
+
+// Aktualisiert die Anzeige des Nachtmodus-Buttons
+function updateNightModeButton(isNightMode) {
+  const nightModeButton = document.getElementById('buttonNightMode');
+  if (nightModeButton) {
+    nightModeButton.textContent = isNightMode ? '🌙' : '☀️';
+    nightModeButton.setAttribute('title', isNightMode ? 'Nachtmodus ausschalten' : 'Nachtmodus einschalten');
+    nightModeButton.setAttribute('aria-label', isNightMode ? 'Nachtmodus ausschalten' : 'Nachtmodus einschalten');
+  }
+}
+
 // Set up the application on load
 document.addEventListener('DOMContentLoaded', function() {
-  // Load saved theme
-  const savedTheme = getPreference('theme', 'css/feenstaub.css');
-  document.getElementById('theme-stylesheet').href = savedTheme;
+  // Nachtmodus-Erkennung und -Einstellung
+  const isNightMode = detectNightMode();
+  setThemeBasedOnNightMode();
+  setupNightModeListener();
+  
+  // Update night mode button initial state
+  updateNightModeButton(isNightMode);
   
   // Add style swatches
   addStyleSwatches();
@@ -360,6 +452,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const btnStyle = document.getElementById('buttonStyle');
   if (btnStyle) {
     btnStyle.onclick = function() { openModal('styleModal'); };
+  }
+  
+  const btnNightMode = document.getElementById('buttonNightMode');
+  if (btnNightMode) {
+    btnNightMode.onclick = toggleNightMode;
   }
   
   const btnSaveDuration = document.getElementById('saveDuration');

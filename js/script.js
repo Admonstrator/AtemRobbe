@@ -18,16 +18,37 @@ function savePreference(key, value) {
 }
 
 // Switch the CSS theme
-function switchTheme(themeName) {
+function switchStylesheet(path) {
+  // Determine the theme name from the path
+  let themeName = "default";
+  
+  if (path.includes("gothic")) {
+    themeName = "gothic";
+  } else if (path.includes("ukraine")) {
+    themeName = "ukraine";
+  } else if (path.includes("c64")) {
+    themeName = "c64";
+  } else if (path.includes("90s")) {
+    themeName = "90s";
+  } else if (path.includes("feenstaub")) {
+    themeName = "feenstaub";
+  } else if (path.includes("vaporwave")) {
+    themeName = "vaporwave";
+  }
+  
+  // For backward compatibility, still load the theme file
+  document.getElementById('theme-stylesheet').href = path;
+  
   // Set the data-theme attribute on the body
   document.body.setAttribute('data-theme', themeName);
   
   // Save user preference
+  savePreference('theme', path);
   savePreference('themeName', themeName);
   
   // Update active class on style buttons
   document.querySelectorAll('.style-button').forEach(button => {
-    if (button.dataset.theme === themeName) {
+    if (button.dataset.style === path) {
       button.classList.add('active');
     } else {
       button.classList.remove('active');
@@ -46,27 +67,27 @@ function addStyleSwatches() {
     swatch.className = 'style-swatch';
     
     // Set specific colors based on theme
-    switch (button.dataset.theme) {
-      case 'default':
+    switch (button.dataset.style) {
+      case 'css/styles.css':
         swatch.style.backgroundColor = '#007aff';
         break;
-      case 'c64':
+      case 'css/c64.css':
         swatch.style.backgroundColor = '#000080';
         break;
-      case 'ukraine':
+      case 'css/ukraine.css':
         swatch.style.backgroundColor = '#0057B7';
         swatch.style.border = '2px solid #FFD700';
         break;
-      case 'vaporwave':
+      case 'css/vaporwave.css':
         swatch.style.background = 'linear-gradient(to right, #ff77e9, #7a77ff)';
         break;
-      case '90s':
+      case 'css/90s.css':
         swatch.style.backgroundColor = '#008080';
         break;
-      case 'feenstaub':
+      case 'css/feenstaub.css':
         swatch.style.backgroundColor = '#d9a679';
         break;
-      case 'gothic':
+      case 'css/gothic.css':
         swatch.style.backgroundColor = '#2c3e50';
         swatch.style.border = '1px solid #6e8cb2';
         break;
@@ -308,14 +329,17 @@ function setThemeBasedOnNightMode() {
   const savedTheme = getPreference('theme', 'css/feenstaub.css');
   const savedThemeName = getPreference('themeName', 'feenstaub');
   
-  // Wenn Nachtmodus aktiv ist, zu Gothic wechseln
-  if (isNightMode && savedThemeName !== 'gothic') {
-    switchTheme('gothic');
+  // Wenn Nachtmodus aktiv ist und nicht bereits Gothic, zu Gothic wechseln
+  if (isNightMode && savedTheme !== 'css/gothic.css') {
+    switchStylesheet('css/gothic.css');
     return;
   }
   
   // Sonst gespeichertes Theme verwenden
   if (!isNightMode) {
+    document.getElementById('theme-stylesheet').href = savedTheme;
+    
+    // Setze auch das data-theme-Attribut
     document.body.setAttribute('data-theme', savedThemeName);
   }
 }
@@ -356,10 +380,11 @@ function toggleNightMode() {
   
   // Theme entsprechend setzen
   if (newNightMode) {
-    switchTheme('gothic');
+    switchStylesheet('css/gothic.css');
   } else {
     // Zum Standard-Theme zurückwechseln
-    switchTheme('feenstaub');
+    const defaultTheme = 'css/feenstaub.css';
+    switchStylesheet(defaultTheme);
   }
   
   // Button-Anzeige aktualisieren
@@ -411,26 +436,23 @@ function setupChangelogLink() {
 
 // Set up the application on load
 document.addEventListener('DOMContentLoaded', function() {
-  // Migriere von altem Theme-System (CSS-Dateien) zu neuem System (data-theme)
+  // Lade gespeichertes Theme (für Kompatibilität mit dem neuen System)
   const savedTheme = getPreference('theme', 'css/feenstaub.css');
-  let savedThemeName = getPreference('themeName', '');
+  const savedThemeName = getPreference('themeName', '');
   
   // Wenn wir ein gespeichertes Theme haben, aber keinen Themennamen, extrahiere ihn aus dem Pfad
-  if (!savedThemeName) {
+  if (savedTheme && !savedThemeName) {
     // Extrahiere den Themennamen aus dem Pfad und speichere ihn
-    if (savedTheme.includes("gothic")) savedThemeName = "gothic";
-    else if (savedTheme.includes("ukraine")) savedThemeName = "ukraine"; 
-    else if (savedTheme.includes("c64")) savedThemeName = "c64";
-    else if (savedTheme.includes("90s")) savedThemeName = "90s";
-    else if (savedTheme.includes("feenstaub")) savedThemeName = "feenstaub";
-    else if (savedTheme.includes("vaporwave")) savedThemeName = "vaporwave";
-    else savedThemeName = "default";
+    let themeName = "default";
+    if (savedTheme.includes("gothic")) themeName = "gothic";
+    else if (savedTheme.includes("ukraine")) themeName = "ukraine"; 
+    else if (savedTheme.includes("c64")) themeName = "c64";
+    else if (savedTheme.includes("90s")) themeName = "90s";
+    else if (savedTheme.includes("feenstaub")) themeName = "feenstaub";
+    else if (savedTheme.includes("vaporwave")) themeName = "vaporwave";
     
-    savePreference('themeName', savedThemeName);
+    savePreference('themeName', themeName);
   }
-  
-  // Setze das Theme
-  document.body.setAttribute('data-theme', savedThemeName);
   
   // Nachtmodus-Erkennung und -Einstellung
   const isNightMode = detectNightMode();
@@ -475,15 +497,15 @@ document.addEventListener('DOMContentLoaded', function() {
   setupModalListeners();
   
   // Highlight active style button
-  const currentThemeName = getPreference('themeName', 'feenstaub');
+  const currentTheme = getPreference('theme', 'css/feenstaub.css');
   document.querySelectorAll('.style-button').forEach(button => {
-    if (button.dataset.theme === currentThemeName) {
+    if (button.dataset.style === currentTheme) {
       button.classList.add('active');
     }
     
     // Add click event
     button.addEventListener('click', function() {
-      switchTheme(this.dataset.theme);
+      switchStylesheet(this.dataset.style);
       closeModal('styleModal');
     });
   });

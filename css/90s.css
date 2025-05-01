@@ -1,0 +1,61 @@
+@import url('styles.css'); /* Imports the base styles */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #008080; /* Teal background, common in 90s software */
+    color: #ffff00; /* Bright yellow text */
+    background-image: url('../images/bg_90s.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#text,#totalTime {
+    color: #000000;
+}
+
+.app {
+    text-align: center;
+    padding: 20px;
+    border: 3px outset #ffffff; /* White border with 3D effect */
+    background: lightgray;
+}
+
+h1 {
+    color: darkblue; /* Orange title for contrast */
+    text-shadow: 1px 1px whitesmoke; /* Black shadow for depth */
+}
+
+.stage {
+    text-shadow: 1px 1px #000000; /* Text shadow for depth */
+}
+
+
+button, select {
+    background-color: #ff4500; /* Orange, popular in 90s interfaces */
+    color: #ffffff;
+    border: 2px outset #ffffff; /* 3D border effect */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover, button:focus {
+    background-color: #ff6347; /* Tomato red, on hover */
+}
+
+select {
+    background-color: lightskyblue; /* Bright yellow dropdowns */
+    color: #000000;
+}
+
+#credits {
+    position: fixed; /* Fixed position keeps it at the bottom of the viewport */
+    bottom: 10px; /* Distance from the bottom */
+    width: 100%; /* Full width to center the text easily */
+    text-align: center; /* Centers the text horizontally */
+    color: black !important; /* Light grey color for the text */
+    font-size: 12px; /* Smaller font size for subtlety */
+    font-family: Arial, sans-serif; /* Optional: Sets the font */
+}

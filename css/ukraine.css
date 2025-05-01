@@ -1,0 +1,57 @@
+/* 
+ * Ukraine Theme für AtemRobbe
+ */
+
+@import url('styles.css');
+
+/* Aktiviere das Ukraine-Theme */
+:root {
+  --primary-color: #0057B7; /* Blau der ukrainischen Flagge */
+  --primary-dark: #003C9D; /* Dunkleres Blau */
+  --text-color: #FFD700; /* Gelb der ukrainischen Flagge */
+  --text-secondary: #FFD700; 
+  --background-color: #0057B7;
+  --background-light: #0066CC;
+  --border-color: #FFD700;
+}
+
+body {
+  background-image: url('../images/bg_ukraine.webp');
+}
+
+.app {
+  background: #FFD700; /* Gelber Hintergrund für Kontrast */
+}
+
+h1, .timer-circle, .stage, .total-time, #text, #text > p {
+  color: #0057B7; /* Blaue Textfarbe auf gelbem Hintergrund */
+}
+
+/* Select und Buttons anpassen */
+select {
+  background-color: #FFD700;
+  color: #0057B7;
+  background-image: linear-gradient(45deg, transparent 50%, #0057B7 50%),
+                    linear-gradient(135deg, #0057B7 50%, transparent 50%);
+}
+
+/* Buttons in Ukraine theme zentrieren */
+#exercise-controls,
+#app-controls {
+  justify-content: center !important; 
+}
+
+/* Night mode toggle styling für Ukraine-Theme */
+.night-mode-toggle {
+  background-color: #0057B7 !important;
+  color: #FFD700 !important;
+  border: 2px solid #FFD700 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  left: auto !important; /* Force right alignment */
+  transform: none !important; /* Override any transforms */
+  margin: 0 !important; /* Reset any margins */
+  z-index: 999 !important; /* Higher z-index to ensure visibility */
+}

@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'atemrobbe-cache-v40';
+const CACHE_NAME = 'atemrobbe-cache-v50';
 const APP_SHELL = [
   './index.html',
   './css/styles.css',

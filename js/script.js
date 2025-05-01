@@ -285,8 +285,6 @@ function setDuration() {
   }
 }
 
-// Diese Funktion wird weiter unten neu definiert
-
 // Prüft, ob der Benutzer einen Nachtmodus bevorzugt
 function detectNightMode() {
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -375,6 +373,39 @@ function updateNightModeButton(isNightMode) {
   }
 }
 
+// Set up version accordion functionality
+function setupChangelogLink() {
+  const versionLink = document.querySelector('.version-link');
+  if (versionLink) {
+    versionLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal('changelogModal');
+    });
+  }
+  
+  const closeBtn = document.getElementById('closeChangelogModal');
+  if (closeBtn) {
+    closeBtn.onclick = function() { closeModal('changelogModal'); };
+  }
+  
+  // Setup version accordion toggles
+  document.querySelectorAll('.version-header').forEach(header => {
+    header.addEventListener('click', function() {
+      // Toggle active class on the content
+      const content = this.nextElementSibling;
+      content.classList.toggle('active');
+      
+      // Update the toggle icon
+      const icon = this.querySelector('.toggle-icon');
+      if (content.classList.contains('active')) {
+        icon.textContent = '▼';
+      } else {
+        icon.textContent = '▶';
+      }
+    });
+  });
+}
+
 // Set up the application on load
 document.addEventListener('DOMContentLoaded', function() {
   // Nachtmodus-Erkennung und -Einstellung
@@ -389,7 +420,6 @@ document.addEventListener('DOMContentLoaded', function() {
   addStyleSwatches();
   setupChangelogLink();
 
-  
   // Load saved exercise
   const savedExercise = getPreference('exercise', '');
   if (savedExercise) {
@@ -476,40 +506,6 @@ document.addEventListener('DOMContentLoaded', function() {
     startButton.onclick = startSelectedMode;
   }
 });
-
-function setupChangelogLink() {
-  const versionLink = document.querySelector('.version-link');
-  if (versionLink) {
-    versionLink.addEventListener('click', function(e) {
-      e.preventDefault();
-      openModal('changelogModal');
-    });
-  }
-  
-  const closeBtn = document.getElementById('closeChangelogModal');
-  if (closeBtn) {
-    closeBtn.onclick = function() { closeModal('changelogModal'); };
-  }
-  
-  // Setup version accordion toggles
-  document.querySelectorAll('.version-header').forEach(header => {
-    header.addEventListener('click', function() {
-      // Toggle active class on the content
-      const content = this.nextElementSibling;
-      content.classList.toggle('active');
-      
-      // Update the toggle icon
-      const icon = this.querySelector('.toggle-icon');
-      if (content.classList.contains('active')) {
-        icon.textContent = '▼';
-      } else {
-        icon.textContent = '▶';
-      }
-    });
-  });
-}
-
-// Bereits im DOM-Ready-Event oben integriert
 
 // Initialize service worker
 if ('serviceWorker' in navigator) {

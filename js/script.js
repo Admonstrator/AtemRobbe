@@ -86,15 +86,18 @@ function addStyleSwatches() {
 // Toggle sound on/off
 function disableSound() {
   const soundElements = document.querySelectorAll('audio');
-  const soundEnabled = soundElements[0].muted;
+  const currentlyMuted = soundElements[0].muted;
+  
+  // Toggle muted state (if currently muted, unmute and vice versa)
+  const newMutedState = !currentlyMuted;
   
   soundElements.forEach(sound => {
-    sound.muted = !soundEnabled;
+    sound.muted = newMutedState;
   });
   
   const soundButton = document.getElementById('buttonSound');
-  soundButton.textContent = soundEnabled ? '🔊' : '🔇';
-  savePreference('soundEnabled', soundEnabled);
+  soundButton.textContent = newMutedState ? '🔇' : '🔊';
+  savePreference('soundEnabled', !newMutedState);
 }
 
 // Play a sound with error handling
@@ -116,6 +119,10 @@ function stopExercise() {
     cancelAnimationFrame(currentAnimation);
     currentAnimation = null;
   }
+  
+  // Play end sound when manually stopping
+  const endSound = document.getElementById('endSound');
+  playSound(endSound);
   
   // Reset UI
   document.getElementById('breathingCircle').setAttribute('r', 40);
@@ -463,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   const soundButton = document.getElementById('buttonSound');
   if (soundButton) {
-    soundButton.textContent = soundEnabled ? '🔊' : '🔇';
+    soundButton.textContent = !soundEnabled ? '🔇' : '🔊';
   }
   
   // Set up modal event listeners

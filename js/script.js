@@ -76,6 +76,10 @@ function addStyleSwatches() {
         swatch.style.backgroundColor = '#2c3e50';
         swatch.style.border = '1px solid #6e8cb2';
         break;
+      case 'css/kitsune.css':
+        swatch.style.backgroundColor = '#ff8566';
+        swatch.style.border = '1px solid #ffd700';
+        break;
     }
     
     // Insert swatch at the beginning of the button

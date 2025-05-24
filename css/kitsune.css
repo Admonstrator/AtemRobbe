@@ -1,0 +1,176 @@
+/* Kitsune Theme for AtemRobbe - warm, mystical fox-inspired colors */
+@import url('styles.css');
+
+:root {
+  /* Color palette - Kitsune fox spirit with warm tones */
+  --primary-color: #ff8566; /* Soft fox orange */
+  --primary-dark: #e66a4e; /* Darker fox orange */
+  --text-color: #4a2c20; /* Dark brown */
+  --text-secondary: #7a4a38; /* Medium reddish-brown */
+  --text-muted: #9b6b52; /* Light brown */
+  --background-color: #fdf3ed; /* Light warm cream */
+  --surface-color: rgba(255, 248, 242, 0.9); /* Almost white with warm tint */
+  --background-light: #fff5ef; /* Very light peachy cream */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  --border-color: #d4a090; /* Light peachy brown border */
+  
+  /* Effects */
+  --box-shadow: 0 4px 8px rgba(255, 133, 102, 0.2);
+  --button-shadow: 0 2px 4px rgba(255, 133, 102, 0.15);
+  --glass-blur: 8px;
+  
+  /* Night mode button */
+  --night-button-bg: #ff8566;
+  --night-button-color: white;
+  --night-button-border: none;
+  --night-button-shadow: 0 2px 5px rgba(255, 133, 102, 0.4);
+  --spacing-md: 16px;
+  
+  /* Modal theme variables */
+  --modal-content-bg: rgba(255, 248, 242, 0.95);
+  --modal-content-color: #4a2c20;
+  --modal-border-color: #ff8566;
+  
+  /* Theme-specific variables */
+  --kitsune-accent: #ffd700; /* Golden accent for mystical touch */
+  --kitsune-button-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+  --kitsune-glow: 0 0 10px rgba(255, 133, 102, 0.3);
+}
+
+body {
+  background-color: var(--background-light);
+  color: var(--text-color);
+  background-image: url('../images/bg_kitsune.webp');
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.app {
+  background: var(--background-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+}
+
+h1 {
+  color: var(--text-secondary);
+  font-size: 24px;
+}
+
+.timer-circle,
+.stage,
+.total-time,
+#text,
+#text > p {
+  color: var(--text-color);
+}
+
+/* Breathing Circle im Kitsune-Stil - solides warmes Orange */
+#breathingCircle {
+  fill: #ff8566; /* Soft fox orange */
+  stroke: #e66a4e; /* Darker orange border */
+  stroke-width: 4;
+  filter: drop-shadow(0 0 8px rgba(255, 133, 102, 0.4)); /* Subtle fox glow */
+}
+
+/* Die punktierten Hilfskreise in harmonierenden Farben */
+#maxCircle, #minCircle {
+  stroke: #d4a090; /* Harmonizing peachy brown for guide circles */
+  stroke-width: 2;
+}
+
+button,
+select {
+  padding: 10px 20px;
+  border: 1px solid #d4a090;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  box-shadow: var(--kitsune-button-shadow);
+  transition: all 0.3s ease-in-out;
+}
+
+.emoji {
+  background-color: #ffe8e0;
+  color: var(--text-color);
+  border: 1px solid #d4a090;
+  box-shadow: 1px 1px 3px rgba(74, 44, 32, 0.3);
+}
+
+/* Exercise controls spacing fix */
+#exercise-controls button,
+#exercise-controls select {
+  padding: 8px 16px;
+}
+
+/* Improve hover state for all buttons */
+button:hover,
+select:hover {
+  border-color: var(--text-color);
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+  background-color: var(--primary-dark);
+}
+
+/* Style-specific modal styles */
+.modal-content {
+  background-color: var(--modal-content-bg);
+  color: var(--modal-content-color);
+  border: 2px solid var(--modal-border-color);
+  box-shadow: 0 0 20px rgba(255, 133, 102, 0.3);
+}
+
+.modal-content h2 {
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+  padding-bottom: 10px;
+}
+
+.info-content p,
+.modal-content p {
+  color: var(--text-color);
+}
+
+#closeInfoModal,
+#saveDuration,
+#closeChangelogModal {
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid var(--primary-dark);
+}
+
+#closeInfoModal:hover,
+#saveDuration:hover,
+#closeChangelogModal:hover {
+  background-color: var(--primary-dark);
+}
+
+.style-button {
+  background-color: #ffe8e0;
+  color: var(--text-color);
+  border-color: var(--primary-color);
+}
+
+.style-button:hover {
+  background-color: rgba(255, 133, 102, 0.2);
+}
+
+.style-button.active {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 133, 102, 0.5);
+}
+
+#credits {
+  color: var(--primary-dark);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .app {
+    padding: var(--spacing-md);
+  }
+  
+  button, select {
+    padding: 10px 20px;
+  }
+}

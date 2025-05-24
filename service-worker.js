@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'atemrobbe-cache-v71';
+const CACHE_NAME = 'atemrobbe-cache-v72';
 const APP_SHELL = [
   './index.html',
   './css/styles.css',
@@ -36,7 +36,8 @@ const IMAGES = [
   './images/bg_ukraine.webp',
   './images/bg_vaporwave.webp',
   './images/bg_feenstaub.webp',
-  './images/bg_gothic.webp'
+  './images/bg_gothic.webp',
+  './images/bg_kitsune.webp'
 ];
 
 const SOUNDS = [
@@ -53,6 +54,7 @@ const THEMES = [
   './css/vaporwave.css',
   './css/feenstaub.css',
   './css/gothic.css',
+  './css/kitsune.css',
 ];
 
 // Combined resources to cache

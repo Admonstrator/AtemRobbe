@@ -3,36 +3,45 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
-AtemRobbe is a breathing exercise web application with multiple themes and customizable settings. It's primarily vanilla JavaScript, HTML, and CSS.
+AtemRobbe is a breathing exercise Progressive Web App (PWA) designed to help with breathing exercises against functional breathing disorders, panic attacks, and stress. It's built with vanilla JavaScript, HTML5, and CSS3 with no build process or dependencies.
 
-## Build/Deployment
-- This is a static web application with no build process
-- To test locally, open index.html in a browser
-- For production, deploy the entire directory to a web server
+## Architecture
+- **Service Worker** (service-worker.js): Handles offline functionality and caching. Updates require incrementing CACHE_NAME version.
+- **Main App Logic** (js/script.js): Manages breathing animations, exercise timing, user preferences via localStorage, and theme switching.
+- **Themes**: Multiple CSS theme files in css/ directory. Each theme must define all CSS variables from base.css.
+- **PWA Features**: manifest.json defines app metadata, icons, and shortcuts for installability.
 
-## Version Management
-- When making changes, update the cache version in service-worker.js
-- Update the visible version number in index.html (credits section)
-- Add new version entry to the changelog in index.html
-- Follow the versioning format: YYYY-MM-DD-XX (where XX is a sequence number)
+## Development & Testing
+- No build process - directly open index.html in a browser
+- Test service worker updates by incrementing cache version and hard-refreshing
+- Test offline functionality by disabling network in browser DevTools
+- GitHub Pages deployment via .github/workflows/static.yml on push to main
 
-## Code Style Guidelines
-- Use consistent camelCase for JavaScript variables and functions
-- Indentation: 2 spaces
-- Keep functions short and focused on a single task
-- Use ES6+ JavaScript features (arrow functions, template literals, etc.)
-- Maintain modular design with separate functions for different functionality
-- Store user preferences in localStorage with the `atemrobbe_` prefix
-- Follow existing pattern for CSS variables in themes
-- Maintain accessibility features including ARIA attributes
+## Common Tasks
 
-## Naming Conventions
-- CSS classes: kebab-case (e.g., timer-circle)
-- JavaScript functions: camelCase (e.g., switchStylesheet)
-- ID selectors: camelCase (e.g., breathingStage)
-- CSS variables: --kebab-case (e.g., --primary-color)
+### Adding a New Theme
+1. Create new CSS file in css/ directory following existing theme patterns
+2. Add theme button to index.html style modal (line ~140-147)
+3. Add color swatch case in js/script.js addStyleSwatches() function
+4. Add theme file to THEMES array in service-worker.js
+5. Include corresponding background image in images/bg_[themename].webp
 
-## Error Handling
-- Use try-catch for async operations, especially with audio playback
-- Log errors to console with descriptive messages
-- Provide user-friendly fallbacks when features fail
+### Updating the App
+1. Make code changes
+2. Update CACHE_NAME version in service-worker.js (increment number)
+3. Update version in index.html credits section (format: YYYY-MM-DD-XX)
+4. Add changelog entry in index.html changelog modal
+5. Commit with descriptive message
+
+## Critical Implementation Details
+- All user preferences stored with `atemrobbe_` prefix in localStorage
+- Breathing circle animation uses requestAnimationFrame for smooth performance
+- Audio files preloaded in HTML for immediate playback
+- Themes must maintain accessibility with sufficient color contrast
+- Modal content must remain readable across all themes
+
+## File Structure Highlights
+- index.html: Main app with inline changelog in accordion format
+- css/base.css: Core styles and CSS variable definitions
+- css/styles.css: Default theme
+- service-worker.js: Lists all cacheable assets - must be updated when adding files
